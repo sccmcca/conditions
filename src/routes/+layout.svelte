@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import { base } from '$app/paths';
 	import favicon from "$lib/assets/favicon.svg";
 
 	let { children } = $props();
@@ -20,10 +21,10 @@
 	</main>
 
 	<footer>
-		{#if $page.url.pathname === '/info'}
-			<a href="/">gallery</a>
+		{#if $page.url.pathname === `${base}/info`}
+			<a href={base || '/'}>gallery</a>
 		{:else}
-			<a href="/info">info</a>
+			<a href="{base}/info">info</a>
 		{/if}
 		<a href="https://www.instagram.com/slow.practice/" target="_blank" rel="noopener noreferrer">
 			@slow.practice
