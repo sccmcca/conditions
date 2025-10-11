@@ -41,6 +41,7 @@
 <style>
 	:global(body) {
 		margin: 0;
+		font-family: Times, 'Times New Roman', serif;
 	}
 
 	.layout {
@@ -69,10 +70,14 @@
 		text-decoration: none !important;
 		color: inherit;
 		transition: filter 0.05s;
+		will-change: filter;
+		-webkit-backface-visibility: hidden;
+		-webkit-transform: translateZ(0);
 	}
 
 	header:hover a {
 		filter: blur(4px);
+		-webkit-filter: blur(4px);
 	}
 
 	@media (max-width: 499px) {
