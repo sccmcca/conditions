@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { page } from '$app/stores';
-	import { base } from '$app/paths';
+	import { page } from "$app/stores";
+	import { base } from "$app/paths";
 	import favicon from "$lib/assets/favicon.svg";
 
 	let { children } = $props();
@@ -12,7 +12,9 @@
 
 <div class="layout">
 	<header>
-		<h1>Conditions of Observation</h1>
+		<a href={base || "/"}>
+			<h1>Conditions of Observation</h1>
+		</a>
 		<!-- <p>photographic research method</p> -->
 	</header>
 
@@ -22,11 +24,15 @@
 
 	<footer>
 		{#if $page.url.pathname === `${base}/info`}
-			<a href={base || '/'}>gallery</a>
+			<a href={base || "/"}>gallery</a>
 		{:else}
 			<a href="{base}/info">info</a>
 		{/if}
-		<a href="https://www.instagram.com/slow.practice/" target="_blank" rel="noopener noreferrer">
+		<a
+			href="https://www.instagram.com/slow.practice/"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
 			@slow.practice
 		</a>
 	</footer>
@@ -57,6 +63,16 @@
 		border-bottom: 1px solid #e0e0e0;
 		font-style: italic;
 		z-index: 10;
+	}
+
+	header a {
+		text-decoration: none !important;
+		color: inherit;
+		transition: filter 0.1s;
+	}
+
+	header:hover a {
+		filter: blur(4px);
 	}
 
 	h1 {
@@ -93,7 +109,7 @@
 	a {
 		color: inherit;
 		text-decoration: none;
-		transition: filter 0s ease;
+		transition: filter 0.1s;
 	}
 
 	a:hover {

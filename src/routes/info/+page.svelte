@@ -3,7 +3,7 @@
         <em><strong>Conditions of Observation</strong></em> is a photographic
         research tool developed for my Master of Architecture thesis at the
         University of Toronto. All photographs are my own, taken primarily with
-        my iPhone between 2017-2025 as part of my ongoing practice of noticing.
+        my iPhone between 2017 and 2025 as part of my ongoing practice of noticing.
 
         <br /><br />
         The thesis (forthcoming) explores the role of contemporary vernacular materials
@@ -25,7 +25,7 @@
 
         <br /><br />
         Warmly, <br />
-        <em>Scott Christian McCallum</em>
+        <blur><em>Scott Christian McCallum</em></blur>
     </p>
 </div>
 
@@ -42,5 +42,14 @@
         max-width: 500px;
         text-align: justify;
         line-height: 1.6;
+    }
+
+    blur {
+
+        transition: filter 0.1s;
+    }
+
+    blur:hover {
+        filter: blur(4px);
     }
 </style>
