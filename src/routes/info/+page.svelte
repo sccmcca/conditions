@@ -45,11 +45,16 @@
     }
 
     blur {
-
-        transition: filter 0.1s;
+        transition: filter 0.05s;
     }
 
     blur:hover {
         filter: blur(4px);
+    }
+
+    @media (max-width: 499px) {
+        blur:hover {
+            filter: none;
+        }
     }
 </style>

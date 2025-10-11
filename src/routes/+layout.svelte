@@ -68,11 +68,17 @@
 	header a {
 		text-decoration: none !important;
 		color: inherit;
-		transition: filter 0.1s;
+		transition: filter 0.05s;
 	}
 
 	header:hover a {
 		filter: blur(4px);
+	}
+
+	@media (max-width: 499px) {
+		header:hover a {
+			filter: none;
+		}
 	}
 
 	h1 {
@@ -109,7 +115,7 @@
 	a {
 		color: inherit;
 		text-decoration: none;
-		transition: filter 0.1s;
+		transition: filter 0.05s;
 	}
 
 	a:hover {
