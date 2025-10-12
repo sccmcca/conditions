@@ -2,10 +2,35 @@
   import type { PageData } from './$types';
   
   export let data: PageData;
+  
+  let activeFilters = new Set(['all', 'nature', 'urban', 'abstract', 'architecture', 'people']);
+  
+  const filters = ['All', 'Nature', 'Urban', 'Abstract', 'Architecture', 'People'];
+  
+  function toggleFilter(filter: string) {
+    const filterLower = filter.toLowerCase();
+    if (activeFilters.has(filterLower)) {
+      activeFilters.delete(filterLower);
+    } else {
+      activeFilters.add(filterLower);
+    }
+    activeFilters = activeFilters; // trigger reactivity
+  }
 </script>
 
 <main>
   <div class="gallery-container">
+    <div class="filter-buttons">
+      {#each filters as filter}
+        <button 
+          class:active={activeFilters.has(filter.toLowerCase())}
+          on:click={() => toggleFilter(filter)}
+        >
+          {filter}
+        </button>
+      {/each}
+    </div>
+    
     <div class="gallery">
       {#each { length: Math.ceil(data.thumbnails.length / 2) } as _, rowIndex}
         {@const i = rowIndex * 2}
@@ -36,6 +61,33 @@
     margin: 0 auto;
     padding: 2rem;
     box-sizing: border-box;
+  }
+  
+  .filter-buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+    justify-content: center;
+  }
+  
+  .filter-buttons button {
+    padding: 0.25rem 0.5rem;
+    background: transparent;
+    border: 1px solid #e0e0e0;
+    color: #333;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-family: inherit;
+    opacity: 1;
+  }
+  
+  .filter-buttons button:hover {
+    opacity: 0.7;
+  }
+  
+  .filter-buttons button:not(.active) {
+    opacity: 0.3;
   }
   
   .gallery {
