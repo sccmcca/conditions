@@ -117,9 +117,14 @@
   }
   
   @media (max-width: 499px) {
+    .gallery {
+      gap: 5vw;
+    }
+    
     .row {
       flex-direction: column;
       align-items: center;
+      gap: 5vw;
     }
     
     .row img {
