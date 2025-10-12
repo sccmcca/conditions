@@ -115,4 +115,15 @@
     aspect-ratio: 3 / 4;
     object-fit: cover;
   }
+  
+  @media (max-width: 499px) {
+    .row {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .row img {
+      width: 100%;
+    }
+  }
 </style>
