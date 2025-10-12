@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { base } from '$app/paths';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async () => {
@@ -13,14 +14,13 @@ export const load: PageServerLoad = async () => {
       // Read all files from thumbnails directory
       const files = fs.readdirSync(thumbnailsDir);
       
-      // Filter for image files and take first 100
+      // Filter for image files (all of them, not just 100)
       thumbnails = files
         .filter(file => {
           const ext = path.extname(file).toLowerCase();
           return ['.jpg', '.jpeg', '.png', '.gif'].includes(ext);
         })
-        .slice(0, 100)
-        .map(file => `/thumbnails/${file}`);
+        .map(file => `${base}/thumbnails/${file}`);
     } else {
       console.warn('Thumbnails directory does not exist yet. Run the compression script first.');
     }
