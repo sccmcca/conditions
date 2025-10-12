@@ -5,7 +5,7 @@
   
   let activeFilters = new Set(['all', 'nature', 'urban', 'abstract', 'architecture', 'people']);
   
-  const filters = ['All', 'Nature', 'Urban', 'Abstract', 'Architecture', 'People'];
+  const filters = ['all', 'nature', 'urban', 'abstract', 'architecture', 'people'];
   
   function toggleFilter(filter: string) {
     const filterLower = filter.toLowerCase();
@@ -23,7 +23,7 @@
     <div class="filter-buttons">
       {#each filters as filter}
         <button 
-          class:active={activeFilters.has(filter.toLowerCase())}
+          class:active={activeFilters.has(filter)}
           on:click={() => toggleFilter(filter)}
         >
           {filter}
@@ -61,24 +61,31 @@
     margin: 0 auto;
     padding: 2rem;
     box-sizing: border-box;
+    padding-top: 6rem;
   }
   
   .filter-buttons {
-    display: flex;
+    position: fixed;
+    top: 4rem;
+    left: 0;
+    right: 0;
+    display: none;
     gap: 0.5rem;
     flex-wrap: wrap;
-    margin-bottom: 3rem;
     justify-content: center;
+    padding: 1rem;
+    z-index: 9;
   }
   
   .filter-buttons button {
     padding: 0.25rem 0.5rem;
-    background: transparent;
+    background: white;
     border: 1px solid #e0e0e0;
     color: #333;
     cursor: pointer;
     font-size: 0.9rem;
     font-family: inherit;
+    font-style: italic;
     opacity: 1;
   }
   
@@ -88,6 +95,7 @@
   
   .filter-buttons button:not(.active) {
     opacity: 0.3;
+    filter: blur(2px);
   }
   
   .gallery {
