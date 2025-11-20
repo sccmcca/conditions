@@ -1,46 +1,23 @@
 <script lang="ts">
   import type { PageData } from './$types';
-  
   export let data: PageData;
-  
-  let activeFilters = new Set(['all', 'nature', 'urban', 'abstract', 'architecture', 'people']);
-  
-  const filters = ['all', 'nature', 'urban', 'abstract', 'architecture', 'people'];
-  
-  function toggleFilter(filter: string) {
-    const filterLower = filter.toLowerCase();
-    if (activeFilters.has(filterLower)) {
-      activeFilters.delete(filterLower);
-    } else {
-      activeFilters.add(filterLower);
-    }
-    activeFilters = activeFilters; // trigger reactivity
-  }
 </script>
 
 <main>
   <div class="gallery-container">
-    <div class="filter-buttons">
-      {#each filters as filter}
-        <button 
-          class:active={activeFilters.has(filter)}
-          on:click={() => toggleFilter(filter)}
-        >
-          {filter}
-        </button>
-      {/each}
+    <div class="info-sidebar">
+      <p>
+  <em><strong><span class="blur">Conditions of Observation</span></strong></em> is a photographic research tool developed for my Master of Architecture thesis at the University of Toronto. All photographs are my own, taken primarily with my iPhone between 2017 and 2025 as part of my ongoing practice of <span class="noticing">noticing</span>.<br /><br />
+        The thesis (forthcoming) explores the role of contemporary vernacular materials and contingent urban conditions in shaping architectural culture. By studying formal and material conditions, this thesis will engage directly with contingent urban context through observation, documentation, and interpretive making to examine how the overlooked artifacts of everyday life are the result of informal participation in the production of space and contemporary design culture.<br /><br />
+        This thesis foregrounds adaptive reuse and economies of construction, treating discarded, provisional, and improvised material conditions as resources for contextual architectural invention. Drawing on discourses of semiology, contemporary material culture, deconstructivism, and spatial production, the research proposes techniques of observation and making that highlight chance encounters, circumstantial geometries, and the aesthetics of contemporaneity as a productive force in design.<br /><br />
+        Warmly,<br />
+  <span class="blur"><em>Scott Christian McCallum</em></span>
+      </p>
     </div>
-    
-    <div class="gallery">
-      {#each { length: Math.ceil(data.thumbnails.length / 2) } as _, rowIndex}
-        {@const i = rowIndex * 2}
-        <div class="row" class:right={rowIndex % 2 === 1}>
-          {#if data.thumbnails[i]}
-            <img src={data.thumbnails[i]} alt="Thumbnail {i + 1}" loading="lazy" />
-          {/if}
-          {#if data.thumbnails[i + 1]}
-            <img src={data.thumbnails[i + 1]} alt="Thumbnail {i + 2}" loading="lazy" />
-          {/if}
+    <div class="gallery single-column">
+      {#each data.imgDipList as imgPath}
+        <div class="img-row">
+          <img src={imgPath} alt={imgPath.split('/').pop()} loading="lazy" />
         </div>
       {/each}
     </div>
@@ -55,88 +32,134 @@
     margin: 0 auto;
     overflow-x: hidden;
   }
-  
+  @media (max-width: 700px) {
+    .content-layout {
+      flex-direction: column;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .sidebar {
+      width: 100vw;
+      border-right: none;
+      padding: 1rem;
+      position: static;
+      height: auto;
+    }
+    .gallery-scroll {
+      margin-left: 0;
+      background: #fafafa;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      height: auto;
+    }
+    .info-container p {
+      max-width: 100vw;
+    }
+    .img-row img {
+      max-width: 100%;
+    }
+  }
   .gallery-container {
-    max-width: 1000px;
+    display: flex;
+    flex-direction: row;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
     box-sizing: border-box;
-    padding-top: 6rem;
+    padding-top: 0;
+    gap: 2rem;
   }
-  
-  .filter-buttons {
+  .info-sidebar {
+    width: 320px;
+    flex-shrink: 0;
     position: fixed;
+    left: calc((100vw - 1135px) / 2);
     top: 4rem;
-    left: 0;
-    right: 0;
-    display: none;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 1rem;
-    z-index: 9;
+    height: fit-content;
+    z-index: 20;
   }
-  
-  .filter-buttons button {
-    padding: 0.25rem 0.5rem;
-    background: white;
-    border: 1px solid #e0e0e0;
-    color: #333;
-    cursor: pointer;
-    font-size: 0.9rem;
-    font-family: inherit;
-    font-style: italic;
-    opacity: 1;
+  .gallery.single-column {
+    margin-left: 360px;
   }
-  
-  .filter-buttons button:hover {
-    opacity: 0.7;
+  .info-sidebar p {
+    max-width: 320px;
+    text-align: justify;
+    line-height: 1.36;
+    font-size: 0.95rem;
   }
-  
-  .filter-buttons button:not(.active) {
-    opacity: 0.3;
-    filter: blur(2px);
-  }
-  
-  .gallery {
+  .gallery.single-column {
     display: flex;
     flex-direction: column;
-    gap: 10vw;
-    width: 100%;
-    padding-top: 2rem;
+    gap: 2rem;
+    width: 700px;
+    max-width: 700px;
+    min-width: 700px;
+    padding-top: 0;
   }
-  
-  .row {
+  .img-row {
+    width: 100%;
     display: flex;
-    gap: calc((50% - 0.5rem) * .1)  ;
     justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+  .img-row img {
     width: 100%;
-    box-sizing: border-box;
+    max-width: 1000px;
+    height: auto;
+    object-fit: contain;
+    /* box-shadow removed */
+    border-radius: 8px;
+    background: #f8f8f8;
+    display: block;
   }
-  
-  .row.right {
-    justify-content: center;
+  .info-container p {
+    max-width: 340px;
+    text-align: justify;
+    line-height: 1.6;
   }
-  
-  .row img {
-    width: calc(50% - 0.5rem);
-    aspect-ratio: 3 / 4;
-    object-fit: cover;
+  .blur {
+    transition: filter 0.05s;
+    will-change: filter;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    /* pointer-events: none; removed to enable hover */
+    pointer-events: auto;
   }
-  
-  @media (max-width: 499px) {
-    .gallery {
-      gap: 5vw;
+  /* .no-pointer class removed */
+  .blur:hover {
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
+  }
+  .no-pointer {
+    pointer-events: none;
+  }
+  .noticing {
+    text-decoration: none;
+    background-image: linear-gradient(to right, currentColor 33%, transparent 33%);
+    background-position: bottom;
+    background-size: 4px 1px;
+    background-repeat: repeat-x;
+  }
+  @media (max-width: 700px) {
+    .sidebar {
+      position: static;
+      width: 100vw;
+      height: auto;
+      border-right: none;
+      padding: 1rem;
     }
-    
-    .row {
-      flex-direction: column;
-      align-items: center;
-      gap: 5vw;
+    .gallery-scroll {
+      margin-left: 0;
+      height: auto;
+      background: #fafafa;
     }
-    
-    .row img {
-      width: 100%;
+    .info-container p {
+      max-width: 100vw;
+    }
+  }
+  @media (max-width: 700px) {
+    .img-row img {
+      max-width: 100%;
     }
   }
 </style>

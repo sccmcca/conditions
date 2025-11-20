@@ -8,11 +8,18 @@ const __dirname = path.dirname(__filename);
 
 const IMG_RAW_DIR = path.join(__dirname, '..', 'img-raw');
 const THUMBNAILS_DIR = path.join(__dirname, '..', 'static', 'thumbnails');
-const THUMBNAIL_WIDTH = 500;
+const THUMBNAIL_WIDTH = 800;
 const MAX_IMAGES = Infinity; // Process all images
 
-// Create thumbnails directory if it doesn't exist
-if (!fs.existsSync(THUMBNAILS_DIR)) {
+// Create thumbnails directory if it doesn't exist, or clear it if it does
+if (fs.existsSync(THUMBNAILS_DIR)) {
+  // Clear existing thumbnails
+  const existingFiles = fs.readdirSync(THUMBNAILS_DIR);
+  existingFiles.forEach(file => {
+    fs.unlinkSync(path.join(THUMBNAILS_DIR, file));
+  });
+  console.log('Cleared existing thumbnails...\n');
+} else {
   fs.mkdirSync(THUMBNAILS_DIR, { recursive: true });
 }
 
@@ -45,7 +52,7 @@ async function compressImages() {
             fit: 'inside',
             withoutEnlargement: true
           })
-          .jpeg({ quality: 85, progressive: true })
+          .jpeg({ quality: 92, progressive: true })
           .toFile(outputPath.replace(/\.(png|gif|jpeg)$/i, '.jpg'));
         
         console.log(`✓ Compressed ${i + 1}/${imagesToProcess.length}: ${file}`);
