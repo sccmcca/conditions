@@ -39,7 +39,6 @@
 			>
 				@slow.practice
 			</a>
-			<!-- Restore additional footer links if needed below -->
 		</footer>
 </div>
 
@@ -135,7 +134,7 @@
 	main {
 		flex: 1;
 		padding-top: 4rem;
-		padding-bottom: 2rem;
+		padding-bottom: 0 !important;
 	}
 
 		footer {
@@ -151,6 +150,7 @@
 			border-top: 1px solid #e0e0e0;
 			font-style: italic;
 			height: 10px;
+			z-index: 100;
 		}
 			.footer-instagram {
 				font-size: 0.9rem;
