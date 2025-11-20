@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { PageData } from './$types';
+  import { base } from '$app/paths';
   export let data: PageData;
 </script>
 
@@ -17,7 +18,7 @@
     <div class="gallery single-column">
       {#each data.imgDipList as imgPath}
         <div class="img-row">
-          <img src={imgPath} alt={imgPath.split('/').pop()} loading="lazy" />
+          <img src={`${base}${imgPath}`} alt={imgPath.split('/').pop()} loading="lazy" />
         </div>
       {/each}
     </div>
