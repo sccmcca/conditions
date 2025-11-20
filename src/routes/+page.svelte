@@ -1,28 +1,68 @@
 <script lang="ts">
-  import type { PageData } from './$types';
-  import { base } from '$app/paths';
+  import type { PageData } from "./$types";
+  import { base } from "$app/paths";
   export let data: PageData;
+
+  let modalImg: string | null = null;
+
+  function openModal(imgPath: string) {
+    modalImg = imgPath;
+  }
+  function closeModal() {
+    modalImg = null;
+  }
 </script>
 
 <main>
   <div class="gallery-container">
     <div class="info-sidebar">
       <p>
-  <em><strong><span class="blur">Conditions of Observation</span></strong></em> is a photographic research tool developed for my Master of Architecture thesis at the University of Toronto. All photographs are my own, taken primarily with my iPhone between 2017 and 2025 as part of my ongoing practice of <span class="noticing">noticing</span>.<br /><br />
-        The thesis (forthcoming) explores the role of contemporary vernacular materials and contingent urban conditions in shaping architectural culture. By studying formal and material conditions, this thesis will engage directly with contingent urban context through observation, documentation, and interpretive making to examine how the overlooked artifacts of everyday life are the result of informal participation in the production of space and contemporary design culture.<br /><br />
-        This thesis foregrounds adaptive reuse and economies of construction, treating discarded, provisional, and improvised material conditions as resources for contextual architectural invention. Drawing on discourses of semiology, contemporary material culture, deconstructivism, and spatial production, the research proposes techniques of observation and making that highlight chance encounters, circumstantial geometries, and the aesthetics of contemporaneity as a productive force in design.<br /><br />
+        <em
+          ><strong><span class="blur">Conditions of Observation</span></strong
+          ></em
+        >
+        is a photographic research tool developed for my Master of Architecture
+        thesis at the University of Toronto. All photographs are my own, taken
+        primarily with my iPhone between 2017 and 2025 as part of my ongoing
+        practice of <span class="noticing">noticing</span>.<br /><br />
+        The thesis (forthcoming) explores the role of contemporary vernacular materials
+        and contingent urban conditions in shaping architectural culture. By studying
+        formal and material conditions, this thesis will engage directly with contingent
+        urban context through observation, documentation, and interpretive making
+        to examine how the overlooked artifacts of everyday life are the result of
+        informal participation in the production of space and contemporary design
+        culture.<br /><br />
+        This thesis foregrounds adaptive reuse and economies of construction, treating
+        discarded, provisional, and improvised material conditions as resources for
+        contextual architectural invention. Drawing on discourses of semiology, contemporary
+        material culture, and spatial production, the research
+        proposes techniques of observation and making that highlight chance encounters,
+        circumstantial geometries, and the aesthetics of contemporaneity as a productive
+        force in design.<br /><br />
         Warmly,<br />
-  <span class="blur"><em>Scott Christian McCallum</em></span>
+        <span class="blur"><em>Scott Christian McCallum</em></span>
       </p>
     </div>
     <div class="gallery single-column">
       {#each data.imgDipList as imgPath}
-        <div class="img-row">
-          <img src={`${base}${imgPath}`} alt={imgPath.split('/').pop()} loading="lazy" />
+        <div class="img-row" on:click={() => openModal(imgPath)}>
+          <img
+            src={`${base}${imgPath}`}
+            alt={imgPath.split("/").pop()}
+            loading="lazy"
+          />
         </div>
       {/each}
     </div>
   </div>
+
+  {#if modalImg}
+    <div class="modal-overlay" on:click={closeModal}>
+      <div class="modal-img-container">
+        <img src={`${base}${modalImg}`} alt="Enlarged" style="cursor:pointer; user-drag: none; -webkit-user-drag: none;" draggable="false" on:click={closeModal} />
+      </div>
+    </div>
+  {/if}
 </main>
 
 <style>
@@ -193,7 +233,11 @@
   }
   .noticing {
     text-decoration: none;
-    background-image: linear-gradient(to right, currentColor 33%, transparent 33%);
+    background-image: linear-gradient(
+      to right,
+      currentColor 33%,
+      transparent 33%
+    );
     background-position: bottom;
     background-size: 4px 1px;
     background-repeat: repeat-x;
@@ -219,5 +263,39 @@
     .img-row img {
       max-width: 100%;
     }
+  }
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .modal-img-container {
+    position: relative;
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    max-width: 85vw;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .modal-img-container img {
+    max-width: 85vw;
+    max-height: 80vh;
+    border-radius: 0;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.12);
+    background: #f8f8f8;
+    display: block;
   }
 </style>

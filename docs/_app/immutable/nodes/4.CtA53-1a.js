@@ -1,4 +1,4 @@
-import"../chunks/DsnmJJEf.js";import"../chunks/DPFF1Vr9.js";import{ag as o,ah as r}from"../chunks/MFVqG_PF.js";var i=o(`<div class="info-container svelte-1r7g8g9"><p class="svelte-1r7g8g9"><em><strong>Conditions of Observation</strong></em> is a photographic
+import"../chunks/DsnmJJEf.js";import"../chunks/B63R2R9y.js";import{al as o,am as r}from"../chunks/CmB87Cng.js";var i=o(`<div class="info-container svelte-1r7g8g9"><p class="svelte-1r7g8g9"><em><strong>Conditions of Observation</strong></em> is a photographic
         research tool developed for my Master of Architecture thesis at the
         University of Toronto. All photographs are my own, taken primarily with
         my iPhone between 2017 and 2025 as part of my ongoing practice of <span class="noticing svelte-1r7g8g9">noticing</span>. <br/><br/> The thesis (forthcoming) explores the role of contemporary vernacular materials

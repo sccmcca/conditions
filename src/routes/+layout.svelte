@@ -39,6 +39,7 @@
 			>
 				@slow.practice
 			</a>
+			<!-- Restore additional footer links if needed below -->
 		</footer>
 </div>
 
