@@ -109,6 +109,7 @@
     box-sizing: border-box;
     padding-top: 0;
     gap: 2rem;
+    justify-content: center;
   }
   @media (max-width: 700px) {
     .gallery-container {
@@ -145,7 +146,7 @@
     width: 320px;
     flex-shrink: 0;
     position: fixed;
-    left: calc((100vw - 1135px) / 2);
+    left: calc((100vw - 1135px) / 2 + 40px);
     top: 4rem;
     height: fit-content;
     z-index: 20;
