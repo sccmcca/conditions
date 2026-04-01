@@ -32,6 +32,24 @@
         popupAnchor: [0, -53], // Point from which the popup should open relative to the iconAnchor
         className: 'custom-thumbnail-marker'
       });
+
+      const geojson = {
+  type: "FeatureCollection",
+  features: data.geotaggedImages.map(img => ({
+    type: "Feature",
+    geometry: {
+      type: "Point",
+      coordinates: [img.longitude, img.latitude]
+    },
+    properties: {
+      filename: img.filename,
+      imageUrl: img.thumbnail // or use another property for full image path
+    }
+  }))
+};
+
+// To export or use:
+console.log(JSON.stringify(geojson, null, 2));
       
       const marker = L.marker([img.latitude, img.longitude], { icon: customIcon }).addTo(map);
       
