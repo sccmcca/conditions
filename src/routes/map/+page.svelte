@@ -1,79 +1,122 @@
 <script lang="ts">
   import type { PageData } from './$types';
   import { onMount } from 'svelte';
-  
+
   export let data: PageData;
-  
+
   let mapContainer: HTMLDivElement;
   let map: any;
-  
+
   onMount(async () => {
-    // Dynamically import Leaflet to avoid SSR issues
-    const L = await import('leaflet');
-    await import('leaflet/dist/leaflet.css');
-    
+    // Dynamically import MapLibre to avoid SSR issues
+    const { Map, Marker, Popup, LngLatBounds } = await import('maplibre-gl');
+    await import('maplibre-gl/dist/maplibre-gl.css');
+
     // Initialize map
-    map = L.map(mapContainer).setView([45.5017, -73.5673], 2); // Default to Montreal
-    
-    // Add CartoDB Positron tiles (minimal grayscale basemap)
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-      attribution: '© OpenStreetMap contributors © CARTO',
-      subdomains: 'abcd',
-      maxZoom: 20
-    }).addTo(map);
-    
-    // Add markers for each geotagged image
-    data.geotaggedImages.forEach((img: any) => {
-      // Create custom icon using thumbnail image
-      const customIcon = L.divIcon({
-        html: `<img src="${img.thumbnail}" style="width: 40px; height: 53px; object-fit: cover; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.3);" />`,
-        iconSize: [40, 53],
-        iconAnchor: [20, 53], // Point of the icon which will correspond to marker's location
-        popupAnchor: [0, -53], // Point from which the popup should open relative to the iconAnchor
-        className: 'custom-thumbnail-marker'
+    map = new Map({
+      container: mapContainer,
+      style: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
+      center: [-73.5673, 45.5017], // [lng, lat] - Default to Montreal
+      zoom: 2
+    });
+
+    // Wait for the map style to load
+    map.on('style.load', () => {
+      console.log('Map style loaded, adding heatmap with', data.geotaggedImages.length, 'images');
+
+      // Create GeoJSON for heatmap
+      const geojson = {
+        type: 'FeatureCollection',
+        features: data.geotaggedImages.map((img: any) => ({
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [img.longitude, img.latitude]
+          },
+          properties: {
+            filename: img.filename,
+            weight: 1
+          }
+        }))
+      };
+
+      // Add heatmap source
+      map.addSource('heatmap-source', {
+        type: 'geojson',
+        data: geojson
       });
 
-      const geojson = {
-  type: "FeatureCollection",
-  features: data.geotaggedImages.map(img => ({
-    type: "Feature",
-    geometry: {
-      type: "Point",
-      coordinates: [img.longitude, img.latitude]
-    },
-    properties: {
-      filename: img.filename,
-      imageUrl: img.thumbnail // or use another property for full image path
-    }
-  }))
-};
-
-// To export or use:
-console.log(JSON.stringify(geojson, null, 2));
-      
-      const marker = L.marker([img.latitude, img.longitude], { icon: customIcon }).addTo(map);
-      
-      // Create popup with proper image sizing
-      const popupContent = `
-        <div style="width: 240px; height: 320px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-          <img src="${img.thumbnail}" 
-               style="width: 100%; height: 100%; object-fit: contain;" 
-               alt="${img.filename}" />
-        </div>
-      `;
-      
-      marker.bindPopup(popupContent, {
-        maxWidth: 240,
-        minWidth: 240
+      // Add heatmap layer
+      map.addLayer({
+        id: 'heatmap',
+        type: 'heatmap',
+        source: 'heatmap-source',
+        paint: {
+          'heatmap-weight': [
+            'interpolate',
+            ['linear'],
+            ['get', 'weight'],
+            0,
+            0,
+            1,
+            1
+          ],
+          'heatmap-intensity': [
+            'interpolate',
+            ['linear'],
+            ['zoom'],
+            0,
+            1,
+            9,
+            3
+          ],
+          'heatmap-color': [
+            'interpolate',
+            ['linear'],
+            ['heatmap-density'],
+            0,
+            'rgba(0,0,0,0)',
+            0.1,
+            'rgba(150,150,150,0.3)',
+            0.3,
+            'rgba(120,120,120,0.5)',
+            0.5,
+            'rgba(100,100,100,0.7)',
+            0.7,
+            'rgba(70,70,70,0.9)',
+            1,
+            'rgba(30,30,30,1)'
+          ],
+          'heatmap-radius': [
+            'interpolate',
+            ['linear'],
+            ['zoom'],
+            0,
+            15,
+            9,
+            40
+          ],
+          'heatmap-opacity': [
+            'interpolate',
+            ['linear'],
+            ['zoom'],
+            5,
+            1,
+            9,
+            0.5
+          ]
+        }
       });
     });
-    
+
     // Fit map to show all markers if there are any
     if (data.geotaggedImages.length > 0) {
-      const bounds = L.latLngBounds(
-        data.geotaggedImages.map((img: any) => [img.latitude, img.longitude])
-      );
-      map.fitBounds(bounds, { padding: [50, 50] });
+      const lngLatArray = data.geotaggedImages.map((img: any) => [img.longitude, img.latitude]);
+      const bounds = new LngLatBounds();
+      lngLatArray.forEach((lngLat: any) => {
+        bounds.extend(lngLat);
+      });
+      map.fitBounds(bounds, { padding: 50 });
     }
   });
 </script>
@@ -100,12 +143,12 @@ console.log(JSON.stringify(geojson, null, 2));
     padding-bottom: 3rem;
     width: 100%;
   }
-  
+
   .map-container {
     width: 100%;
     height: 100%;
   }
-  
+
   .info {
     position: absolute;
     top: 1rem;
@@ -116,13 +159,8 @@ console.log(JSON.stringify(geojson, null, 2));
     font-style: italic;
     z-index: 1000;
   }
-  
+
   .info p {
     margin: 0;
-  }
-  
-  :global(.custom-thumbnail-marker) {
-    background: none !important;
-    border: none !important;
   }
 </style>
