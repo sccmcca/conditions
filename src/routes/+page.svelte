@@ -38,10 +38,23 @@
 <svelte:window on:keydown={handleKeydown} />
 
 <main>
+	<div class="intro-box">
+		<p><em><strong>Conditions of Observation</strong></em> is a photographic research tool developed for my Master of Architecture thesis at the University of Toronto. All photographs are my own, taken primarily with my iPhone between 2017 and 2025 as part of my ongoing practice of noticing.</p>
+		<p>The thesis explores the role of contemporary vernacular materials and contingent urban conditions in shaping architectural culture. This work engages directly with contingent urban context through observation, documentation, and interpretive making to examine how overlooked artifacts of everyday life result from informal participation in the production of space.</p>
+		<p>By treating discarded, provisional, and improvised material conditions as resources for architectural invention, this project highlights chance encounters and circumstantial geometries as productive forces in design.</p>
+	</div>
+	
 	<div class="image-container">
 		{#each data.images as image, index (image.filename)}
-			<div class="image-item" on:click={() => openImage(index)}>
-				<img src={image.thumbnail} alt={image.filename} />
+			<div class="image-item-wrapper">
+				<div class="image-item" on:click={() => openImage(index)}>
+					<img src={image.thumbnail} alt={image.filename} />
+				</div>
+				<div class="image-metadata">
+					{#if image.author}<p class="author">{image.author}</p>{/if}
+					{#if image.date}<p class="date">{image.date}</p>{/if}
+					{#if image.geolocation}<p class="geolocation">{image.geolocation.latitude.toFixed(4)}, {image.geolocation.longitude.toFixed(4)}</p>{/if}
+				</div>
 			</div>
 		{/each}
 	</div>
@@ -63,11 +76,32 @@
 		max-width: 100%;
 	}
 
+	.intro-box {
+		width: 350px;
+		margin: 0 auto 3rem;
+		font-size: 0.95rem;
+		line-height: 1.6;
+		color: #333;
+		text-align: justify;
+	}
+
+	.intro-box p {
+		margin: 0;
+		padding: 0;
+	}
+
 	.image-container {
 		display: flex;
 		flex-direction: column;
 		gap: 2rem;
 		align-items: center;
+	}
+
+	.image-item-wrapper {
+		width: 350px;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
 	}
 
 	.image-item {
@@ -76,6 +110,18 @@
 		overflow: hidden;
 		cursor: pointer;
 		background: #f8f8f8;
+	}
+
+	.image-metadata {
+		font-size: 0.85rem;
+		color: #666;
+		line-height: 1.4;
+		font-style: italic;
+	}
+
+	.image-metadata p {
+		margin: 0;
+		padding: 0;
 	}
 
 	img {
