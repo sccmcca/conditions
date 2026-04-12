@@ -1,27 +1,35 @@
 [
   {
-    "filename": "0040B8F7-57F4-4583-A07E-F3E5A1B60A11",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "filename": "035DACF1-9A65-4923-BAC8-4446DA20F9CC",
+    "material": ["concrete"],
+    "tectonic": ["floor"],
+    "interaction": [],
+    "phenomena": ["caustic"],
     "date": "8 April 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
-    "filename": "035DACF1-9A65-4923-BAC8-4446DA20F9CC",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "filename": "0040B8F7-57F4-4583-A07E-F3E5A1B60A11",
+    "material": [
+      "plywood",
+      "lumber"
+    ],
+    "tectonic": [],
+    "interaction": [],
+    "phenomena": [
+      "shadow"
+    ],
     "date": "16 July 2022",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "0569A3FC-227E-4526-95AF-A919DAF71D0D",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["snow"],
+    "tectonic": [],
+    "interaction": [],
+    "phenomena": ["twin"],
     "date": "11 February 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -31,369 +39,410 @@
   },
   {
     "filename": "133729638_1870942493084418_4538788331428045785_n_17876160071094718",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal", "glass"],
+    "tectonic": ["corrugated", "corner"],
+    "interaction": [],
+    "phenomena": ["shadow"],
     "date": null,
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "19570257-4E33-4712-B87A-3A79B1C24962",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["concrete"],
+    "tectonic": ["floor"],
+    "interaction": [],
+    "phenomena": ["caustic"],
     "date": null,
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "211CDD6D-D2A1-4505-8181-F247C76086FA",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["concrete", "water"],
+    "tectonic": ["floor"],
+    "interaction": ["reflection"],
+    "phenomena": ["pool"],
     "date": null,
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "21F3D255-2014-4F02-8F62-A41A0970A803",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["wall"],
+    "interaction": [],
+    "phenomena": ["shadow","twin"],
     "date": null,
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "25010371_537137903312759_6788783500293046272_n_17909260540071633",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["ice", "water"],
+    "tectonic": [],
+    "interaction": [],
+    "phenomena": ["reflection"],
     "date": null,
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "26865827_238267230048420_7971936901739315200_n_17849649106225170",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": ["tie"],
+    "phenomena": ["animal"],
     "date": null,
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "2CD3C982-E384-4AFE-BC7D-9B8D259C9116",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["snow"],
+    "tectonic": ["floor"],
+    "interaction": [],
+    "phenomena": [],
     "date": null,
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "2F354878-3500-45CC-BA7B-D33BCA873AA1",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["wall"],
+    "interaction": [],
+    "phenomena": ["caustic"],
     "date": "19 November 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "3C541D0E-2233-4F7D-982F-FB6B5E1C1AA6",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["repetition"],
+    "interaction": [],
+    "phenomena": ["shadow", "reflection"],
     "date": "24 December 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "40D4E67F-68F0-46FA-BC50-C418EA90F782",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": ["still life"],
+    "phenomena": [],
     "date": "22 August 2022",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "458C1582-2798-4E2D-83DB-9A876A2B6C06",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["twist"],
+    "interaction": [],
+    "phenomena": ["deformed"],
     "date": "10 November 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "459367C5-2155-4E3C-9672-7FAC689EDC84",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["concrete"],
+    "tectonic": ["tunnel"],
+    "interaction": [],
+    "phenomena": [],
     "date": "9 February 2023",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "46CA0A7F-B385-4410-B4EE-9802F71383C0",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": [],
+    "phenomena": [],
     "date": null,
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "47584168_726172207755491_5712071676343091200_n_17983791871156303",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal", "ice"],
+    "tectonic": ["pipe"],
+    "interaction": [],
+    "phenomena": ["frozen"],
     "date": null,
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "476683C6-3A53-48E8-8342-379E8809A5B4",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": [],
+    "interaction": [],
+    "phenomena": ["shadow"],
     "date": null,
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "4CA530BA-91B6-4198-8109-911C153E2379",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["vehicle"],
+    "interaction": ["graffiti"],
+    "phenomena": ["shadow"],
     "date": null,
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "4CE6D162-9794-4BBC-90D0-98388662DB9D",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": ["still life"],
+    "phenomena": [],
     "date": "16 May 2022",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "4D0B9761-EF3C-439E-BE12-AAE05E5D2112",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["concrete", "glass"],
+    "tectonic": ["window", "floor"],
+    "interaction": [],
+    "phenomena": ["shadow"],
     "date": "15 March 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "4F1FE53B-DB11-41F9-A7EE-B23590CA3AEC",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["house"],
+    "interaction": [],
+    "phenomena": ["twin"],
     "date": "3 June 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "70241922141__698A3423-570F-4242-83E5-B083622452A8",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["ice"],
+    "tectonic": [],
+    "interaction": [],
+    "phenomena": ["frozen"],
     "date": "5 April 2023",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "73717680930__E8FF6022-17A3-4F3D-A9C4-9D618DF4F4BD",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": [],
+    "phenomena": [""],
     "date": "11 May 2024",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "7398C507-83AA-4955-A003-6E676AC7713E",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["tarp"],
+    "tectonic": ["stair"],
+    "interaction": ["construction"],
+    "phenomena": [],
     "date": "13 February 2022",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "784A47BD-399C-4FFF-A554-A8685A53B450",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["vehicle"],
+    "interaction": ["graphic"],
+    "phenomena": [],
     "date": "16 December 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "795BDFFB-94D8-4AFA-8E93-8110E27F919B",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["drape"],
+    "interaction": [],
+    "phenomena": ["shadow"],
     "date": "5 October 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "7EEA4B78-9786-4E08-94F6-10826E76E672",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["glass", "concrete"],
+    "tectonic": ["door"],
+    "interaction": ["graffiti"],
+    "phenomena": [],
     "date": "18 August 2022",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "7FBC03DF-1C9D-4951-A300-809DC26E6102",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["house"],
+    "interaction": [],
+    "phenomena": ["shadow"],
     "date": "19 November 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "851C31C0-77A3-4B67-9AFF-6F3AFF2B8210",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["concrete", "metal"],
+    "tectonic": ["stair"],
+    "interaction": [],
+    "phenomena": ["shadow", "sunset"],
     "date": "5 April 2022",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "877933ED-4810-4D88-BDEE-91988DE2089E",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": [],
+    "phenomena": ["sky"],
     "date": "3 July 2022",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "8A61AB92-3E37-405A-B16F-F32E715D5743",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["concrete"],
+    "tectonic": ["monolith"],
+    "interaction": ["graffiti"],
+    "phenomena": ["shadow"],
     "date": "24 May 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "99F266F8-2138-4C63-A286-D5E6D6929FCE",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": [],
+    "phenomena": ["sky"],
     "date": "3 May 2022",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "9D5306E5-808A-4C6C-9FDC-735FB5FB5A07",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["plastic"],
+    "tectonic": ["round"],
+    "interaction": ["graffiti"],
+    "phenomena": ["crushed"],
     "date": "10 February 2022",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "9F412CBC-2767-4A2B-88E7-A6C2BDCE6D3B",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["door"],
+    "interaction": [],
+    "phenomena": [],
     "date": null,
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "9FBC1A1B-BD69-418F-B29F-247DADEAFB6E",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal", "concrete"],
+    "tectonic": ["chainlink"],
+    "interaction": [],
+    "phenomena": ["shadow"],
     "date": "7 November 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "A2ED4CDB-3FF9-484A-AD27-3CD57148B76D",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["floor"],
+    "interaction": [],
+    "phenomena": ["caustic"],
     "date": null,
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "A8105588-66C9-49E0-B344-0A1B0D2D7063",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": [],
+    "phenomena": [],
     "date": "10 May 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "AD035389-B49A-4036-94AE-EEE2EEA19838",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["repetition"],
+    "interaction": [],
+    "phenomena": ["shadow"],
     "date": "2 July 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "BC304BA2-7985-4E70-955C-3C9E5A5BCD34",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": [],
+    "phenomena": ["shadow", "twin"],
     "date": "29 March 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "BD394B32-FCE4-41CA-8555-879DB3CA1F13",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["fabric"],
+    "tectonic": ["drape"],
+    "interaction": [],
+    "phenomena": ["shadow"],
     "date": "8 May 2022",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "CDDDE781-4146-4DD8-BFCE-7B8E023837B9",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["plastic"],
+    "tectonic": ["fence"],
+    "interaction": ["graffiti"],
+    "phenomena": [],
     "date": "1 November 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "E4DE5FB5-9403-49E8-AFF3-0F8A28A29AEB",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["chainlink"],
+    "interaction": ["graffiti", "sign"],
+    "phenomena": [],
     "date": null,
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "IMG_0040",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["snow"],
+    "tectonic": ["room"],
+    "interaction": [],
+    "phenomena": [],
     "date": "2 February 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -403,9 +452,10 @@
   },
   {
     "filename": "IMG_0141",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["fence"],
+    "interaction": ["useless"],
+    "phenomena": ["shadow"],
     "date": "4 June 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -415,9 +465,10 @@
   },
   {
     "filename": "IMG_0176",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": [],
+    "phenomena": ["animal"],
     "date": "6 June 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -427,9 +478,10 @@
   },
   {
     "filename": "IMG_0194",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["snow"],
+    "tectonic": ["void"],
+    "interaction": ["body"],
+    "phenomena": ["shadow"],
     "date": "17 February 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -439,9 +491,10 @@
   },
   {
     "filename": "IMG_0217",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["wall", "geometry"],
+    "interaction": ["surveillance"],
+    "phenomena": [],
     "date": "28 May 2025",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -451,9 +504,10 @@
   },
   {
     "filename": "IMG_0269",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal", "dirt"],
+    "tectonic": ["vehicle"],
+    "interaction": [],
+    "phenomena": [],
     "date": "8 August 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -463,9 +517,10 @@
   },
   {
     "filename": "IMG_0277",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["vehicle"],
+    "interaction": ["graffiti"],
+    "phenomena": [],
     "date": "8 August 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -475,9 +530,10 @@
   },
   {
     "filename": "IMG_0317",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["plastic", "snow"],
+    "tectonic": ["cluster"],
+    "interaction": [],
+    "phenomena": [],
     "date": "19 February 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -487,9 +543,10 @@
   },
   {
     "filename": "IMG_0333",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["round","wall"],
+    "interaction": ["graffiti", "numbers"],
+    "phenomena": [],
     "date": "2 July 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -499,9 +556,10 @@
   },
   {
     "filename": "IMG_0340",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["gate","wall"],
+    "interaction": [],
+    "phenomena": ["shadow"],
     "date": "11 August 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -511,9 +569,10 @@
   },
   {
     "filename": "IMG_0395",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": [],
+    "phenomena": ["foliage"],
     "date": "2 July 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -523,9 +582,10 @@
   },
   {
     "filename": "IMG_0524",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["ceiling"],
+    "interaction": [],
+    "phenomena": ["foliage", "reflection"],
     "date": "26 February 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -535,9 +595,10 @@
   },
   {
     "filename": "IMG_0538",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["glass"],
+    "tectonic": ["vessel"],
+    "interaction": ["useless", "pun"],
+    "phenomena": ["broken"],
     "date": "1 March 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -547,9 +608,10 @@
   },
   {
     "filename": "IMG_0559",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["box"],
+    "interaction": ["graffiti"],
+    "phenomena": [],
     "date": "10 July 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -559,9 +621,10 @@
   },
   {
     "filename": "IMG_0633",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["wall"],
+    "interaction": ["graffiti", "partial coverage"],
+    "phenomena": [],
     "date": "1 June 2025",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -571,9 +634,10 @@
   },
   {
     "filename": "IMG_0638",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["chair", "perforated"],
+    "interaction": [],
+    "phenomena": ["rust"],
     "date": "1 June 2025",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -583,9 +647,10 @@
   },
   {
     "filename": "IMG_0641",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["box", "corrugated"],
+    "interaction": [],
+    "phenomena": [],
     "date": "16 July 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -595,9 +660,10 @@
   },
   {
     "filename": "IMG_0673 (1)",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["concrete"],
+    "tectonic": ["tower"],
+    "interaction": ["balance"],
+    "phenomena": [],
     "date": "14 August 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -607,9 +673,10 @@
   },
   {
     "filename": "IMG_0673",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["fence"],
+    "interaction": [],
+    "phenomena": ["shadow"],
     "date": "13 March 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -619,9 +686,10 @@
   },
   {
     "filename": "IMG_0703",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": [],
+    "phenomena": [],
     "date": "2 June 2025",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -631,9 +699,10 @@
   },
   {
     "filename": "IMG_0713",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["plywood"],
+    "tectonic": ["stair","wall"],
+    "interaction": ["accommodation"],
+    "phenomena": [],
     "date": "20 July 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -643,9 +712,10 @@
   },
   {
     "filename": "IMG_0763",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["glass","metal"],
+    "tectonic": ["shelter"],
+    "interaction": [],
+    "phenomena": ["shadow"],
     "date": "15 March 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -655,9 +725,10 @@
   },
   {
     "filename": "IMG_0823",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["plywood"],
+    "tectonic": ["house"],
+    "interaction": [],
+    "phenomena": [],
     "date": "21 March 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -667,9 +738,10 @@
   },
   {
     "filename": "IMG_0877",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["plywood"],
+    "tectonic": ["wall"],
+    "interaction": ["graffiti"],
+    "phenomena": [],
     "date": "25 March 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -679,9 +751,10 @@
   },
   {
     "filename": "IMG_0902",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": [],
+    "phenomena": ["erosion"],
     "date": "20 August 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -691,9 +764,10 @@
   },
   {
     "filename": "IMG_0926",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["tarp"],
+    "tectonic": ["drape"],
+    "interaction": [],
+    "phenomena": ["gravity"],
     "date": "29 June 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -703,9 +777,10 @@
   },
   {
     "filename": "IMG_0937",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["wedge"],
+    "interaction": ["graffiti"],
+    "phenomena": [],
     "date": "29 June 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -715,9 +790,10 @@
   },
   {
     "filename": "IMG_0941",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["lumber", "metal"],
+    "tectonic": ["wall"],
+    "interaction": [],
+    "phenomena": [],
     "date": "1 April 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -727,9 +803,10 @@
   },
   {
     "filename": "IMG_0945",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["plywood"],
+    "tectonic": ["wedge"],
+    "interaction": ["graffiti"],
+    "phenomena": [],
     "date": "1 April 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -739,9 +816,10 @@
   },
   {
     "filename": "IMG_0978",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": [],
+    "phenomena": ["sky"],
     "date": "29 June 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -751,9 +829,10 @@
   },
   {
     "filename": "IMG_1035 (1)",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["concrete"],
+    "tectonic": ["floor"],
+    "interaction": [],
+    "phenomena": ["caustic"],
     "date": "5 June 2025",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -763,9 +842,10 @@
   },
   {
     "filename": "IMG_1035",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["concrete"],
+    "tectonic": ["stair"],
+    "interaction": [],
+    "phenomena": ["shadow"],
     "date": "3 April 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -775,9 +855,10 @@
   },
   {
     "filename": "IMG_1037",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": [],
+    "interaction": [],
+    "phenomena": ["bent"],
     "date": "3 April 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -787,18 +868,20 @@
   },
   {
     "filename": "IMG_1047",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["vehicle"],
+    "interaction": ["discard"],
+    "phenomena": [],
     "date": "3 April 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "IMG_1130",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["box"],
+    "interaction": ["graffiti"],
+    "phenomena": [],
     "date": "26 August 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -808,9 +891,10 @@
   },
   {
     "filename": "IMG_1218",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": ["section"],
+    "phenomena": [],
     "date": "7 July 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -820,9 +904,10 @@
   },
   {
     "filename": "IMG_1252",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["geometry"],
+    "interaction": [],
+    "phenomena": [],
     "date": "19 August 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -832,9 +917,10 @@
   },
   {
     "filename": "IMG_1298",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["plastic"],
+    "tectonic": ["wave", "wall"],
+    "interaction": [],
+    "phenomena": [],
     "date": "21 August 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -844,9 +930,10 @@
   },
   {
     "filename": "IMG_1459",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["void"],
+    "interaction": ["text"],
+    "phenomena": [],
     "date": "31 August 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -856,9 +943,10 @@
   },
   {
     "filename": "IMG_1498",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["concrete", "water"],
+    "tectonic": ["floor"],
+    "interaction": [],
+    "phenomena": ["pool"],
     "date": "16 July 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -868,9 +956,10 @@
   },
   {
     "filename": "IMG_1499",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["plastic"],
+    "tectonic": ["geometry"],
+    "interaction": ["construction"],
+    "phenomena": ["reflection"],
     "date": "2 September 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -880,9 +969,10 @@
   },
   {
     "filename": "IMG_1513",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["plastic"],
+    "tectonic": ["geometry"],
+    "interaction": ["construction"],
+    "phenomena": ["foliage"],
     "date": "17 July 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -892,9 +982,10 @@
   },
   {
     "filename": "IMG_1562",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["vehicle"],
+    "interaction": ["sign"],
+    "phenomena": ["animal"],
     "date": "6 September 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -904,9 +995,10 @@
   },
   {
     "filename": "IMG_1696",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["glass"],
+    "tectonic": ["window"],
+    "interaction": ["useless", "contradiction"],
+    "phenomena": [],
     "date": "5 May 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -916,9 +1008,10 @@
   },
   {
     "filename": "IMG_1742",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["vehicle"],
+    "interaction": ["graffiti"],
+    "phenomena": [],
     "date": "20 September 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -928,9 +1021,10 @@
   },
   {
     "filename": "IMG_1838",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": ["text", "pun"],
+    "phenomena": [],
     "date": "22 September 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -940,9 +1034,10 @@
   },
   {
     "filename": "IMG_1876",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["door"],
+    "interaction": ["section"],
+    "phenomena": [],
     "date": "23 September 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -952,9 +1047,10 @@
   },
   {
     "filename": "IMG_1917",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["round"],
+    "interaction": [],
+    "phenomena": [],
     "date": "23 May 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -964,9 +1060,10 @@
   },
   {
     "filename": "IMG_1956",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["escape"],
+    "interaction": [],
+    "phenomena": ["foliage"],
     "date": "25 May 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -976,9 +1073,10 @@
   },
   {
     "filename": "IMG_1984",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["fence"],
+    "interaction": ["ornament"],
+    "phenomena": [],
     "date": "8 June 2025",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -988,36 +1086,40 @@
   },
   {
     "filename": "IMG_20180831_173424_059",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["plastic", "glass"],
+    "tectonic": ["window"],
+    "interaction": ["useless", "contradiction"],
+    "phenomena": [],
     "date": null,
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "IMG_20180917_145810469",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": ["text"],
+    "phenomena": [],
     "date": "17 September 2018",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "IMG_20180921_160004071_HDR",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["tarp"],
+    "tectonic": ["hole", "fence"],
+    "interaction": ["discard"],
+    "phenomena": [],
     "date": "21 September 2018",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "IMG_20181219_124548280_HDR",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["vehicle"],
+    "interaction": ["text"],
+    "phenomena": ["faded"],
     "date": "19 December 2018",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1027,81 +1129,90 @@
   },
   {
     "filename": "IMG_20190520_200549059",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": ["text", "pun"],
+    "phenomena": [],
     "date": "20 May 2019",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "IMG_20190604_202115844_HDR",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["bridge"],
+    "interaction": [],
+    "phenomena": ["shadow"],
     "date": "4 June 2019",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "IMG_20190730_080813002_HDR",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["escape"],
+    "interaction": ["text"],
+    "phenomena": ["sky"],
     "date": "30 July 2019",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "IMG_20191226_205516_387",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["line"],
+    "interaction": [],
+    "phenomena": ["sky"],
     "date": null,
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "IMG_20200424_161627_990",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["arch"],
+    "interaction": ["nested"],
+    "phenomena": [],
     "date": null,
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "IMG_20200424_162246_166",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal", "concrete"],
+    "tectonic": ["stair", "wall"],
+    "interaction": [],
+    "phenomena": ["shadow"],
     "date": null,
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "IMG_20210102_132328732",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal", "snow"],
+    "tectonic": ["corner", "fence", "chainlink"],
+    "interaction": [],
+    "phenomena": ["shadow"],
     "date": "2 January 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "IMG_20210124_124003090",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": ["text"],
+    "phenomena": [],
     "date": "24 January 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "IMG_2040",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["tube"],
+    "interaction": ["discard"],
+    "phenomena": [],
     "date": "25 July 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1111,9 +1222,10 @@
   },
   {
     "filename": "IMG_2276",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["plastic"],
+    "tectonic": ["box"],
+    "interaction": [],
+    "phenomena": [],
     "date": "10 June 2025",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1123,9 +1235,10 @@
   },
   {
     "filename": "IMG_2516",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["tarp"],
+    "tectonic": ["drape"],
+    "interaction": [],
+    "phenomena": [],
     "date": "4 August 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1135,9 +1248,10 @@
   },
   {
     "filename": "IMG_2525",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["wall", "ceiling"],
+    "interaction": ["section"],
+    "phenomena": [],
     "date": "21 June 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1147,9 +1261,10 @@
   },
   {
     "filename": "IMG_2533",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["round"],
+    "interaction": [],
+    "phenomena": [],
     "date": "4 August 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1159,9 +1274,10 @@
   },
   {
     "filename": "IMG_2569",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["wall"],
+    "interaction": ["useless"],
+    "phenomena": [],
     "date": "15 October 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1171,9 +1287,10 @@
   },
   {
     "filename": "IMG_2682",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["vehicle"],
+    "interaction": ["image"],
+    "phenomena": ["faded"],
     "date": "1 July 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1183,9 +1300,10 @@
   },
   {
     "filename": "IMG_2683",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["plastic"],
+    "tectonic": ["tube", "cluster"],
+    "interaction": [],
+    "phenomena": [],
     "date": "1 July 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1195,9 +1313,10 @@
   },
   {
     "filename": "IMG_2725",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["room"],
+    "interaction": ["section"],
+    "phenomena": [],
     "date": "18 August 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1207,9 +1326,10 @@
   },
   {
     "filename": "IMG_2734",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["box"],
+    "interaction": ["graffiti"],
+    "phenomena": [],
     "date": "18 August 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1219,9 +1339,10 @@
   },
   {
     "filename": "IMG_2742",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["fabric"],
+    "tectonic": ["drape"],
+    "interaction": [],
+    "phenomena": ["interference", "gravity", "warp"],
     "date": "9 July 2025",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1231,9 +1352,10 @@
   },
   {
     "filename": "IMG_2786",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": [],
+    "phenomena": [],
     "date": "9 July 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1243,9 +1365,10 @@
   },
   {
     "filename": "IMG_2851",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["repetition"],
+    "interaction": ["ornament"],
+    "phenomena": [],
     "date": "27 October 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1255,9 +1378,10 @@
   },
   {
     "filename": "IMG_2907",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["corrugated", "roof"],
+    "interaction": [],
+    "phenomena": ["warp"],
     "date": "25 August 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1267,9 +1391,10 @@
   },
   {
     "filename": "IMG_3043",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": ["balanced"],
+    "phenomena": [],
     "date": "30 July 2025",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1279,9 +1404,10 @@
   },
   {
     "filename": "IMG_3052",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal", "ice"],
+    "tectonic": ["mechanical", "sculpture"],
+    "interaction": [],
+    "phenomena": ["frozen"],
     "date": "30 August 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1291,9 +1417,10 @@
   },
   {
     "filename": "IMG_3055",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["plastic"],
+    "tectonic": ["wall", "repetition"],
+    "interaction": [],
+    "phenomena": ["shadow"],
     "date": "23 November 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1303,9 +1430,10 @@
   },
   {
     "filename": "IMG_3076",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["drywall"],
+    "tectonic": ["room"],
+    "interaction": [],
+    "phenomena": [],
     "date": "24 November 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1315,9 +1443,10 @@
   },
   {
     "filename": "IMG_3088",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["door", "stair"],
+    "interaction": ["text"],
+    "phenomena": [],
     "date": "1 November 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1327,9 +1456,10 @@
   },
   {
     "filename": "IMG_3356",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["ice"],
+    "tectonic": [],
+    "interaction": [],
+    "phenomena": ["frozen"],
     "date": "12 December 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1339,9 +1469,10 @@
   },
   {
     "filename": "IMG_3422",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["room"],
+    "interaction": ["section"],
+    "phenomena": [],
     "date": "17 December 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1351,9 +1482,10 @@
   },
   {
     "filename": "IMG_3654",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["glass", "metal"],
+    "tectonic": ["door"],
+    "interaction": [],
+    "phenomena": ["reflection"],
     "date": "30 December 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1363,9 +1495,10 @@
   },
   {
     "filename": "IMG_3666 (1)",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": ["image"],
+    "phenomena": [],
     "date": "30 December 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1375,9 +1508,10 @@
   },
   {
     "filename": "IMG_3666",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["void"],
+    "interaction": ["text"],
+    "phenomena": [],
     "date": "9 August 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1387,9 +1521,10 @@
   },
   {
     "filename": "IMG_3712",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": ["sculpture"],
+    "phenomena": ["erosion"],
     "date": "7 October 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1399,9 +1534,10 @@
   },
   {
     "filename": "IMG_3722",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["plywood"],
+    "tectonic": ["box", "arch", "gate"],
+    "interaction": [],
+    "phenomena": ["shadow"],
     "date": "7 October 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1411,9 +1547,10 @@
   },
   {
     "filename": "IMG_3823",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["cluster"],
+    "interaction": [],
+    "phenomena": [],
     "date": "22 August 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1423,9 +1560,10 @@
   },
   {
     "filename": "IMG_3870",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["concrete"],
+    "tectonic": ["cluster"],
+    "interaction": [],
+    "phenomena": [],
     "date": "24 August 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1435,9 +1573,10 @@
   },
   {
     "filename": "IMG_3898",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["concrete"],
+    "tectonic": ["floor"],
+    "interaction": ["graffiti"],
+    "phenomena": [],
     "date": "26 August 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1447,9 +1586,10 @@
   },
   {
     "filename": "IMG_3906",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["concrete"],
+    "tectonic": [],
+    "interaction": ["sculpture"],
+    "phenomena": [],
     "date": "27 August 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1459,9 +1599,10 @@
   },
   {
     "filename": "IMG_3920",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["box"],
+    "interaction": [],
+    "phenomena": [],
     "date": "22 October 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1471,9 +1612,10 @@
   },
   {
     "filename": "IMG_3980",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["vehicle"],
+    "interaction": ["image", "trompe-l'oeil"],
+    "phenomena": [],
     "date": "13 February 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1483,9 +1625,10 @@
   },
   {
     "filename": "IMG_4030",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["plastic"],
+    "tectonic": ["tube", "cluster"],
+    "interaction": [],
+    "phenomena": [],
     "date": "9 December 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1495,9 +1638,10 @@
   },
   {
     "filename": "IMG_4081",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["window"],
+    "interaction": ["image"],
+    "phenomena": ["faded"],
     "date": "21 February 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1507,9 +1651,10 @@
   },
   {
     "filename": "IMG_4085",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["window"],
+    "interaction": [],
+    "phenomena": [],
     "date": "22 February 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1519,9 +1664,10 @@
   },
   {
     "filename": "IMG_4097",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["fence"],
+    "interaction": [],
+    "phenomena": [],
     "date": "4 September 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1531,9 +1677,10 @@
   },
   {
     "filename": "IMG_4115",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["fence"],
+    "interaction": [],
+    "phenomena": ["rust","foliage"],
     "date": "27 October 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1543,9 +1690,10 @@
   },
   {
     "filename": "IMG_4228",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["concrete"],
+    "tectonic": ["stair"],
+    "interaction": [],
+    "phenomena": ["bent"],
     "date": "28 October 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1555,9 +1703,10 @@
   },
   {
     "filename": "IMG_4277",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["void", "house"],
+    "interaction": [],
+    "phenomena": [],
     "date": "29 October 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1567,9 +1716,10 @@
   },
   {
     "filename": "IMG_4355",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["wall"],
+    "interaction": ["graffiti"],
+    "phenomena": [],
     "date": "9 March 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1579,9 +1729,10 @@
   },
   {
     "filename": "IMG_4405",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["fence"],
+    "interaction": [],
+    "phenomena": ["shadow", "foliage"],
     "date": "25 September 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1591,9 +1742,10 @@
   },
   {
     "filename": "IMG_4511",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["glass"],
+    "tectonic": ["round"],
+    "interaction": [],
+    "phenomena": ["mirror"],
     "date": "14 March 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1603,9 +1755,10 @@
   },
   {
     "filename": "IMG_4518",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["repetition"],
+    "interaction": [],
+    "phenomena": ["deformed"],
     "date": "5 October 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1615,9 +1768,10 @@
   },
   {
     "filename": "IMG_4545",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["corrugated", "cluster"],
+    "interaction": [],
+    "phenomena": [],
     "date": "4 January 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1627,9 +1781,10 @@
   },
   {
     "filename": "IMG_4570",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["gate", ""],
+    "interaction": ["construction", "temporary", "propped"],
+    "phenomena": [],
     "date": "6 January 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1639,9 +1794,10 @@
   },
   {
     "filename": "IMG_4585",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": [],
+    "phenomena": [],
     "date": "8 November 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1651,9 +1807,10 @@
   },
   {
     "filename": "IMG_4609",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["glass"],
+    "tectonic": [],
+    "interaction": ["discard"],
+    "phenomena": ["shattered", "broken"],
     "date": "9 January 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1663,9 +1820,10 @@
   },
   {
     "filename": "IMG_4622",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["lumber"],
+    "tectonic": ["repetition"],
+    "interaction": [],
+    "phenomena": [],
     "date": "18 March 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1675,9 +1833,10 @@
   },
   {
     "filename": "IMG_4648",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["floor"],
+    "interaction": [],
+    "phenomena": ["twin"],
     "date": "11 November 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1687,9 +1846,10 @@
   },
   {
     "filename": "IMG_4659",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["plastic"],
+    "tectonic": [],
+    "interaction": ["discard"],
+    "phenomena": ["wet", "warp", "light"],
     "date": "9 January 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1699,9 +1859,10 @@
   },
   {
     "filename": "IMG_4688",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["glass"],
+    "tectonic": ["window", "crossed"],
+    "interaction": ["repair"],
+    "phenomena": ["shattered", "broken"],
     "date": "19 March 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1711,9 +1872,10 @@
   },
   {
     "filename": "IMG_4778",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": ["image", "numbers"],
+    "phenomena": [],
     "date": "19 March 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1723,9 +1885,10 @@
   },
   {
     "filename": "IMG_4780",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["vehicle"],
+    "interaction": ["discard"],
+    "phenomena": [],
     "date": "19 March 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1735,9 +1898,10 @@
   },
   {
     "filename": "IMG_4789",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["repetition"],
+    "interaction": ["image"],
+    "phenomena": [],
     "date": "14 January 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1747,9 +1911,10 @@
   },
   {
     "filename": "IMG_4834",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["vehicle"],
+    "interaction": ["image"],
+    "phenomena": [],
     "date": "20 March 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1759,9 +1924,10 @@
   },
   {
     "filename": "IMG_4839",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["vehicle"],
+    "interaction": ["image"],
+    "phenomena": [],
     "date": "20 March 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1771,9 +1937,10 @@
   },
   {
     "filename": "IMG_4866",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": [],
+    "interaction": [],
+    "phenomena": ["shadow"],
     "date": "20 March 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1783,9 +1950,10 @@
   },
   {
     "filename": "IMG_4885",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["gate", "repetition"],
+    "interaction": [],
+    "phenomena": [],
     "date": "20 March 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1795,9 +1963,10 @@
   },
   {
     "filename": "IMG_4906",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": ["graffiti"],
+    "phenomena": [],
     "date": "20 March 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1807,9 +1976,10 @@
   },
   {
     "filename": "IMG_4923",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["repetition", "room"],
+    "interaction": ["construction"],
+    "phenomena": [],
     "date": "13 October 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1819,9 +1989,10 @@
   },
   {
     "filename": "IMG_4941",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["concrete"],
+    "tectonic": ["box"],
+    "interaction": [],
+    "phenomena": [],
     "date": "15 October 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1831,9 +2002,10 @@
   },
   {
     "filename": "IMG_4944",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["glass", "concrete"],
+    "tectonic": ["window","floor", "monolith"],
+    "interaction": [],
+    "phenomena": ["shadow"],
     "date": "21 March 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1843,9 +2015,10 @@
   },
   {
     "filename": "IMG_4957",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["vehicle", "cluster"],
+    "interaction": [],
+    "phenomena": [],
     "date": "21 March 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1855,9 +2028,10 @@
   },
   {
     "filename": "IMG_4958",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["tarp"],
+    "tectonic": [],
+    "interaction": [],
+    "phenomena": ["light"],
     "date": "16 October 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1867,9 +2041,10 @@
   },
   {
     "filename": "IMG_4976",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": ["image"],
+    "phenomena": ["animal"],
     "date": "22 March 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1879,9 +2054,10 @@
   },
   {
     "filename": "IMG_5049",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["concrete", "metal"],
+    "tectonic": ["round", "floor"],
+    "interaction": [],
+    "phenomena": ["animal"],
     "date": "23 October 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1891,9 +2067,10 @@
   },
   {
     "filename": "IMG_5085",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["wall"],
+    "interaction": [],
+    "phenomena": ["shadow"],
     "date": "27 October 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1903,9 +2080,10 @@
   },
   {
     "filename": "IMG_5209",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": [],
+    "phenomena": ["reflection", "sky"],
     "date": "6 November 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1915,9 +2093,10 @@
   },
   {
     "filename": "IMG_5244",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal", "concrete"],
+    "tectonic": ["gate", "floor"],
+    "interaction": ["ornament"],
+    "phenomena": ["shadow"],
     "date": "4 April 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1927,9 +2106,10 @@
   },
   {
     "filename": "IMG_5283",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": [],
+    "phenomena": ["foliage", "sunset"],
     "date": "2 December 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1939,9 +2119,10 @@
   },
   {
     "filename": "IMG_5296",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["plywood"],
+    "tectonic": ["wedge", "cluster"],
+    "interaction": ["construction"],
+    "phenomena": [],
     "date": "16 November 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1951,9 +2132,10 @@
   },
   {
     "filename": "IMG_5313",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["tarp"],
+    "tectonic": ["gate", "drape"],
+    "interaction": [],
+    "phenomena": ["gravity"],
     "date": "8 April 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1963,9 +2145,10 @@
   },
   {
     "filename": "IMG_5320",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": ["numbers"],
+    "phenomena": [],
     "date": "31 January 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1975,9 +2158,10 @@
   },
   {
     "filename": "IMG_5324 (1)",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["floor"],
+    "interaction": ["text", "sculpture"],
+    "phenomena": [],
     "date": "31 January 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1987,9 +2171,10 @@
   },
   {
     "filename": "IMG_5329",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["tarp"],
+    "tectonic": ["drape"],
+    "interaction": [],
+    "phenomena": ["gravity"],
     "date": "19 November 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -1999,9 +2184,10 @@
   },
   {
     "filename": "IMG_5340",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["cluster", "line"],
+    "interaction": [],
+    "phenomena": ["animal"],
     "date": "19 November 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2011,9 +2197,10 @@
   },
   {
     "filename": "IMG_5411",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["tube"],
+    "interaction": ["accommodation"],
+    "phenomena": [],
     "date": "13 December 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2023,9 +2210,10 @@
   },
   {
     "filename": "IMG_5542",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["concrete"],
+    "tectonic": ["floor"],
+    "interaction": [],
+    "phenomena": ["caustic"],
     "date": "16 April 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2035,9 +2223,10 @@
   },
   {
     "filename": "IMG_5594",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": ["image"],
+    "phenomena": [],
     "date": "16 April 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2047,9 +2236,10 @@
   },
   {
     "filename": "IMG_5644",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["vehicle"],
+    "interaction": ["discard"],
+    "phenomena": [],
     "date": "17 April 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2059,9 +2249,10 @@
   },
   {
     "filename": "IMG_5714",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["wrapped"],
+    "interaction": ["construction"],
+    "phenomena": [],
     "date": "9 December 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2071,9 +2262,10 @@
   },
   {
     "filename": "IMG_5761",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["water"],
+    "tectonic": [],
+    "interaction": [],
+    "phenomena": ["pool"],
     "date": "23 April 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2083,9 +2275,10 @@
   },
   {
     "filename": "IMG_5896",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": ["image"],
+    "phenomena": [],
     "date": "29 December 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2095,9 +2288,10 @@
   },
   {
     "filename": "IMG_5936",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["stair"],
+    "interaction": ["accommodation"],
+    "phenomena": [],
     "date": "29 December 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2107,9 +2301,10 @@
   },
   {
     "filename": "IMG_5950",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["glass"],
+    "tectonic": ["window"],
+    "interaction": ["graffiti"],
+    "phenomena": [],
     "date": "30 December 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2119,9 +2314,10 @@
   },
   {
     "filename": "IMG_6038",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": ["pun", "numbers"],
+    "phenomena": [],
     "date": "3 January 2025",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2131,9 +2327,10 @@
   },
   {
     "filename": "IMG_6052",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["line"],
+    "interaction": [],
+    "phenomena": [],
     "date": "9 February 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2143,9 +2340,10 @@
   },
   {
     "filename": "IMG_6063",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["glass"],
+    "tectonic": ["window"],
+    "interaction": [],
+    "phenomena": ["animal"],
     "date": "22 December 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2155,9 +2353,10 @@
   },
   {
     "filename": "IMG_6084",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["concrete"],
+    "tectonic": ["tunnel"],
+    "interaction": [],
+    "phenomena": ["shadow"],
     "date": "24 December 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2167,9 +2366,10 @@
   },
   {
     "filename": "IMG_6086",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["cluster"],
+    "interaction": [],
+    "phenomena": ["animal", "sky"],
     "date": "24 December 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2179,9 +2379,10 @@
   },
   {
     "filename": "IMG_6098",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["snow"],
+    "tectonic": ["cluster"],
+    "interaction": [],
+    "phenomena": [],
     "date": "24 December 2021",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2191,9 +2392,10 @@
   },
   {
     "filename": "IMG_6143",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["concrete"],
+    "tectonic": ["void"],
+    "interaction": [],
+    "phenomena": [],
     "date": "7 January 2025",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2203,9 +2405,10 @@
   },
   {
     "filename": "IMG_6156",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["stair"],
+    "interaction": ["surveillance"],
+    "phenomena": [],
     "date": "9 February 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2215,9 +2418,10 @@
   },
   {
     "filename": "IMG_6220",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["plywood"],
+    "tectonic": ["house"],
+    "interaction": [],
+    "phenomena": [],
     "date": "9 January 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2227,9 +2431,10 @@
   },
   {
     "filename": "IMG_6290",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["chair"],
+    "interaction": ["surveillance"],
+    "phenomena": [],
     "date": "17 February 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2239,9 +2444,10 @@
   },
   {
     "filename": "IMG_6295",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["tube"],
+    "interaction": [],
+    "phenomena": [],
     "date": "20 May 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2251,9 +2457,10 @@
   },
   {
     "filename": "IMG_6398",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["tube"],
+    "interaction": [],
+    "phenomena": [],
     "date": "17 January 2025",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2263,9 +2470,10 @@
   },
   {
     "filename": "IMG_6439",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["plywood"],
+    "tectonic": ["void"],
+    "interaction": ["graffiti"],
+    "phenomena": [],
     "date": "1 February 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2275,9 +2483,10 @@
   },
   {
     "filename": "IMG_6440",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal","snow"],
+    "tectonic": ["vehicle"],
+    "interaction": ["discard"],
+    "phenomena": [],
     "date": "1 February 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2287,9 +2496,10 @@
   },
   {
     "filename": "IMG_6460",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["snow"],
+    "tectonic": [],
+    "interaction": ["spill", "discard"],
+    "phenomena": [],
     "date": "5 February 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2299,9 +2509,10 @@
   },
   {
     "filename": "IMG_6480",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["floor"],
+    "interaction": ["spill"],
+    "phenomena": ["animal"],
     "date": "24 January 2025",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2311,9 +2522,10 @@
   },
   {
     "filename": "IMG_6591",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["fence"],
+    "interaction": [],
+    "phenomena": ["foliage", "shadow"],
     "date": "4 June 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2323,9 +2535,10 @@
   },
   {
     "filename": "IMG_6617",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["gate", "door"],
+    "interaction": ["ornament"],
+    "phenomena": [],
     "date": "24 February 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2335,9 +2548,10 @@
   },
   {
     "filename": "IMG_6647",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": ["image", "partial coverage"],
+    "phenomena": ["rip", "peel"],
     "date": "3 March 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2347,9 +2561,10 @@
   },
   {
     "filename": "IMG_6730",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": [],
+    "phenomena": [],
     "date": "10 June 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2359,9 +2574,10 @@
   },
   {
     "filename": "IMG_6783",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["drywall"],
+    "tectonic": ["wall"],
+    "interaction": [],
+    "phenomena": ["crumbling"],
     "date": "5 February 2025",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2371,9 +2587,10 @@
   },
   {
     "filename": "IMG_6894",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["arch", "repetition"],
+    "interaction": [],
+    "phenomena": [],
     "date": "13 March 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2383,18 +2600,20 @@
   },
   {
     "filename": "IMG_6959",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal", "concrete"],
+    "tectonic": ["fence", "floor"],
+    "interaction": ["discard"],
+    "phenomena": [],
     "date": "7 September 2019",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "IMG_6977",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": [],
+    "interaction": ["text"],
+    "phenomena": [],
     "date": "16 March 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2404,9 +2623,10 @@
   },
   {
     "filename": "IMG_7025",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["round"],
+    "interaction": [],
+    "phenomena": [],
     "date": "19 February 2025",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2416,9 +2636,10 @@
   },
   {
     "filename": "IMG_7067",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["snow"],
+    "tectonic": ["wave", "floor"],
+    "interaction": [],
+    "phenomena": ["melt"],
     "date": "22 March 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2428,9 +2649,10 @@
   },
   {
     "filename": "IMG_7090",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["floor"],
+    "interaction": ["text"],
+    "phenomena": [],
     "date": "25 March 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2440,9 +2662,10 @@
   },
   {
     "filename": "IMG_7092",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": ["image"],
+    "phenomena": ["rip"],
     "date": "25 March 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2452,9 +2675,10 @@
   },
   {
     "filename": "IMG_7363",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["wave"],
+    "interaction": ["sculpture"],
+    "phenomena": [],
     "date": "22 June 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2464,9 +2688,10 @@
   },
   {
     "filename": "IMG_7365",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["plastic", "metal"],
+    "tectonic": ["roof"],
+    "interaction": [],
+    "phenomena": ["reflection"],
     "date": "22 June 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2476,9 +2701,10 @@
   },
   {
     "filename": "IMG_7396",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["concrete"],
+    "tectonic": ["floor"],
+    "interaction": [],
+    "phenomena": ["shadow"],
     "date": "9 April 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2488,9 +2714,10 @@
   },
   {
     "filename": "IMG_7400",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": [],
+    "phenomena": ["sky"],
     "date": "23 June 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2500,9 +2727,10 @@
   },
   {
     "filename": "IMG_7434",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": [],
+    "phenomena": ["sky"],
     "date": "25 June 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2512,9 +2740,10 @@
   },
   {
     "filename": "IMG_7473",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": [],
+    "interaction": ["discard"],
+    "phenomena": ["warp","reflection", "deformed"],
     "date": "25 June 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2524,9 +2753,10 @@
   },
   {
     "filename": "IMG_7517",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["wave"],
+    "interaction": ["sculpture"],
+    "phenomena": [],
     "date": "14 March 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2536,9 +2766,10 @@
   },
   {
     "filename": "IMG_7615",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["water"],
+    "tectonic": [],
+    "interaction": ["image", "text"],
+    "phenomena": [],
     "date": "1 July 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2548,9 +2779,10 @@
   },
   {
     "filename": "IMG_7630",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": [],
+    "interaction": ["sculpture"],
+    "phenomena": [],
     "date": "15 March 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2560,9 +2792,10 @@
   },
   {
     "filename": "IMG_7650",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["floor"],
+    "interaction": ["sculpture"],
+    "phenomena": [],
     "date": "15 March 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2572,9 +2805,10 @@
   },
   {
     "filename": "IMG_7678",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["vehicle"],
+    "interaction": [],
+    "phenomena": ["wet"],
     "date": "15 March 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2584,9 +2818,10 @@
   },
   {
     "filename": "IMG_7682",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": [],
+    "phenomena": ["animal"],
     "date": "19 April 2025",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2596,9 +2831,10 @@
   },
   {
     "filename": "IMG_7710",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["wall"],
+    "interaction": ["image", "text"],
+    "phenomena": ["twin"],
     "date": "1 July 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2608,9 +2844,10 @@
   },
   {
     "filename": "IMG_7770",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["corrugated", "wall"],
+    "interaction": [],
+    "phenomena": ["shadow", "foliage"],
     "date": "1 July 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2620,9 +2857,10 @@
   },
   {
     "filename": "IMG_7800",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["object"],
+    "interaction": [],
+    "phenomena": ["pool"],
     "date": "17 March 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2632,9 +2870,10 @@
   },
   {
     "filename": "IMG_7852 (1)",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["wall"],
+    "interaction": ["image", "text"],
+    "phenomena": [],
     "date": "2 July 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2644,9 +2883,10 @@
   },
   {
     "filename": "IMG_7950",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["concrete"],
+    "tectonic": ["stair"],
+    "interaction": [],
+    "phenomena": ["wet"],
     "date": "20 March 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2656,9 +2896,10 @@
   },
   {
     "filename": "IMG_7985",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["glass"],
+    "tectonic": ["wall", "window"],
+    "interaction": ["image", "text"],
+    "phenomena": ["cracked", "faded"],
     "date": "4 July 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2668,9 +2909,10 @@
   },
   {
     "filename": "IMG_7990",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["glass"],
+    "tectonic": ["window"],
+    "interaction": ["text"],
+    "phenomena": ["refraction"],
     "date": "4 July 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2680,9 +2922,10 @@
   },
   {
     "filename": "IMG_8026",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["glass"],
+    "tectonic": ["window"],
+    "interaction": [],
+    "phenomena": ["refraction"],
     "date": "21 March 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2692,9 +2935,10 @@
   },
   {
     "filename": "IMG_8172",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["floor"],
+    "interaction": [],
+    "phenomena": ["drift", "spill"],
     "date": "5 July 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2704,9 +2948,10 @@
   },
   {
     "filename": "IMG_8318",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["concrete"],
+    "tectonic": ["floor"],
+    "interaction": [],
+    "phenomena": ["spill"],
     "date": "18 April 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2716,9 +2961,10 @@
   },
   {
     "filename": "IMG_8367",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["vehicle"],
+    "interaction": [],
+    "phenomena": [],
     "date": "6 May 2025",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2728,9 +2974,10 @@
   },
   {
     "filename": "IMG_8394",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["plastic"],
+    "tectonic": ["line", "wave", "suspension"],
+    "interaction": [],
+    "phenomena": ["gravity"],
     "date": "25 April 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2740,9 +2987,10 @@
   },
   {
     "filename": "IMG_8511",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["dirt"],
+    "tectonic": ["room"],
+    "interaction": [],
+    "phenomena": [],
     "date": "28 April 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2752,9 +3000,10 @@
   },
   {
     "filename": "IMG_8570",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": ["image"],
+    "phenomena": [],
     "date": "29 April 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2764,9 +3013,10 @@
   },
   {
     "filename": "IMG_8572",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["fence"],
+    "interaction": ["graffiti"],
+    "phenomena": [],
     "date": "29 April 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2776,9 +3026,10 @@
   },
   {
     "filename": "IMG_8578",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["concrete"],
+    "tectonic": ["wall"],
+    "interaction": [],
+    "phenomena": ["shadow"],
     "date": "29 April 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2788,9 +3039,10 @@
   },
   {
     "filename": "IMG_8586",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["cluster"],
+    "interaction": ["discard"],
+    "phenomena": [],
     "date": "29 April 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2800,9 +3052,10 @@
   },
   {
     "filename": "IMG_8614",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["tarp"],
+    "tectonic": ["wrapped"],
+    "interaction": ["image"],
+    "phenomena": [],
     "date": "17 May 2025",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2812,9 +3065,10 @@
   },
   {
     "filename": "IMG_8615",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["fabric"],
+    "tectonic": ["wrapped", "door"],
+    "interaction": [],
+    "phenomena": [],
     "date": "17 May 2025",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2824,9 +3078,10 @@
   },
   {
     "filename": "IMG_8619",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": [],
+    "interaction": ["tie"],
+    "phenomena": ["animal"],
     "date": "29 April 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2836,9 +3091,10 @@
   },
   {
     "filename": "IMG_8624",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["fence"],
+    "interaction": ["ornament"],
+    "phenomena": [],
     "date": "29 April 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2848,9 +3104,10 @@
   },
   {
     "filename": "IMG_8646",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["object"],
+    "interaction": [],
+    "phenomena": ["animal"],
     "date": "30 April 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2860,9 +3117,10 @@
   },
   {
     "filename": "IMG_8793",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["roof"],
+    "interaction": [],
+    "phenomena": ["sky","shadow"],
     "date": "10 July 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2872,9 +3130,10 @@
   },
   {
     "filename": "IMG_8836",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["tarp"],
+    "tectonic": ["cluster"],
+    "interaction": [],
+    "phenomena": [],
     "date": "16 May 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2884,9 +3143,10 @@
   },
   {
     "filename": "IMG_8867",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal", "concrete"],
+    "tectonic": ["round"],
+    "interaction": [],
+    "phenomena": [],
     "date": "11 May 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2896,9 +3156,10 @@
   },
   {
     "filename": "IMG_8873",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["lumber"],
+    "tectonic": ["wall"],
+    "interaction": ["propped"],
+    "phenomena": ["gravity"],
     "date": "12 May 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2908,9 +3169,10 @@
   },
   {
     "filename": "IMG_9065",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["concrete"],
+    "tectonic": ["floor"],
+    "interaction": ["repair"],
+    "phenomena": [],
     "date": "21 May 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2920,9 +3182,10 @@
   },
   {
     "filename": "IMG_9114",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["concrete", "metal"],
+    "tectonic": ["floor", "object"],
+    "interaction": [],
+    "phenomena": ["shadow"],
     "date": "23 May 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2932,9 +3195,10 @@
   },
   {
     "filename": "IMG_9139",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["concrete"],
+    "tectonic": ["repetition", "floor"],
+    "interaction": [],
+    "phenomena": ["shadow"],
     "date": "24 May 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2944,9 +3208,10 @@
   },
   {
     "filename": "IMG_9176",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["object", "box"],
+    "interaction": ["text"],
+    "phenomena": [],
     "date": "21 May 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2956,9 +3221,10 @@
   },
   {
     "filename": "IMG_9325",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["tarp"],
+    "tectonic": ["arch"],
+    "interaction": ["text", "pun"],
+    "phenomena": ["shredded"],
     "date": "27 May 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2968,9 +3234,10 @@
   },
   {
     "filename": "IMG_9335",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal", "concrete"],
+    "tectonic": ["object"],
+    "interaction": ["pun"],
+    "phenomena": ["pool"],
     "date": "27 May 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2980,9 +3247,10 @@
   },
   {
     "filename": "IMG_9366",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["concrete", "water"],
+    "tectonic": ["floor"],
+    "interaction": [],
+    "phenomena": ["pool", "reflection"],
     "date": "27 May 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -2992,9 +3260,10 @@
   },
   {
     "filename": "IMG_9388",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["wall"],
+    "interaction": ["image"],
+    "phenomena": [],
     "date": "25 May 2025",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -3004,9 +3273,10 @@
   },
   {
     "filename": "IMG_9471",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["line", "wave", "fence", "chainlink"],
+    "interaction": [],
+    "phenomena": [],
     "date": "29 May 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -3016,9 +3286,10 @@
   },
   {
     "filename": "IMG_9481",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": [],
+    "phenomena": [],
     "date": "29 May 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -3028,9 +3299,10 @@
   },
   {
     "filename": "IMG_9485",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["wave","window"],
+    "interaction": ["ornament"],
+    "phenomena": [],
     "date": "27 May 2025",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -3040,9 +3312,10 @@
   },
   {
     "filename": "IMG_9520",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["object"],
+    "interaction": ["ornament", "discard"],
+    "phenomena": [],
     "date": "27 May 2025",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -3052,9 +3325,10 @@
   },
   {
     "filename": "IMG_9526",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["floor"],
+    "interaction": ["text", "discard", "graffiti"],
+    "phenomena": [],
     "date": "30 May 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -3064,9 +3338,10 @@
   },
   {
     "filename": "IMG_9541",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["gate"],
+    "interaction": ["graffiti"],
+    "phenomena": [],
     "date": "27 May 2025",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -3076,9 +3351,10 @@
   },
   {
     "filename": "IMG_9553",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal", "plastic"],
+    "tectonic": ["room", "object"],
+    "interaction": [],
+    "phenomena": ["shadow"],
     "date": "30 May 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -3088,9 +3364,10 @@
   },
   {
     "filename": "IMG_9562",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["chainlink"],
+    "interaction": [],
+    "phenomena": ["animal"],
     "date": "29 May 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -3100,9 +3377,10 @@
   },
   {
     "filename": "IMG_9617",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["concrete"],
+    "tectonic": ["floor"],
+    "interaction": ["repair","graffiti"],
+    "phenomena": ["shadow"],
     "date": "31 May 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -3112,9 +3390,10 @@
   },
   {
     "filename": "IMG_9627",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["gate", "floor"],
+    "interaction": ["ornament"],
+    "phenomena": ["shadow"],
     "date": "31 May 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -3124,9 +3403,10 @@
   },
   {
     "filename": "IMG_9629",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["fabric"],
+    "tectonic": ["wave","drape"],
+    "interaction": [],
+    "phenomena": ["shadow"],
     "date": "31 May 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -3136,9 +3416,10 @@
   },
   {
     "filename": "IMG_9710",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": [],
+    "interaction": ["text"],
+    "phenomena": [],
     "date": "1 June 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -3148,9 +3429,10 @@
   },
   {
     "filename": "IMG_9762",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["plywood"],
+    "tectonic": ["wall"],
+    "interaction": ["graffiti"],
+    "phenomena": [],
     "date": "5 June 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -3160,9 +3442,10 @@
   },
   {
     "filename": "IMG_9778",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["chainlink"],
+    "interaction": [],
+    "phenomena": ["sunset"],
     "date": "2 June 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -3172,9 +3455,10 @@
   },
   {
     "filename": "IMG_9878",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["door"],
+    "interaction": [],
+    "phenomena": ["caustic"],
     "date": "22 July 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -3184,9 +3468,10 @@
   },
   {
     "filename": "IMG_9951",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["glass"],
+    "tectonic": ["object", "window"],
+    "interaction": [],
+    "phenomena": ["refraction"],
     "date": "28 May 2025",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -3196,9 +3481,10 @@
   },
   {
     "filename": "IMG_9976",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["floor"],
+    "interaction": [],
+    "phenomena": ["animal"],
     "date": "28 May 2025",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -3208,9 +3494,10 @@
   },
   {
     "filename": "bench_object_seating_still-life",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["chair", "object", "cluster"],
+    "interaction": [],
+    "phenomena": [],
     "date": "2 June 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -3220,72 +3507,80 @@
   },
   {
     "filename": "electric-lines_line_wire_straight",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["line"],
+    "interaction": [],
+    "phenomena": ["sky"],
     "date": null,
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "floating-plastic_plastic_water_soak",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["concrete", "plastic"],
+    "tectonic": ["floor"],
+    "interaction": ["discard"],
+    "phenomena": ["pool", "wet"],
     "date": "3 May 2022",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "freezer-glass_ice_cold_glass_broken_shatter",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["ice"],
+    "tectonic": ["object"],
+    "interaction": [],
+    "phenomena": ["shatter", "frozen"],
     "date": "28 September 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "hvac-crush_metal_dent",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["tub", "object"],
+    "interaction": [],
+    "phenomena": ["crushed", "dent", "deformed"],
     "date": "27 September 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "hvac_hvac_metal_shadow_striation_reflectance",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["box", "stair", "repetition"],
+    "interaction": [],
+    "phenomena": ["shadow"],
     "date": null,
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "kersm_graffiti_graphic_wall_paint",
-    "tags": [],
     "material": [],
-    "condition": [],
+    "tectonic": ["wall"],
+    "interaction": ["graffiti", "partial coverage"],
+    "phenomena": [],
     "date": "10 November 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "mile-ex_shadow_mesh_metal_circle",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["wall","fence"],
+    "interaction": [],
+    "phenomena": ["shadow"],
     "date": "27 October 2022",
     "author": "Scott Christian McCallum",
     "geolocation": null
   },
   {
     "filename": "montreal-garbage_trash_bent_crush_metal",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["object"],
+    "interaction": ["discard"],
+    "phenomena": ["crushed"],
     "date": "29 June 2022",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -3295,9 +3590,10 @@
   },
   {
     "filename": "paris-rack_bend_metal_pipe_zigzag",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["wave", "object"],
+    "interaction": [],
+    "phenomena": [],
     "date": "28 May 2025",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -3307,9 +3603,10 @@
   },
   {
     "filename": "sign-tree_tree_engulf_sign_graphic",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal"],
+    "tectonic": ["partial coverage"],
+    "interaction": ["image"],
+    "phenomena": ["foliage"],
     "date": "3 June 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -3319,9 +3616,10 @@
   },
   {
     "filename": "stair_object_stair_still-life",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["concrete"],
+    "tectonic": ["stair"],
+    "interaction": [],
+    "phenomena": ["shadow"],
     "date": "2 June 2024",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -3331,9 +3629,10 @@
   },
   {
     "filename": "tree-light_tree_light_plywood_outdoor",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["plywood"],
+    "tectonic": [],
+    "interaction": [],
+    "phenomena": ["foliage"],
     "date": "9 August 2023",
     "author": "Scott Christian McCallum",
     "geolocation": {
@@ -3343,9 +3642,10 @@
   },
   {
     "filename": "wakefield-ice_ice_frozen_pipe_metal_snow",
-    "tags": [],
-    "material": [],
-    "condition": [],
+    "material": ["metal", "ice"],
+    "tectonic": ["tube"],
+    "interaction": [],
+    "phenomena": ["frozen"],
     "date": "27 December 2018",
     "author": "Scott Christian McCallum",
     "geolocation": {
