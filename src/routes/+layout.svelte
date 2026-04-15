@@ -19,6 +19,12 @@
 		<a href={base || "/"}>
 			<h1>Conditions of Observation</h1>
 		</a>
+		<div class="header-links">
+			<a class="category-link" href={`${base}/category`}>category</a>
+			<a class="category-link" href={`${base}/network`}>network</a>
+			<a class="category-link" href={`${base}/network-2d`}>network 2d</a>
+			<a class="category-link" href={`${base}/image-cloud`}>image cloud</a>
+		</div>
 		<!-- <p>photographic research method</p> -->
 		
 		{#if isGalleryPage}
@@ -94,6 +100,23 @@
 		margin: 0;
 		font-size: 1.5rem;
 		font-weight: 500;
+	}
+
+	.category-link {
+		font-size: 0.85rem;
+		font-style: italic;
+		text-decoration: none;
+	}
+
+	.header-links {
+		display: flex;
+		gap: 0.8rem;
+		margin-top: 0.25rem;
+	}
+
+	.category-link:hover {
+		filter: blur(4px);
+		-webkit-filter: blur(4px);
 	}
 
 	p {
