@@ -2,7 +2,6 @@
 	import { page } from "$app/stores";
 	import { base } from "$app/paths";
 	import favicon from "$lib/assets/favicon.svg";
-	import { filters, activeFilters, toggleFilter } from "$lib/stores/filters";
 
 	let { children } = $props();
 	

@@ -1,73 +1,28 @@
 <script lang="ts">
+	import { selectedFilters, hasActiveFilters, toggleFilter, clearFilters, createImageFilterFunction } from '$lib/stores/filters';
+
 	export let data;
 
 	type Category = 'material' | 'tectonic' | 'interaction' | 'phenomena';
 	const categories: Category[] = ['material', 'tectonic', 'interaction', 'phenomena'];
 
-	let selectedFilters: Record<Category, string[]> = {
-		material: [],
-		tectonic: [],
-		interaction: [],
-		phenomena: []
+	// Create derived store for filtered images
+	let filteredImages = createImageFilterFunction(data.images);
+	
+	// Track which categories are expanded
+	let expandedCategories: Record<Category, boolean> = {
+		material: false,
+		tectonic: false,
+		interaction: false,
+		phenomena: false
 	};
-	let filteredImages = data.images;
-	let hasActiveFilters = false;
+	
+	let imageSize = 200; // Default image height in pixels
 	
 	let expandedIndex: number | null = null;
-
-	function imageMatchesAllSelectedFilters(image: any) {
-		const imageTags = Array.isArray(image?.tags) ? image.tags : [];
-
-		for (const category of categories) {
-			if (selectedFilters[category].length === 0) continue;
-			
-			let categoryMatch = false;
-			for (const value of selectedFilters[category]) {
-				if (imageTags.includes(value)) {
-					categoryMatch = true;
-					break;
-				}
-			}
-			
-			if (!categoryMatch) return false;
-		}
-
-		return true;
-	}
-
-	function toggleFilter(category: Category, value: string) {
-		const currentValues = selectedFilters[category];
-		const newValues = currentValues.includes(value)
-			? currentValues.filter(v => v !== value)
-			: [...currentValues, value];
-
-		selectedFilters = {
-			...selectedFilters,
-			[category]: newValues
-		};
-	}
-
-	function clearFilters(category?: Category) {
-		if (category) {
-			selectedFilters[category] = [];
-			return;
-		}
-
-		selectedFilters = {
-			material: [],
-			tectonic: [],
-			interaction: [],
-			phenomena: []
-		};
-	}
-
-	$: hasActiveFilters = categories.some((category) => selectedFilters[category].length > 0);
-	$: console.log('selectedFilters:', selectedFilters, 'hasActiveFilters:', hasActiveFilters, 'filteredImages:', filteredImages.length);
-	$: filteredImages = hasActiveFilters
-		? data.images.filter((image: any) => imageMatchesAllSelectedFilters(image))
-		: data.images;
-	$: if (expandedIndex !== null && expandedIndex >= filteredImages.length) {
-		expandedIndex = filteredImages.length > 0 ? filteredImages.length - 1 : null;
+	
+	function toggleCategoryExpanded(category: Category) {
+		expandedCategories[category] = !expandedCategories[category];
 	}
 	
 	function openImage(index: number) {
@@ -79,7 +34,7 @@
 	}
 	
 	function nextImage() {
-		if (expandedIndex !== null && expandedIndex < filteredImages.length - 1) {
+		if (expandedIndex !== null && expandedIndex < $filteredImages.length - 1) {
 			expandedIndex = expandedIndex + 1;
 		}
 	}
@@ -100,49 +55,65 @@
 			closeExpanded();
 		}
 	}
+
+	$: if (expandedIndex !== null && expandedIndex >= $filteredImages.length) {
+		expandedIndex = $filteredImages.length > 0 ? $filteredImages.length - 1 : null;
+	}
 </script>
 
 <svelte:window on:keydown={handleKeydown} />
 
 <main>
-	<div class="intro-box">
-		<p><em><strong>Conditions of Observation</strong></em> is a photographic research tool developed for my Master of Architecture thesis at the University of Toronto. All photographs are my own, taken primarily with my iPhone between 2017 and 2025 as part of my ongoing practice of noticing.</p>
-		<p>The thesis explores the role of contemporary vernacular materials and contingent urban conditions in shaping architectural culture. This work engages directly with contingent urban context through observation, documentation, and interpretive making to examine how overlooked artifacts of everyday life result from informal participation in the production of space.</p>
-		<p>By treating discarded, provisional, and improvised material conditions as resources for architectural invention, this project highlights chance encounters and circumstantial geometries as productive forces in design.</p>
-	</div>
-
 	<div class="filters-panel">
-		{#each categories as category}
-			<section class="filter-group">
-				<div class="filter-group-header">
-					<h2>{category}</h2>
-					{#if selectedFilters[category].length > 0}
-						<button class="clear-category" type="button" on:click={() => clearFilters(category)}>clear</button>
+		<div class="filters-scroll">
+			{#each categories as category}
+				<section class="filter-group">
+					<button 
+						type="button"
+						class="filter-group-header"
+						on:click={() => toggleCategoryExpanded(category)}
+					>
+						<h2>{category}</h2>
+						<span class="chevron" class:expanded={expandedCategories[category]}>›</span>
+					</button>
+					{#if expandedCategories[category]}
+						<div class="filter-tags">
+							{#each data.filterOptions[category] as value}
+								<button
+									type="button"
+									class="filter-tag"
+									class:active={$selectedFilters[category].includes(value)}
+									on:click={() => toggleFilter(category, value)}
+								>
+									{value}
+								</button>
+							{/each}
+						</div>
 					{/if}
-				</div>
-				<div class="filter-tags">
-					{#each data.filterOptions[category] as value}
-						<button
-							type="button"
-							class="filter-tag"
-							class:active={selectedFilters[category].includes(value)}
-							on:click={() => toggleFilter(category, value)}
-						>
-							{value}
-						</button>
-					{/each}
-				</div>
-			</section>
-		{/each}
+				</section>
+			{/each}
+		</div>
 
 		<div class="filter-summary">
-			<p>{filteredImages.length} / {data.images.length}</p>
-			<button type="button" class="reset-all" on:click={() => clearFilters()} disabled={!hasActiveFilters}>reset all</button>
+			<div class="size-slider">
+				<label for="image-size">image size</label>
+				<input 
+					id="image-size"
+					type="range" 
+					min="100" 
+					max="460" 
+					bind:value={imageSize}
+				/>
+			</div>
+			<div class="summary-footer">
+				<p>{$filteredImages.length} / {data.images.length}</p>
+				<button type="button" class="reset-all" on:click={() => clearFilters()} disabled={!$hasActiveFilters}>reset all</button>
+			</div>
 		</div>
 	</div>
 	
-	<div class="image-container">
-		{#each filteredImages as image, index (image.filename)}
+	<div class="image-container" style="--image-size: {imageSize}px;">
+		{#each $filteredImages as image, index (image.filename)}
 			<div class="image-item-wrapper" id={image.filename}>
 				<div class="image-item" on:click={() => openImage(index)}>
 					<img src={image.thumbnail} alt={image.filename} title={image.filename} />
@@ -162,9 +133,9 @@
 	{#if expandedIndex !== null}
 		<div class="modal-overlay" on:click={closeExpanded}>
 			<div class="modal-content" on:click={(e) => e.stopPropagation()}>
-				<img src={`/thumbnails/${filteredImages[expandedIndex].filename}`} alt={filteredImages[expandedIndex].filename} on:click={closeExpanded} />
+				<img src={`/thumbnails/${$filteredImages[expandedIndex].filename}`} alt={$filteredImages[expandedIndex].filename} on:click={closeExpanded} />
 				<button class="nav-btn prev-btn" on:click={prevImage} disabled={expandedIndex === 0}>‹</button>
-				<button class="nav-btn next-btn" on:click={nextImage} disabled={expandedIndex === filteredImages.length - 1}>›</button>
+				<button class="nav-btn next-btn" on:click={nextImage} disabled={expandedIndex === $filteredImages.length - 1}>›</button>
 			</div>
 		</div>
 	{/if}
@@ -172,19 +143,10 @@
 
 <style>
 	main {
-		padding: 2rem 1rem;
+		padding: 2rem 1rem 2rem 3rem;
 		max-width: 100%;
-		margin-left: 420px;
+		margin-left: max(20vw, 250px);
 		padding-top: calc(2rem + 4rem);
-	}
-
-	.intro-box {
-		width: 350px;
-		margin: 0 auto 3rem;
-		font-size: 0.95rem;
-		line-height: 1.6;
-		color: #333;
-		text-align: justify;
 	}
 
 	.filters-panel {
@@ -193,22 +155,31 @@
 		top: 4rem;
 		bottom: 3rem;
 		z-index: 5;
-		width: 400px;
-		padding: 1.5rem 0.9rem;
+		width: max(20vw, 250px);
+		padding: 0;
 		margin-top: 1rem;
 		border-right: 1px solid #e5e5e5;
 		background: rgba(255, 255, 255, 0.98);
 		backdrop-filter: blur(4px);
 		display: flex;
 		flex-direction: column;
-		gap: 0.7rem;
+		gap: 0;
+		overflow: hidden;
+	}
+
+	.filters-scroll {
+		flex: 1;
 		overflow-y: auto;
+		padding: 1.5rem 0.9rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.7rem;
 	}
 
 	.filter-group {
 		display: flex;
-		align-items: flex-start;
-		gap: 0.7rem;
+		flex-direction: column;
+		gap: 0.45rem;
 		border-bottom: 1px solid #f0f0f0;
 		padding-bottom: 0.55rem;
 	}
@@ -220,10 +191,14 @@
 
 	.filter-group-header {
 		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		gap: 0.25rem;
-		min-width: 86px;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.5rem;
+		background: none;
+		border: none;
+		padding: 0;
+		cursor: pointer;
+		font-family: inherit;
 	}
 
 	.filter-group-header h2 {
@@ -232,6 +207,18 @@
 		font-style: italic;
 		font-weight: 500;
 		text-transform: lowercase;
+		text-align: left;
+	}
+
+	.chevron {
+		display: inline-block;
+		font-size: 1.2rem;
+		transition: transform 0.2s ease;
+		color: #666;
+	}
+
+	.chevron.expanded {
+		transform: rotate(90deg);
 	}
 
 	.filter-tags {
@@ -241,7 +228,6 @@
 	}
 
 	.filter-tag,
-	.clear-category,
 	.reset-all {
 		font-family: inherit;
 		font-size: 0.75rem;
@@ -260,11 +246,83 @@
 
 	.filter-summary {
 		display: flex;
-		justify-content: space-between;
-		align-items: center;
+		flex-direction: column;
+		gap: 0.7rem;
 		font-size: 0.75rem;
 		font-style: italic;
 		color: #666;
+		padding: 0.7rem 0.9rem;
+		border-top: 1px solid #f0f0f0;
+		flex-shrink: 0;
+	}
+
+	.size-slider {
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+		align-items: flex-start;
+	}
+
+	.size-slider label {
+		font-size: 0.75rem;
+		font-style: italic;
+		color: #666;
+	}
+
+	.size-slider input[type="range"] {
+		width: 100%;
+		cursor: pointer;
+		height: 24px;
+		-webkit-appearance: none;
+		appearance: none;
+		background: transparent;
+		border: none;
+		border-radius: 0;
+	}
+
+	.size-slider input[type="range"]::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		appearance: none;
+		width: 12px;
+		height: 12px;
+		background: white;
+		cursor: pointer;
+		border: 1px solid #999;
+		border-radius: 50%;
+		margin-top: -4px;
+	}
+
+	.size-slider input[type="range"]::-moz-range-thumb {
+		width: 12px;
+		height: 12px;
+		background: white;
+		cursor: pointer;
+		border: 1px solid #999;
+		border-radius: 50%;
+	}
+
+	.size-slider input[type="range"]::-webkit-slider-runnable-track {
+		background: #ddd;
+		height: 4px;
+		border-radius: 2px;
+	}
+
+	.size-slider input[type="range"]::-moz-range-track {
+		background: transparent;
+		border: none;
+	}
+
+	.size-slider input[type="range"]::-moz-range-progress {
+		background: #bbb;
+		height: 4px;
+		border-radius: 2px;
+	}
+
+	.summary-footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 0.5rem;
 	}
 
 	.filter-summary p {
@@ -276,29 +334,25 @@
 		cursor: not-allowed;
 	}
 
-	.intro-box p {
-		margin: 0;
-		padding: 0;
-	}
-
 	.image-container {
 		display: flex;
-		flex-direction: column;
-		gap: 2rem;
-		align-items: center;
+		flex-wrap: wrap;
+		gap: 1.5rem;
+		align-items: flex-start;
+		justify-content: flex-start;
 	}
 
 	.image-item-wrapper {
-		width: 350px;
 		display: flex;
 		flex-direction: column;
 		gap: 0.75rem;
+		width: calc(var(--image-size) * 0.75);
 	}
 
 	.image-item {
 		position: relative;
-		width: 350px;
-		aspect-ratio: 3 / 4;
+		width: calc(var(--image-size) * 0.75);
+		height: var(--image-size);
 		overflow: hidden;
 		cursor: pointer;
 		background: #f8f8f8;
@@ -408,16 +462,5 @@
 	
 	.next-btn {
 		right: -60px;
-	}
-
-	@media (max-width: 760px) {
-		.filter-group {
-			flex-direction: column;
-			gap: 0.45rem;
-		}
-
-		.filter-group-header {
-			min-width: auto;
-		}
 	}
 </style>
