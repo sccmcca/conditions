@@ -8,6 +8,7 @@
 	let hoveredImageFilename: string | null = null;
 	let popupPos = { x: 0, y: 0 };
 	let layerInitialized = false;
+	let isFirstUpdate = true;
 
 	onMount(async () => {
 		const { Map, ScaleControl } = await import('maplibre-gl');
@@ -17,8 +18,10 @@
 		map = new Map({
 			container: mapContainer,
 			style: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
-			center: [-79.3957, 43.6629],
-			zoom: 10,
+			center: [0, 0],
+			zoom: 0,
+			minZoom: 0,
+			maxZoom: 18,
 			pitch: 0,
 			bearing: 0,
 			attributionControl: false,
@@ -88,7 +91,7 @@
 				paint: {
 					'circle-radius': 9,
 					'circle-color': '#333',
-					'circle-opacity': 0
+					'circle-opacity': 1
 				},
 				filter: ['boolean', ['feature-state', 'hover'], false]
 			});
@@ -103,9 +106,27 @@
 
 		// Fit bounds if there are points
 		if (geotaggedImages.length > 0) {
-			// Don't auto-fit bounds - keep user's current zoom level
+			const bounds = geotaggedImages.reduce(
+				(acc: any, img: any) => {
+					return {
+						minLng: Math.min(acc.minLng, img.geolocation.longitude),
+						maxLng: Math.max(acc.maxLng, img.geolocation.longitude),
+						minLat: Math.min(acc.minLat, img.geolocation.latitude),
+						maxLat: Math.max(acc.maxLat, img.geolocation.latitude)
+					};
+				},
+				{ minLng: Infinity, maxLng: -Infinity, minLat: Infinity, maxLat: -Infinity }
+			);
+
+			const duration = isFirstUpdate ? 0 : 4000;
+			map.fitBounds(
+				[[bounds.minLng, bounds.minLat], [bounds.maxLng, bounds.maxLat]],
+				{ padding: 50, duration }
+			);
+			isFirstUpdate = false;
 		} else {
-			map.flyTo({ center: [-79.3957, 43.6629], zoom: 10 });
+			map.flyTo({ center: [0, 0], zoom: 0, duration: 4000 });
+			isFirstUpdate = false;
 		}
 	}
 
@@ -135,12 +156,28 @@
 			console.log('Left point');
 			hoveredImageFilename = null;
 			map.getCanvas().style.cursor = '';
+			
+			// Clear all hover states
+			if (map.querySourceFeatures('images').length > 0) {
+				map.querySourceFeatures('images').forEach((feature: any) => {
+					map.setFeatureState(
+						{ source: 'images', id: feature.id },
+						{ hover: false }
+					);
+				});
+			}
 		});
 
 		map.on('mousemove', 'image-points', (e: any) => {
 			if (hoveredImageFilename && e.features.length > 0) {
 				updatePopupPosition(e);
 			}
+		});
+		
+		// Clear popup when leaving the map entirely
+		map.getCanvas().addEventListener('mouseleave', () => {
+			hoveredImageFilename = null;
+			map.getCanvas().style.cursor = '';
 		});
 	}
 
@@ -177,7 +214,7 @@
 			map.flyTo({
 				center: [longitude, latitude],
 				zoom: 15,
-				duration: 3000
+				duration: 4000
 			});
 		}
 	}

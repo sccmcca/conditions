@@ -51,6 +51,7 @@
 
 <main>
 	<div class="filters-panel">
+		<h1 class="filters-title">conditions</h1>
 		<div class="filters-scroll">
 			{#each categories as category}
 				<section class="filter-group">
@@ -135,7 +136,7 @@
 		padding: 2rem 1rem 2rem 3rem;
 		max-width: 100%;
 		margin-left: max(20vw, 250px);
-		padding-top: calc(2rem + 4rem);
+		padding-top: 3rem;
 	}
 
 	.filters-panel {
@@ -154,6 +155,17 @@
 		flex-direction: column;
 		gap: 0;
 		overflow: hidden;
+	}
+
+	.filters-title {
+		margin: 0;
+		padding: 1rem 0.9rem 0.5rem;
+		font-size: 0.9rem;
+		font-weight: 600;
+		font-style: italic;
+		text-transform: lowercase;
+		color: #333;
+		border-bottom: 1px solid #f0f0f0;
 	}
 
 	.filters-scroll {
