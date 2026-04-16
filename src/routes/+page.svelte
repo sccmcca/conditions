@@ -1,165 +1,49 @@
 <script lang="ts">
-	import { selectedFilters, hasActiveFilters, toggleFilter, clearFilters, createImageFilterFunction } from '$lib/stores/filters';
-	import { onMount } from 'svelte';
+	import {
+		metadataStore,
+		selectedFiltersStore,
+		filteredImages,
+		hasActiveFilters,
+		expandedCategories,
+		expandedImageIndex,
+		hoveredMapImage,
+		type Category
+	} from '$lib/stores/metadata';
+	import Map from '$lib/components/Map.svelte';
 
 	export let data;
 
-	type Category = 'material' | 'tectonic' | 'interaction' | 'phenomena';
 	const categories: Category[] = ['material', 'tectonic', 'interaction', 'phenomena'];
-
-	// Create derived store for filtered images
-	let filteredImages = createImageFilterFunction(data.images);
 	
-	// Track which categories are expanded
-	let expandedCategories: Record<Category, boolean> = {
-		material: false,
-		tectonic: false,
-		interaction: false,
-		phenomena: false
-	};
-	
-	let imageSize = 200; // Default image height in pixels
-	let mapContainer: HTMLDivElement;
-	let map: any;
-	
-	let expandedIndex: number | null = null;
-	
-	onMount(async () => {
-		// Dynamically import MapLibre to avoid SSR issues
-		const { Map } = await import('maplibre-gl');
-		await import('maplibre-gl/dist/maplibre-gl.css');
+	let imageSize = 200;
+	let mapComponent: any;
 
-		// Initialize map
-		map = new Map({
-			container: mapContainer,
-			style: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
-			center: [0, 0],
-			zoom: 2
-		});
-
-		// Wait for style to load before updating
-		map.once('style.load', () => {
-			updateMapWithFilteredImages($filteredImages);
-		});
-	});
-
-	function updateMapWithFilteredImages(images: any[]) {
-		if (!map) return;
-
-		// Get all geotagged images
-		const geotaggedImages = images.filter(img => img.geolocation);
-
-		// If no geotagged images, show world view
-		if (geotaggedImages.length === 0) {
-			map.flyTo({ center: [0, 0], zoom: 2 });
-			return;
-		}
-
-		// Create GeoJSON
-		const geojson = {
-			type: 'FeatureCollection' as const,
-			features: geotaggedImages.map((img: any) => ({
-				type: 'Feature' as const,
-				geometry: {
-					type: 'Point' as const,
-					coordinates: [img.geolocation.longitude, img.geolocation.latitude]
-				},
-				properties: {
-					filename: img.filename
-				}
-			}))
-		};
-
-		// Initialize source and layer if they don't exist
-		if (!map.getSource('location-source')) {
-			map.addSource('location-source', {
-				type: 'geojson',
-				data: geojson
-			});
-
-			map.addLayer({
-				id: 'location-points',
-				type: 'circle',
-				source: 'location-source',
-				paint: {
-					'circle-radius': 4,
-					'circle-color': '#333',
-					'circle-opacity': 0.6
-				}
-			});
-		} else {
-			// Update existing source
-			(map.getSource('location-source') as any).setData(geojson);
-		}
-
-		// Calculate bounds
-		const bounds = geotaggedImages.reduce((acc: any, img: any) => {
-			return {
-				minLng: Math.min(acc.minLng, img.geolocation.longitude),
-				maxLng: Math.max(acc.maxLng, img.geolocation.longitude),
-				minLat: Math.min(acc.minLat, img.geolocation.latitude),
-				maxLat: Math.max(acc.maxLat, img.geolocation.latitude)
-			};
-		}, {
-			minLng: Infinity,
-			maxLng: -Infinity,
-			minLat: Infinity,
-			maxLat: -Infinity
-		});
-
-		// Fit map to bounds with padding
-		if (isFinite(bounds.minLng)) {
-			map.fitBounds(
-				[
-					[bounds.minLng, bounds.minLat],
-					[bounds.maxLng, bounds.maxLat]
-				],
-				{ padding: 20, duration: 0 }
-			);
-		}
-	}
-
-	function toggleCategoryExpanded(category: Category) {
-		expandedCategories[category] = !expandedCategories[category];
-	}
-	
-	function openImage(index: number) {
-		expandedIndex = index;
-	}
-	
-	function closeExpanded() {
-		expandedIndex = null;
+	// Load metadata on mount
+	$: if (data?.images) {
+		metadataStore.loadData(data);
 	}
 	
 	function nextImage() {
-		if (expandedIndex !== null && expandedIndex < $filteredImages.length - 1) {
-			expandedIndex = expandedIndex + 1;
-		}
+		$expandedImageIndex = Math.min(($expandedImageIndex ?? -1) + 1, $filteredImages.length - 1);
 	}
 	
 	function prevImage() {
-		if (expandedIndex !== null && expandedIndex > 0) {
-			expandedIndex = expandedIndex - 1;
-		}
+		$expandedImageIndex = Math.max(($expandedImageIndex ?? 1) - 1, 0);
+	}
+	
+	function closeExpanded() {
+		expandedImageIndex.set(null);
 	}
 	
 	function handleKeydown(e: KeyboardEvent) {
-		if (expandedIndex === null) return;
-		if (e.key === 'ArrowRight') {
-			nextImage();
-		} else if (e.key === 'ArrowLeft') {
-			prevImage();
-		} else if (e.key === 'Escape') {
-			closeExpanded();
-		}
+		if ($expandedImageIndex === null) return;
+		if (e.key === 'ArrowRight') nextImage();
+		else if (e.key === 'ArrowLeft') prevImage();
+		else if (e.key === 'Escape') closeExpanded();
 	}
 
-	$: if (expandedIndex !== null && expandedIndex >= $filteredImages.length) {
-		expandedIndex = $filteredImages.length > 0 ? $filteredImages.length - 1 : null;
-	}
-
-	$: if (map) {
-		updateMapWithFilteredImages($filteredImages);
+	$: if ($expandedImageIndex !== null && $expandedImageIndex >= $filteredImages.length) {
+		expandedImageIndex.set($filteredImages.length > 0 ? $filteredImages.length - 1 : null);
 	}
 </script>
 
@@ -173,19 +57,19 @@
 					<button 
 						type="button"
 						class="filter-group-header"
-						on:click={() => toggleCategoryExpanded(category)}
+						on:click={() => expandedCategories.toggle(category)}
 					>
 						<h2>{category}</h2>
-						<span class="chevron" class:expanded={expandedCategories[category]}>›</span>
+						<span class="chevron" class:expanded={$expandedCategories[category]}>›</span>
 					</button>
-					{#if expandedCategories[category]}
+					{#if $expandedCategories[category]}
 						<div class="filter-tags">
 							{#each data.filterOptions[category] as value}
 								<button
 									type="button"
 									class="filter-tag"
-									class:active={$selectedFilters[category].includes(value)}
-									on:click={() => toggleFilter(category, value)}
+									class:active={$selectedFiltersStore[category]?.includes(value) ?? false}
+									on:click={() => selectedFiltersStore.toggle(category, value)}
 								>
 									{value}
 								</button>
@@ -197,7 +81,7 @@
 		</div>
 
 		<div class="filter-summary">
-			<div class="location-map" bind:this={mapContainer}></div>
+			<Map bind:this={mapComponent} filteredImages={$filteredImages} />
 			<div class="size-slider">
 				<label for="image-size">image size</label>
 				<input 
@@ -210,7 +94,7 @@
 			</div>
 			<div class="summary-footer">
 				<p>{$filteredImages.length} / {data.images.length}</p>
-				<button type="button" class="reset-all" on:click={() => clearFilters()} disabled={!$hasActiveFilters}>reset all</button>
+				<button type="button" class="reset-all" on:click={() => selectedFiltersStore.clear()} disabled={!$hasActiveFilters}>reset all</button>
 			</div>
 		</div>
 	</div>
@@ -218,27 +102,29 @@
 	<div class="image-container" style="--image-size: {imageSize}px;">
 		{#each $filteredImages as image, index (image.filename)}
 			<div class="image-item-wrapper" id={image.filename}>
-				<div class="image-item" on:click={() => openImage(index)}>
+				<button type="button" class="image-item" on:click={() => expandedImageIndex.set(index)}>
 					<img src={image.thumbnail} alt={image.filename} title={image.filename} />
 					<div class="filename-overlay" aria-hidden="true">{image.filename}</div>
-				</div>
+				</button>
 				<div class="image-metadata">
 					{#if image.author}<p class="author">{image.author}</p>{/if}
 					{#if image.date}<p class="date">{image.date}</p>{/if}
 					{#if image.tags?.length}<p class="tags">{image.tags.join(', ')}</p>{/if}
-					{#if image.geolocation}<p class="geolocation">{image.geolocation.latitude.toFixed(4)}, {image.geolocation.longitude.toFixed(4)}</p>{/if}
+					{#if image.geolocation}<button type="button" class="geolocation" on:click={() => mapComponent?.flyToLocation(image.geolocation!.latitude, image.geolocation!.longitude)}>{image.geolocation!.latitude.toFixed(4)}, {image.geolocation!.longitude.toFixed(4)}</button>{/if}
 					{#if image.caption}<p class="caption">{image.caption}</p>{/if}
 				</div>
 			</div>
 		{/each}
 	</div>
 	
-	{#if expandedIndex !== null}
-		<div class="modal-overlay" on:click={closeExpanded}>
-			<div class="modal-content" on:click={(e) => e.stopPropagation()}>
-				<img src={`/thumbnails/${$filteredImages[expandedIndex].filename}`} alt={$filteredImages[expandedIndex].filename} on:click={closeExpanded} />
-				<button class="nav-btn prev-btn" on:click={prevImage} disabled={expandedIndex === 0}>‹</button>
-				<button class="nav-btn next-btn" on:click={nextImage} disabled={expandedIndex === $filteredImages.length - 1}>›</button>
+	{#if $expandedImageIndex !== null}
+		<div class="modal-overlay" role="button" tabindex="0" on:click={closeExpanded} on:keydown={(e) => e.key === 'Escape' && closeExpanded()}>
+			<div class="modal-content" on:click={(e) => e.stopPropagation()} role="presentation">
+				<button type="button" class="modal-image" on:click={closeExpanded}>
+					<img src={$filteredImages[$expandedImageIndex].thumbnail} alt={$filteredImages[$expandedImageIndex].filename} />
+				</button>
+				<button class="nav-btn prev-btn" type="button" on:click={prevImage} disabled={$expandedImageIndex === 0}>‹</button>
+				<button class="nav-btn next-btn" type="button" on:click={nextImage} disabled={$expandedImageIndex === $filteredImages.length - 1}>›</button>
 			</div>
 		</div>
 	{/if}
@@ -356,19 +242,14 @@
 		color: #666;
 		padding: 0.7rem 0.9rem;
 		border-top: 1px solid #f0f0f0;
-		flex-shrink: 0;
+		flex-shrink: 1;
+		min-height: 0;
 	}
 
-	.location-map {
+	.filter-summary :global(.map-wrapper) {
+		flex: 1;
+		min-height: 200px;
 		width: 100%;
-		aspect-ratio: 1;
-		border: 1px solid #e5e5e5;
-		border-radius: 2px;
-		background: #f9f9f9;
-	}
-
-	:global(.location-map .maplibregl-control) {
-		display: none;
 	}
 
 	.size-slider {
@@ -471,6 +352,10 @@
 		overflow: hidden;
 		cursor: pointer;
 		background: #f8f8f8;
+		border: none;
+		padding: 0;
+		margin: 0;
+		font: inherit;
 	}
 
 	.filename-overlay {
@@ -504,6 +389,27 @@
 		padding: 0;
 	}
 
+	.geolocation {
+		background: none;
+		border: none;
+		padding: 0;
+		margin: 0;
+		font: inherit;
+		color: #666;
+		text-decoration: underline;
+		text-decoration-color: #999;
+		text-decoration-style: dotted;
+		text-decoration-thickness: 1px;
+		text-underline-offset: 2px;
+		transition: color 0.15s ease, text-decoration-color 0.15s ease;
+		cursor: pointer;
+	}
+
+	.geolocation:hover {
+		color: #333;
+		text-decoration-color: #333;
+	}
+
 	img {
 		width: 100%;
 		height: 100%;
@@ -535,13 +441,25 @@
 		justify-content: center;
 	}
 	
-	.modal-content img {
+	.modal-image {
+		background: none;
+		border: none;
+		padding: 0;
+		margin: 0;
+		cursor: pointer;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.modal-image img {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
 		box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12);
 		background: #f8f8f8;
-		cursor: pointer;
 	}
 	
 	.nav-btn {
