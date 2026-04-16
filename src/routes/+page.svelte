@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { selectedFilters, hasActiveFilters, toggleFilter, clearFilters, createImageFilterFunction } from '$lib/stores/filters';
+	import { onMount } from 'svelte';
 
 	export let data;
 
@@ -18,9 +19,106 @@
 	};
 	
 	let imageSize = 200; // Default image height in pixels
+	let mapContainer: HTMLDivElement;
+	let map: any;
 	
 	let expandedIndex: number | null = null;
 	
+	onMount(async () => {
+		// Dynamically import MapLibre to avoid SSR issues
+		const { Map } = await import('maplibre-gl');
+		await import('maplibre-gl/dist/maplibre-gl.css');
+
+		// Initialize map
+		map = new Map({
+			container: mapContainer,
+			style: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
+			center: [0, 0],
+			zoom: 2
+		});
+
+		// Wait for style to load before updating
+		map.once('style.load', () => {
+			updateMapWithFilteredImages($filteredImages);
+		});
+	});
+
+	function updateMapWithFilteredImages(images: any[]) {
+		if (!map) return;
+
+		// Get all geotagged images
+		const geotaggedImages = images.filter(img => img.geolocation);
+
+		// If no geotagged images, show world view
+		if (geotaggedImages.length === 0) {
+			map.flyTo({ center: [0, 0], zoom: 2 });
+			return;
+		}
+
+		// Create GeoJSON
+		const geojson = {
+			type: 'FeatureCollection' as const,
+			features: geotaggedImages.map((img: any) => ({
+				type: 'Feature' as const,
+				geometry: {
+					type: 'Point' as const,
+					coordinates: [img.geolocation.longitude, img.geolocation.latitude]
+				},
+				properties: {
+					filename: img.filename
+				}
+			}))
+		};
+
+		// Initialize source and layer if they don't exist
+		if (!map.getSource('location-source')) {
+			map.addSource('location-source', {
+				type: 'geojson',
+				data: geojson
+			});
+
+			map.addLayer({
+				id: 'location-points',
+				type: 'circle',
+				source: 'location-source',
+				paint: {
+					'circle-radius': 4,
+					'circle-color': '#333',
+					'circle-opacity': 0.6
+				}
+			});
+		} else {
+			// Update existing source
+			(map.getSource('location-source') as any).setData(geojson);
+		}
+
+		// Calculate bounds
+		const bounds = geotaggedImages.reduce((acc: any, img: any) => {
+			return {
+				minLng: Math.min(acc.minLng, img.geolocation.longitude),
+				maxLng: Math.max(acc.maxLng, img.geolocation.longitude),
+				minLat: Math.min(acc.minLat, img.geolocation.latitude),
+				maxLat: Math.max(acc.maxLat, img.geolocation.latitude)
+			};
+		}, {
+			minLng: Infinity,
+			maxLng: -Infinity,
+			minLat: Infinity,
+			maxLat: -Infinity
+		});
+
+		// Fit map to bounds with padding
+		if (isFinite(bounds.minLng)) {
+			map.fitBounds(
+				[
+					[bounds.minLng, bounds.minLat],
+					[bounds.maxLng, bounds.maxLat]
+				],
+				{ padding: 20, duration: 0 }
+			);
+		}
+	}
+
 	function toggleCategoryExpanded(category: Category) {
 		expandedCategories[category] = !expandedCategories[category];
 	}
@@ -59,6 +157,10 @@
 	$: if (expandedIndex !== null && expandedIndex >= $filteredImages.length) {
 		expandedIndex = $filteredImages.length > 0 ? $filteredImages.length - 1 : null;
 	}
+
+	$: if (map) {
+		updateMapWithFilteredImages($filteredImages);
+	}
 </script>
 
 <svelte:window on:keydown={handleKeydown} />
@@ -95,6 +197,7 @@
 		</div>
 
 		<div class="filter-summary">
+			<div class="location-map" bind:this={mapContainer}></div>
 			<div class="size-slider">
 				<label for="image-size">image size</label>
 				<input 
@@ -254,6 +357,18 @@
 		padding: 0.7rem 0.9rem;
 		border-top: 1px solid #f0f0f0;
 		flex-shrink: 0;
+	}
+
+	.location-map {
+		width: 100%;
+		aspect-ratio: 1;
+		border: 1px solid #e5e5e5;
+		border-radius: 2px;
+		background: #f9f9f9;
+	}
+
+	:global(.location-map .maplibregl-control) {
+		display: none;
 	}
 
 	.size-slider {
