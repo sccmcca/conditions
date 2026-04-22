@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { base } from '$app/paths';
 	import { mapExpanded, mapCenter, mapZoom } from '$lib/stores/metadata';
 
 	export let filteredImages: any[] = [];
@@ -319,7 +320,7 @@
 	{#if hoveredImageFilename || selectedImageFilename}
 		<div class="hover-popup" style="left: {popupPos.x}px; top: {popupPos.y}px;">
 			<img 
-				src="/thumbnails/{(selectedImageFilename || hoveredImageFilename).split('.')[0]}.jpg" 
+				src="{base}/thumbnails/{(selectedImageFilename || hoveredImageFilename).split('.')[0]}.jpg" 
 				alt={selectedImageFilename || hoveredImageFilename}
 			/>
 		</div>

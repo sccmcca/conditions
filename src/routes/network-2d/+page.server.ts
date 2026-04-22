@@ -61,9 +61,18 @@ function makeRng(seedValue: string) {
 }
 
 export const load = async ({ url }) => {
-	const top = Math.max(10, Math.min(120, Number(url.searchParams.get('top') ?? 45)));
-	const minEdge = Math.max(1, Math.min(20, Number(url.searchParams.get('minEdge') ?? 2)));
-	const clusterEdge = Math.max(minEdge, Math.min(20, Number(url.searchParams.get('clusterEdge') ?? 3)));
+	// Safely get search params with defaults for prerendering
+	const getParam = (key: string, defaultValue: number) => {
+		try {
+			return Number(url.searchParams?.get(key) ?? defaultValue);
+		} catch {
+			return defaultValue;
+		}
+	};
+
+	const top = Math.max(10, Math.min(120, getParam('top', 45)));
+	const minEdge = Math.max(1, Math.min(20, getParam('minEdge', 2)));
+	const clusterEdge = Math.max(minEdge, Math.min(20, getParam('clusterEdge', 3)));
 
 	const { images } = loadGalleryData();
 	const nodeCount = new Map<string, number>();

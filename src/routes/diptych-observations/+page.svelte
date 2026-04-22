@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { base } from '$app/paths';
 	import { observations } from '$lib/stores/observations';
 
 	let expandedId: string | null = null;
@@ -39,7 +40,7 @@
 		<div class="empty-state">
 			<p>no observations yet</p>
 			<p>
-				visit <a href="/diptych-random">diptych random</a> to create some
+				visit <a href={`${base}/diptych-random`}>diptych random</a> to create some
 			</p>
 		</div>
 	{:else}
