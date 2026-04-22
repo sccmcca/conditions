@@ -92,7 +92,7 @@
 				title={mapCollapsed ? 'show map' : 'hide map'}
 			>
 				<span class="map-label">map</span>
-				<span class="map-chevron" class:collapsed={mapCollapsed}>‣</span>
+			<span class="map-chevron" class:collapsed={mapCollapsed}>›</span>
 			</button>
 			{#if !mapCollapsed}
 				<Map bind:this={mapComponent} filteredImages={$filteredImages} />
@@ -302,13 +302,13 @@
 
 	.map-chevron {
 		display: inline-block;
-		font-size: 1rem;
+		font-size: 1.2rem;
 		transition: transform 0.2s ease;
 		color: #666;
 	}
 
-	.map-chevron.collapsed {
-		transform: rotate(-90deg);
+	.map-chevron:not(.collapsed) {
+		transform: rotate(90deg);
 	}
 
 	.filter-summary :global(.map-wrapper) {
