@@ -16,14 +16,14 @@
 <div class="layout">
 	<header>
 		<a href={base || "/"}>
-			<h1>Conditions of Observation</h1>
+			<h1>Slow Practice</h1>
 		</a>
 		<div class="header-links">
 			<a class="category-link" href={`${base}/network`}>network</a>
 			<a class="category-link" href={`${base}/network-2d`}>network 2d</a>
-			<a class="category-link" href={`${base}/image-cloud`}>image cloud</a>
 			<a class="category-link" href={`${base}/diptych-random`}>diptych random</a>
 			<a class="category-link" href={`${base}/diptych-observations`}>diptych catalogue</a>
+			<a class="category-link" href={`${base}/info`}>info</a>
 		</div>
 		<!-- <p>photographic research method</p> -->
 		

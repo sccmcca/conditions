@@ -26,6 +26,8 @@
         <br /><br />
         Warmly, <br />
         <blur><em>Scott Christian McCallum</em></blur>
+        <br />
+        <a href="https://www.instagram.com/slow.practice/" target="_blank" rel="noopener noreferrer">@slow.practice</a>
     </p>
 </div>
 
@@ -62,6 +64,21 @@
         background-position: bottom;
         background-size: 4px 1px;
         background-repeat: repeat-x;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+        font-style: italic;
+        transition: filter 0.05s;
+        will-change: filter;
+        -webkit-backface-visibility: hidden;
+        -webkit-transform: translateZ(0);
+    }
+
+    a:hover {
+        filter: blur(4px);
+        -webkit-filter: blur(4px);
     }
 
     @media (max-width: 499px) {
