@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { page } from "$app/stores";
 	import { base } from "$app/paths";
+	import { mapExpanded, filteredImages } from "$lib/stores/metadata";
+	import Map from "$lib/components/Map.svelte";
 	import favicon from "$lib/assets/favicon.svg";
 
 	let { children } = $props();
@@ -45,7 +47,12 @@
 				</svg>
 			</a>
 		</footer>
-	</div>
+
+	{#if $mapExpanded}
+		<div class="map-backdrop" on:click={() => mapExpanded.set(false)}></div>
+		<Map filteredImages={$filteredImages} expanded={true} />
+	{/if}
+</div>
 
 <style>
 	:global(body) {
@@ -198,5 +205,16 @@
 	.upload-icon:hover {
 		filter: blur(2px);
 		-webkit-filter: blur(2px);
+	}
+
+	.map-backdrop {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: rgba(255, 255, 255, 0.3);
+		backdrop-filter: blur(10px);
+		z-index: 10000;
 	}
 </style>

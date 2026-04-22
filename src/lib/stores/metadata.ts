@@ -139,3 +139,10 @@ export const hoveredMapImage = writable<string | null>(null);
 
 // Store for image viewer
 export const expandedImageIndex = writable<number | null>(null);
+
+// Store for map expanded state
+export const mapExpanded = writable<boolean>(false);
+
+// Store for map center and zoom
+export const mapCenter = writable<[number, number]>([0, 0]);
+export const mapZoom = writable<number>(0);

@@ -1,14 +1,24 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { mapExpanded, mapCenter, mapZoom } from '$lib/stores/metadata';
 
 	export let filteredImages: any[] = [];
+	export let expanded: boolean = false;
 
 	let mapContainer: HTMLDivElement;
 	let map: any;
 	let hoveredImageFilename: string | null = null;
+	let selectedImageFilename: string | null = null;
 	let popupPos = { x: 0, y: 0 };
 	let layerInitialized = false;
 	let isFirstUpdate = true;
+
+	// Handle map resize when expanding/collapsing
+	$: if (map && $mapExpanded !== undefined) {
+		setTimeout(() => {
+			map.resize();
+		}, 50);
+	}
 
 	onMount(async () => {
 		const { Map, ScaleControl } = await import('maplibre-gl');
@@ -18,8 +28,8 @@
 		map = new Map({
 			container: mapContainer,
 			style: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
-			center: [0, 0],
-			zoom: 0,
+			center: $mapCenter,
+			zoom: $mapZoom,
 			minZoom: 0,
 			maxZoom: 18,
 			pitch: 0,
@@ -31,14 +41,20 @@
 		// Add scale control
 		map.addControl(new ScaleControl({ maxWidth: 100, unit: 'metric' }));
 
+		// Sync map state to stores
+		map.on('move', () => {
+			mapCenter.set(map.getCenter());
+			mapZoom.set(map.getZoom());
+		});
+
 		// Wait for style to load
 		map.once('style.load', () => {
 			console.log('Map style loaded');
-			updateMap();
+			updateMap(expanded);
 		});
 	});
 
-	function updateMap() {
+	function updateMap(skipFitBounds: boolean = false) {
 		if (!map) return;
 
 		const geotaggedImages = filteredImages.filter(img => img.geolocation);
@@ -104,8 +120,8 @@
 			map.getSource('images').setData(geojson);
 		}
 
-		// Fit bounds if there are points
-		if (geotaggedImages.length > 0) {
+		// Fit bounds if there are points (skip if flag is set)
+		if (!skipFitBounds && geotaggedImages.length > 0) {
 			const bounds = geotaggedImages.reduce(
 				(acc: any, img: any) => {
 					return {
@@ -124,7 +140,7 @@
 				{ padding: 50, duration }
 			);
 			isFirstUpdate = false;
-		} else {
+		} else if (!skipFitBounds) {
 			map.flyTo({ center: [0, 0], zoom: 0, duration: 4000 });
 			isFirstUpdate = false;
 		}
@@ -133,10 +149,11 @@
 	function setupHoverEvents() {
 		if (!map) return;
 
-		console.log('Setting up hover events for image-points layer');
+		console.log('Setting up hover/click events for image-points layer');
 
+		// Hover events (for mouse/desktop)
 		map.on('mouseenter', 'image-points', (e: any) => {
-			if (e.features.length > 0) {
+			if (e.features.length > 0 && !selectedImageFilename) {
 				const filename = e.features[0].properties.filename;
 				console.log('Hovering over:', filename);
 				hoveredImageFilename = filename;
@@ -154,29 +171,67 @@
 
 		map.on('mouseleave', 'image-points', () => {
 			console.log('Left point');
-			hoveredImageFilename = null;
-			map.getCanvas().style.cursor = '';
-			
-			// Clear all hover states
-			if (map.querySourceFeatures('images').length > 0) {
-				map.querySourceFeatures('images').forEach((feature: any) => {
-					map.setFeatureState(
-						{ source: 'images', id: feature.id },
-						{ hover: false }
-					);
-				});
+			if (!selectedImageFilename) {
+				hoveredImageFilename = null;
+				map.getCanvas().style.cursor = '';
+				
+				// Clear all hover states
+				if (map.querySourceFeatures('images').length > 0) {
+					map.querySourceFeatures('images').forEach((feature: any) => {
+						map.setFeatureState(
+							{ source: 'images', id: feature.id },
+							{ hover: false }
+						);
+					});
+				}
 			}
 		});
 
 		map.on('mousemove', 'image-points', (e: any) => {
-			if (hoveredImageFilename && e.features.length > 0) {
+			if ((hoveredImageFilename || selectedImageFilename) && e.features.length > 0) {
 				updatePopupPosition(e);
+			}
+		});
+
+		// Click handler (for touch/tablet)
+		map.on('click', 'image-points', (e: any) => {
+			if (e.features.length > 0) {
+				const filename = e.features[0].properties.filename;
+				console.log('Clicked on:', filename);
+				
+				// Toggle selection
+				if (selectedImageFilename === filename) {
+					selectedImageFilename = null;
+				} else {
+					selectedImageFilename = filename;
+					hoveredImageFilename = null;
+					updatePopupPosition(e);
+				}
+				
+				// Prevent map click handler from firing
+				e.originalEvent.stopPropagation();
+			}
+		});
+
+		// Click on map background to close popup
+		map.on('click', (e: any) => {
+			if (selectedImageFilename) {
+				selectedImageFilename = null;
+			}
+		});
+
+		// Also close when pressing escape key
+		document.addEventListener('keydown', (e: KeyboardEvent) => {
+			if (e.key === 'Escape' && selectedImageFilename) {
+				selectedImageFilename = null;
 			}
 		});
 		
 		// Clear popup when leaving the map entirely
 		map.getCanvas().addEventListener('mouseleave', () => {
-			hoveredImageFilename = null;
+			if (!selectedImageFilename) {
+				hoveredImageFilename = null;
+			}
 			map.getCanvas().style.cursor = '';
 		});
 	}
@@ -206,7 +261,7 @@
 
 	// Watch map initialization and filtered images - update when filters change
 	$: if (map && layerInitialized && filteredImages.length >= 0) {
-		updateMap();
+		updateMap(expanded);
 	}
 
 	export function flyToLocation(latitude: number, longitude: number) {
@@ -218,16 +273,54 @@
 			});
 		}
 	}
+
+	export function getMapState() {
+		if (map) {
+			return {
+				center: map.getCenter(),
+				zoom: map.getZoom()
+			};
+		}
+		return null;
+	}
+
+	export function setMapState(center: any, zoom: number) {
+		if (map) {
+			map.setCenter(center);
+			map.setZoom(zoom);
+		}
+	}
+
+	export function expandMap() {
+		if (map) {
+			// Capture current state
+			mapCenter.set([map.getCenter().lng, map.getCenter().lat]);
+			mapZoom.set(map.getZoom());
+			// Trigger expansion
+			mapExpanded.set(true);
+		}
+	}
 </script>
 
-<div class="map-wrapper">
+{#if $mapExpanded}
+	<!-- expanded map is now rendered at layout level -->
+{/if}
+
+<div class="map-wrapper" class:expanded>
 	<div class="map-container" bind:this={mapContainer}></div>
+	{#if !expanded}
+		<button class="expand-button" on:click={expandMap} title="Expand map">
+			<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+				<path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+			</svg>
+		</button>
+	{/if}
 	
-	{#if hoveredImageFilename}
+	{#if hoveredImageFilename || selectedImageFilename}
 		<div class="hover-popup" style="left: {popupPos.x}px; top: {popupPos.y}px;">
 			<img 
-				src="/thumbnails/{hoveredImageFilename.split('.')[0]}.jpg" 
-				alt={hoveredImageFilename}
+				src="/thumbnails/{(selectedImageFilename || hoveredImageFilename).split('.')[0]}.jpg" 
+				alt={selectedImageFilename || hoveredImageFilename}
 			/>
 		</div>
 	{/if}
@@ -240,11 +333,45 @@
 		aspect-ratio: 1;
 	}
 
+	.map-wrapper.expanded {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 70vh;
+		height: 70vh;
+		z-index: 10001;
+		box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+	}
+
 	.map-container {
 		width: 100%;
 		height: 100%;
 		border: 1px solid #ddd;
-		border-radius: 2px;
+	}
+
+	.expand-button {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		width: 24px;
+		height: 24px;
+		padding: 4px;
+		background: white;
+		border: 1px solid #ddd;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 100;
+		color: #666;
+		opacity: 1;
+		transition: background-color 0.2s, border-color 0.2s;
+	}
+
+	.expand-button:hover {
+		background-color: #f5f5f5;
+		border-color: #999;
 	}
 
 	.hover-popup {
@@ -261,9 +388,14 @@
 
 	.hover-popup img {
 		display: block;
-		width: 90px;
-		height: 120px;
+		width: 120px;
+		height: 160px;
 		object-fit: cover;
+	}
+
+	.map-wrapper.expanded .hover-popup img {
+		width: 300px;
+		height: 400px;
 	}
 
 	:global(.maplibregl-ctrl-scale) {
