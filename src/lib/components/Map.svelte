@@ -336,8 +336,8 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		width: 70vh;
-		height: 70vh;
+		width: min(90vw, 90vh);
+		height: min(90vw, 90vh);
 		z-index: 10001;
 		box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 	}
@@ -392,8 +392,10 @@
 	}
 
 	.map-wrapper.expanded .hover-popup img {
-		width: 300px;
-		height: 400px;
+		width: min(40vw, 40vh);
+		height: auto;
+		aspect-ratio: 3 / 4;
+		object-fit: cover;
 	}
 
 	:global(.maplibregl-ctrl-scale) {
