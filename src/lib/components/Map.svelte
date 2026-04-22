@@ -150,50 +150,72 @@
 	function setupHoverEvents() {
 		if (!map) return;
 
-		console.log('Setting up click events for image-points layer');
+		console.log('Setting up hover and click events for image-points layer');
 
-		// Click handler - toggle selection on/off
+		// Track if we just clicked a point to prevent map click handler from firing
+		let justClickedPoint = false;
+
+		// Hover to preview image
+		map.on('mouseenter', 'image-points', (e: any) => {
+			if (e.features.length > 0) {
+				const filename = e.features[0].properties.filename;
+				// Hovering over any point clears selection and shows preview
+				selectedImageFilename = null;
+				hoveredImageFilename = filename;
+				updatePopupPosition(e);
+			}
+			map.getCanvas().style.cursor = 'pointer';
+		});
+
+		// Stop hovering - clear preview
+		map.on('mouseleave', 'image-points', () => {
+			hoveredImageFilename = null;
+			map.getCanvas().style.cursor = '';
+		});
+
+		// Move mouse while hovering to keep popup positioned correctly
+		map.on('mousemove', 'image-points', (e: any) => {
+			if (hoveredImageFilename && e.features.length > 0) {
+				updatePopupPosition(e);
+			}
+		});
+
+		// Click handler on points layer - toggle selection on/off
 		map.on('click', 'image-points', (e: any) => {
 			if (e.features.length > 0) {
 				const filename = e.features[0].properties.filename;
-				console.log('Clicked/tapped on:', filename);
+				console.log('Clicked/tapped on point:', filename);
+				
+				justClickedPoint = true;
 				
 				// Toggle selection
 				if (selectedImageFilename === filename) {
 					selectedImageFilename = null;
 				} else {
 					selectedImageFilename = filename;
+					hoveredImageFilename = null;
 					updatePopupPosition(e);
 				}
-				
-				// Prevent map click handler from firing
-				e.originalEvent.stopPropagation();
 			}
 		});
 
 		// Click elsewhere on map to close popup
 		map.on('click', (e: any) => {
-			console.log('Clicked on map background');
-			if (selectedImageFilename) {
+			// Only process if we didn't just click a point
+			if (!justClickedPoint && selectedImageFilename) {
+				console.log('Clicked on map background, closing popup');
 				selectedImageFilename = null;
 			}
+			justClickedPoint = false;
 		});
 
 		// Close when pressing escape key
 		document.addEventListener('keydown', (e: KeyboardEvent) => {
 			if (e.key === 'Escape' && selectedImageFilename) {
-				console.log('Escape pressed');
+				console.log('Escape pressed, closing popup');
 				selectedImageFilename = null;
+				hoveredImageFilename = null;
 			}
-		});
-		
-		// Change cursor on image points
-		map.on('mouseenter', 'image-points', () => {
-			map.getCanvas().style.cursor = 'pointer';
-		});
-		
-		map.on('mouseleave', 'image-points', () => {
-			map.getCanvas().style.cursor = '';
 		});
 	}
 
@@ -292,11 +314,11 @@
 		</button>
 	{/if}
 	
-	{#if selectedImageFilename}
+	{#if hoveredImageFilename || selectedImageFilename}
 		<div class="hover-popup" style="left: {popupPos.x}px; top: {popupPos.y}px;">
 			<img 
-				src="{base}/thumbnails/{selectedImageFilename.split('.')[0]}.jpg" 
-				alt={selectedImageFilename}
+				src="{base}/thumbnails/{(selectedImageFilename || hoveredImageFilename).split('.')[0]}.jpg" 
+				alt={selectedImageFilename || hoveredImageFilename}
 			/>
 		</div>
 	{/if}
