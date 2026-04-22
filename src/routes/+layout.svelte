@@ -19,10 +19,11 @@
 			<h1>Conditions of Observation</h1>
 		</a>
 		<div class="header-links">
-			<a class="category-link" href={`${base}/category`}>category</a>
 			<a class="category-link" href={`${base}/network`}>network</a>
 			<a class="category-link" href={`${base}/network-2d`}>network 2d</a>
 			<a class="category-link" href={`${base}/image-cloud`}>image cloud</a>
+			<a class="category-link" href={`${base}/diptych-random`}>diptych random</a>
+			<a class="category-link" href={`${base}/diptych-observations`}>diptych catalogue</a>
 		</div>
 		<!-- <p>photographic research method</p> -->
 		

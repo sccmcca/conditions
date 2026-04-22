@@ -15,8 +15,9 @@
 
 	const categories: Category[] = ['material', 'tectonic', 'interaction', 'phenomena'];
 	
-	let imageSize = 200;
+	let imageSize = 225;
 	let mapComponent: any;
+	let mapCollapsed = false;
 
 	// Load metadata on mount
 	$: if (data?.images) {
@@ -24,11 +25,13 @@
 	}
 	
 	function nextImage() {
-		$expandedImageIndex = Math.min(($expandedImageIndex ?? -1) + 1, $filteredImages.length - 1);
+		const current = $expandedImageIndex ?? -1;
+		$expandedImageIndex = (current + 1) % $filteredImages.length;
 	}
 	
 	function prevImage() {
-		$expandedImageIndex = Math.max(($expandedImageIndex ?? 1) - 1, 0);
+		const current = $expandedImageIndex ?? 0;
+		$expandedImageIndex = (current - 1 + $filteredImages.length) % $filteredImages.length;
 	}
 	
 	function closeExpanded() {
@@ -82,17 +85,28 @@
 		</div>
 
 		<div class="filter-summary">
-			<Map bind:this={mapComponent} filteredImages={$filteredImages} />
-			<div class="size-slider">
-				<label for="image-size">image size</label>
-				<input 
-					id="image-size"
-					type="range" 
-					min="100" 
-					max="460" 
-					bind:value={imageSize}
-				/>
-			</div>
+			<button 
+				type="button"
+				class="map-toggle"
+				on:click={() => mapCollapsed = !mapCollapsed}
+				title={mapCollapsed ? 'show map' : 'hide map'}
+			>
+				<span class="map-label">map</span>
+				<span class="map-chevron" class:collapsed={mapCollapsed}>‣</span>
+			</button>
+			{#if !mapCollapsed}
+				<Map bind:this={mapComponent} filteredImages={$filteredImages} />
+				<div class="size-slider">
+					<label for="image-size">image size</label>
+					<input 
+						id="image-size"
+						type="range" 
+						min="100" 
+						max="460" 
+						bind:value={imageSize}
+					/>
+				</div>
+			{/if}
 			<div class="summary-footer">
 				<p>{$filteredImages.length} / {data.images.length}</p>
 				<button type="button" class="reset-all" on:click={() => selectedFiltersStore.clear()} disabled={!$hasActiveFilters}>reset all</button>
@@ -103,16 +117,25 @@
 	<div class="image-container" style="--image-size: {imageSize}px;">
 		{#each $filteredImages as image, index (image.filename)}
 			<div class="image-item-wrapper" id={image.filename}>
-				<button type="button" class="image-item" on:click={() => expandedImageIndex.set(index)}>
-					<img src={image.thumbnail} alt={image.filename} title={image.filename} />
-					<div class="filename-overlay" aria-hidden="true">{image.filename}</div>
-				</button>
+				<div class="image-item-container">
+					<button type="button" class="image-item" on:click={(e) => {
+						const target = e.target as HTMLElement;
+						if (!target.closest('.info-geolocation')) {
+							expandedImageIndex.set(index);
+						}
+					}}>
+						<img src={image.thumbnail} alt={image.filename} title={image.filename} />
+					</button>
+					<div class="image-hover-info">
+
+						{#if image.author}<p class="info-author">{image.author}</p>{/if}
+						{#if image.date}<p class="info-date">{image.date}</p>{/if}
+						{#if image.tags?.length}<p class="info-tags">{image.tags.join(', ')}</p>{/if}
+						{#if image.caption}<p class="info-caption">{image.caption}</p>{/if}
+						{#if image.geolocation}<button type="button" class="info-geolocation" on:click={(e) => { e.stopPropagation(); mapComponent?.flyToLocation(image.geolocation!.latitude, image.geolocation!.longitude); }}>{image.geolocation!.latitude.toFixed(4)}, {image.geolocation!.longitude.toFixed(4)}</button>{/if}
+					</div>
+				</div>
 				<div class="image-metadata">
-					{#if image.author}<p class="author">{image.author}</p>{/if}
-					{#if image.date}<p class="date">{image.date}</p>{/if}
-					{#if image.tags?.length}<p class="tags">{image.tags.join(', ')}</p>{/if}
-					{#if image.geolocation}<button type="button" class="geolocation" on:click={() => mapComponent?.flyToLocation(image.geolocation!.latitude, image.geolocation!.longitude)}>{image.geolocation!.latitude.toFixed(4)}, {image.geolocation!.longitude.toFixed(4)}</button>{/if}
-					{#if image.caption}<p class="caption">{image.caption}</p>{/if}
 				</div>
 			</div>
 		{/each}
@@ -124,8 +147,8 @@
 				<button type="button" class="modal-image" on:click={closeExpanded}>
 					<img src={$filteredImages[$expandedImageIndex].thumbnail} alt={$filteredImages[$expandedImageIndex].filename} />
 				</button>
-				<button class="nav-btn prev-btn" type="button" on:click={prevImage} disabled={$expandedImageIndex === 0}>‹</button>
-				<button class="nav-btn next-btn" type="button" on:click={nextImage} disabled={$expandedImageIndex === $filteredImages.length - 1}>›</button>
+				<button class="nav-btn prev-btn" type="button" on:click={prevImage}>‹</button>
+				<button class="nav-btn next-btn" type="button" on:click={nextImage}>›</button>
 			</div>
 		</div>
 	{/if}
@@ -133,10 +156,9 @@
 
 <style>
 	main {
-		padding: 2rem 1rem 2rem 3rem;
+		padding: 3rem 1rem 3rem 3rem;
 		max-width: 100%;
 		margin-left: max(20vw, 250px);
-		padding-top: 3rem;
 	}
 
 	.filters-panel {
@@ -223,8 +245,8 @@
 	}
 
 	.filter-tags {
-		display: flex;
-		flex-wrap: wrap;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
 		gap: 0.35rem;
 	}
 
@@ -256,6 +278,37 @@
 		border-top: 1px solid #f0f0f0;
 		flex-shrink: 1;
 		min-height: 0;
+	}
+
+	.map-toggle {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		background: none;
+		border: none;
+		cursor: pointer;
+		font-family: inherit;
+		font-size: 0.75rem;
+		font-style: italic;
+		color: #666;
+		padding: 0.25rem 0;
+		margin: 0;
+	}
+
+	.map-label {
+		flex: 1;
+		text-align: left;
+	}
+
+	.map-chevron {
+		display: inline-block;
+		font-size: 1rem;
+		transition: transform 0.2s ease;
+		color: #666;
+	}
+
+	.map-chevron.collapsed {
+		transform: rotate(-90deg);
 	}
 
 	.filter-summary :global(.map-wrapper) {
@@ -345,7 +398,7 @@
 	.image-container {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 1.5rem;
+		gap: 0.75rem;
 		align-items: flex-start;
 		justify-content: flex-start;
 	}
@@ -353,14 +406,20 @@
 	.image-item-wrapper {
 		display: flex;
 		flex-direction: column;
-		gap: 0.75rem;
+		gap: 0.25rem;
 		width: calc(var(--image-size) * 0.75);
+	}
+
+	.image-item-container {
+		position: relative;
+		width: calc(var(--image-size) * 0.75);
+		height: var(--image-size);
 	}
 
 	.image-item {
 		position: relative;
-		width: calc(var(--image-size) * 0.75);
-		height: var(--image-size);
+		width: 100%;
+		height: 100%;
 		overflow: hidden;
 		cursor: pointer;
 		background: #f8f8f8;
@@ -370,23 +429,70 @@
 		font: inherit;
 	}
 
-	.filename-overlay {
+	.image-hover-info {
 		position: absolute;
+		bottom: 0;
 		left: 0;
 		right: 0;
-		bottom: 0;
-		padding: 0.35rem 0.5rem;
-		background: linear-gradient(to top, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0));
 		color: #fff;
-		font-size: 0.75rem;
-		font-style: italic;
+		padding: 0.75rem;
+		overflow-y: auto;
 		opacity: 0;
 		transition: opacity 0.15s ease;
 		pointer-events: none;
+		font-size: 0.75rem;
+		font-style: italic;
+		line-height: 1.3;
+		background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
 	}
 
-	.image-item:hover .filename-overlay {
+	.image-item-container:hover .image-hover-info {
 		opacity: 1;
+		pointer-events: auto;
+	}
+
+	.image-hover-info p {
+		margin: 0;
+		padding: 0;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+	}
+
+	.image-hover-info .info-author,
+	.image-hover-info .info-date {
+		margin-bottom: 0.25rem;
+	}
+
+	.image-hover-info .info-tags {
+		margin-top: 0.25rem;
+	}
+
+	.image-hover-info .info-caption {
+		margin-top: 0.4rem;
+		padding-top: 0.4rem;
+		border-top: 1px solid rgba(255, 255, 255, 0.3);
+		font-weight: 500;
+	}
+
+	.image-hover-info .info-geolocation {
+		display: block;
+		background: none;
+		border: none;
+		padding: 0;
+		margin: 0.4rem 0 0 0;
+		font: inherit;
+		color: #fff;
+		text-decoration: underline;
+		text-decoration-color: rgba(255, 255, 255, 0.5);
+		text-decoration-style: dotted;
+		text-decoration-thickness: 1px;
+		text-underline-offset: 2px;
+		cursor: pointer;
+		transition: text-decoration-color 0.15s ease;
+	}
+
+	.image-hover-info .info-geolocation:hover {
+		text-decoration-color: #fff;
 	}
 
 	.image-metadata {
@@ -427,6 +533,10 @@
 		height: 100%;
 		object-fit: cover;
 		display: block;
+	}
+
+	.image-item-container:hover img {
+		filter: blur(4px);
 	}
 	
 	.modal-overlay {

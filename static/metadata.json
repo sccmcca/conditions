@@ -1780,7 +1780,7 @@
   },
   {
     "filename": "IMG_2525",
-    "material": [],
+    "material": ["drywall"],
     "tectonic": [
       "wall",
       "ceiling"
@@ -3836,7 +3836,7 @@
     "tectonic": [
       "floor"
     ],
-    "interaction": [],
+    "interaction": ["body"],
     "phenomena": [
       "shadow"
     ],
@@ -4305,7 +4305,7 @@
     "tectonic": [
       "wall"
     ],
-    "interaction": [],
+    "interaction": ["body"],
     "phenomena": [
       "shadow"
     ],
@@ -4517,7 +4517,8 @@
       "floor"
     ],
     "interaction": [
-      "repair"
+      "repair",
+      "body"
     ],
     "phenomena": [],
     "date": "21 May 2024",
@@ -4842,7 +4843,8 @@
     ],
     "interaction": [
       "repair",
-      "graffiti"
+      "graffiti",
+      "body"
     ],
     "phenomena": [
       "shadow"

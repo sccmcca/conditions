@@ -134,13 +134,13 @@
 						? baseOpacity
 						: isDimmed
 							? 0.025
-							: 0.18 + (edge.weight / maxEdge) * 0.82;
+							: 0.5 + (edge.weight / maxEdge) * 0.5;
 
 				return {
 					key: `${edge.source}|${edge.target}`,
 					d: curvePath(source, target, `${edge.source}|${edge.target}`),
 					opacity,
-					stroke: isHovered ? '#111' : '#000'
+					stroke: isHovered ? '#000' : '#000'
 				};
 			})
 			.filter(Boolean) as any[];
@@ -220,8 +220,11 @@
 
 	onMount(() => {
 		let raf = 0;
+		let startTime = Date.now();
 
 		const tick = () => {
+			const elapsed = (Date.now() - startTime) / 1000;
+			rotY = 0.2 + elapsed * 0.3; // Slow rotation: 0.3 radians per second
 			updateProjection();
 			raf = requestAnimationFrame(tick);
 		};

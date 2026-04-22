@@ -253,7 +253,7 @@
 		z-index: 1000;
 		background: white;
 		border: 1px solid #999;
-		border-radius: 3px;
+		border-radius: 0;
 		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 		overflow: hidden;
 		transition: opacity 0.15s ease;
