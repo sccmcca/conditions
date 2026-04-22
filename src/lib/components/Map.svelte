@@ -150,62 +150,19 @@
 	function setupHoverEvents() {
 		if (!map) return;
 
-		console.log('Setting up hover/click events for image-points layer');
+		console.log('Setting up click events for image-points layer');
 
-		// Hover events (for mouse/desktop)
-		map.on('mouseenter', 'image-points', (e: any) => {
-			if (e.features.length > 0 && !selectedImageFilename) {
-				const filename = e.features[0].properties.filename;
-				console.log('Hovering over:', filename);
-				hoveredImageFilename = filename;
-				
-				updatePopupPosition(e);
-				map.getCanvas().style.cursor = 'pointer';
-				
-				// Set feature state for highlight
-				map.setFeatureState(
-					{ source: 'images', id: e.features[0].id },
-					{ hover: true }
-				);
-			}
-		});
-
-		map.on('mouseleave', 'image-points', () => {
-			console.log('Left point');
-			if (!selectedImageFilename) {
-				hoveredImageFilename = null;
-				map.getCanvas().style.cursor = '';
-				
-				// Clear all hover states
-				if (map.querySourceFeatures('images').length > 0) {
-					map.querySourceFeatures('images').forEach((feature: any) => {
-						map.setFeatureState(
-							{ source: 'images', id: feature.id },
-							{ hover: false }
-						);
-					});
-				}
-			}
-		});
-
-		map.on('mousemove', 'image-points', (e: any) => {
-			if ((hoveredImageFilename || selectedImageFilename) && e.features.length > 0) {
-				updatePopupPosition(e);
-			}
-		});
-
-		// Click handler (for touch/tablet)
+		// Click handler - toggle selection on/off
 		map.on('click', 'image-points', (e: any) => {
 			if (e.features.length > 0) {
 				const filename = e.features[0].properties.filename;
-				console.log('Clicked on:', filename);
+				console.log('Clicked/tapped on:', filename);
 				
 				// Toggle selection
 				if (selectedImageFilename === filename) {
 					selectedImageFilename = null;
 				} else {
 					selectedImageFilename = filename;
-					hoveredImageFilename = null;
 					updatePopupPosition(e);
 				}
 				
@@ -214,25 +171,28 @@
 			}
 		});
 
-		// Click on map background to close popup
+		// Click elsewhere on map to close popup
 		map.on('click', (e: any) => {
+			console.log('Clicked on map background');
 			if (selectedImageFilename) {
 				selectedImageFilename = null;
 			}
 		});
 
-		// Also close when pressing escape key
+		// Close when pressing escape key
 		document.addEventListener('keydown', (e: KeyboardEvent) => {
 			if (e.key === 'Escape' && selectedImageFilename) {
+				console.log('Escape pressed');
 				selectedImageFilename = null;
 			}
 		});
 		
-		// Clear popup when leaving the map entirely
-		map.getCanvas().addEventListener('mouseleave', () => {
-			if (!selectedImageFilename) {
-				hoveredImageFilename = null;
-			}
+		// Change cursor on image points
+		map.on('mouseenter', 'image-points', () => {
+			map.getCanvas().style.cursor = 'pointer';
+		});
+		
+		map.on('mouseleave', 'image-points', () => {
 			map.getCanvas().style.cursor = '';
 		});
 	}
@@ -242,19 +202,34 @@
 		const mouseX = e.originalEvent.clientX - rect.left;
 		const mouseY = e.originalEvent.clientY - rect.top;
 		
-		// Offset popup so it appears above and to the right of cursor
-		let x = mouseX + 10;
-		let y = mouseY - 130;
+		// Actual popup dimensions
+		const popupWidth = 120;
+		const popupHeight = 160;
+		const padding = 10;
 		
-		// Constrain to map bounds
-		const popupWidth = 90;
-		const popupHeight = 130;
+		// Try to position above and to the right
+		let x = mouseX + padding;
+		let y = mouseY - popupHeight - padding;
 		
-		if (x + popupWidth > rect.width) {
-			x = mouseX - popupWidth - 10;
+		// Constrain to map bounds with fallback positions
+		if (x + popupWidth > rect.width - padding) {
+			// Move to left of cursor if it would overflow right
+			x = mouseX - popupWidth - padding;
 		}
-		if (y < 0) {
-			y = mouseY + 10;
+		
+		if (x < padding) {
+			// If still off-screen on left, center horizontally
+			x = Math.max(padding, (rect.width - popupWidth) / 2);
+		}
+		
+		if (y < padding) {
+			// Move below cursor if above doesn't fit
+			y = mouseY + padding;
+		}
+		
+		if (y + popupHeight > rect.height - padding) {
+			// If below overflows, center vertically
+			y = Math.max(padding, (rect.height - popupHeight) / 2);
 		}
 		
 		popupPos = { x, y };
@@ -317,11 +292,11 @@
 		</button>
 	{/if}
 	
-	{#if hoveredImageFilename || selectedImageFilename}
+	{#if selectedImageFilename}
 		<div class="hover-popup" style="left: {popupPos.x}px; top: {popupPos.y}px;">
 			<img 
-				src="{base}/thumbnails/{(selectedImageFilename || hoveredImageFilename).split('.')[0]}.jpg" 
-				alt={selectedImageFilename || hoveredImageFilename}
+				src="{base}/thumbnails/{selectedImageFilename.split('.')[0]}.jpg" 
+				alt={selectedImageFilename}
 			/>
 		</div>
 	{/if}
