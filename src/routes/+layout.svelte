@@ -37,16 +37,15 @@
 	</main>
 
 		<footer>
-			<a
-				href="https://www.instagram.com/slow.practice/"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="footer-instagram blur"
-			>
-				@slow.practice
+			<a href={`${base}/upload`} class="upload-icon" title="Upload">
+				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#777" stroke-width="0.75" opacity="0.5">
+					<rect x="3" y="3" width="18" height="18" rx="2"/>
+					<line x1="12" y1="8" x2="12" y2="16"/>
+					<line x1="8" y1="12" x2="16" y2="12"/>
+				</svg>
 			</a>
 		</footer>
-</div>
+	</div>
 
 <style>
 	:global(body) {
@@ -189,14 +188,15 @@
 			-webkit-filter: blur(4px);
 		}
 
-	a {
-		color: inherit;
-		text-decoration: none;
+	.upload-icon {
 		transition: filter 0.05s;
+		will-change: filter;
+		-webkit-backface-visibility: hidden;
+		-webkit-transform: translateZ(0);
 	}
 
-		a:hover {
-			/* filter: blur(2px); */
-			text-decoration: none;
-		}
+	.upload-icon:hover {
+		filter: blur(2px);
+		-webkit-filter: blur(2px);
+	}
 </style>
