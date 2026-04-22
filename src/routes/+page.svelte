@@ -15,7 +15,6 @@
 
 	const categories: Category[] = ['material', 'tectonic', 'interaction', 'phenomena'];
 	
-	let imageSize = 225;
 	let mapComponent: any;
 	let mapCollapsed = false;
 
@@ -96,16 +95,6 @@
 			</button>
 			{#if !mapCollapsed}
 				<Map bind:this={mapComponent} filteredImages={$filteredImages} />
-				<div class="size-slider">
-					<label for="image-size">image size</label>
-					<input 
-						id="image-size"
-						type="range" 
-						min="100" 
-						max="460" 
-						bind:value={imageSize}
-					/>
-				</div>
 			{/if}
 			<div class="summary-footer">
 				<p>{$filteredImages.length} / {data.images.length}</p>
@@ -114,7 +103,7 @@
 		</div>
 	</div>
 	
-	<div class="image-container" style="--image-size: {imageSize}px;">
+			<div class="image-container">
 		{#each $filteredImages as image, index (image.filename)}
 			<div class="image-item-wrapper" id={image.filename}>
 				<div class="image-item-container">
@@ -158,7 +147,7 @@
 	main {
 		padding: 3rem 1rem 3rem 3rem;
 		max-width: 100%;
-		margin-left: max(20vw, 250px);
+		margin-left: max(25vw, 320px);
 	}
 
 	.filters-panel {
@@ -167,7 +156,7 @@
 		top: 4rem;
 		bottom: 3rem;
 		z-index: 5;
-		width: max(20vw, 250px);
+		width: max(25vw, 320px);
 		padding: 0;
 		margin-top: 1rem;
 		border-right: 1px solid #e5e5e5;
@@ -317,68 +306,6 @@
 		width: 100%;
 	}
 
-	.size-slider {
-		display: flex;
-		flex-direction: column;
-		gap: 0.35rem;
-		align-items: flex-start;
-	}
-
-	.size-slider label {
-		font-size: 0.75rem;
-		font-style: italic;
-		color: #666;
-	}
-
-	.size-slider input[type="range"] {
-		width: 100%;
-		cursor: pointer;
-		height: 24px;
-		-webkit-appearance: none;
-		appearance: none;
-		background: transparent;
-		border: none;
-		border-radius: 0;
-	}
-
-	.size-slider input[type="range"]::-webkit-slider-thumb {
-		-webkit-appearance: none;
-		appearance: none;
-		width: 12px;
-		height: 12px;
-		background: white;
-		cursor: pointer;
-		border: 1px solid #999;
-		border-radius: 50%;
-		margin-top: -4px;
-	}
-
-	.size-slider input[type="range"]::-moz-range-thumb {
-		width: 12px;
-		height: 12px;
-		background: white;
-		cursor: pointer;
-		border: 1px solid #999;
-		border-radius: 50%;
-	}
-
-	.size-slider input[type="range"]::-webkit-slider-runnable-track {
-		background: #ddd;
-		height: 4px;
-		border-radius: 2px;
-	}
-
-	.size-slider input[type="range"]::-moz-range-track {
-		background: transparent;
-		border: none;
-	}
-
-	.size-slider input[type="range"]::-moz-range-progress {
-		background: #bbb;
-		height: 4px;
-		border-radius: 2px;
-	}
-
 	.summary-footer {
 		display: flex;
 		justify-content: space-between;
@@ -396,28 +323,31 @@
 	}
 
 	.image-container {
-		display: flex;
-		flex-wrap: wrap;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 		gap: 0.75rem;
-		align-items: flex-start;
-		justify-content: flex-start;
+		align-items: start;
+		justify-items: start;
 	}
 
 	.image-item-wrapper {
 		display: flex;
 		flex-direction: column;
 		gap: 0.25rem;
-		width: calc(var(--image-size) * 0.75);
+		width: 100%;
 	}
 
 	.image-item-container {
 		position: relative;
-		width: calc(var(--image-size) * 0.75);
-		height: var(--image-size);
+		width: 100%;
+		padding-bottom: 133.33%;
+		overflow: hidden;
 	}
 
 	.image-item {
-		position: relative;
+		position: absolute;
+		top: 0;
+		left: 0;
 		width: 100%;
 		height: 100%;
 		overflow: hidden;
