@@ -7,7 +7,7 @@
 	const images = data.images;
 	let activeTab: 'make' | 'see' = 'see';
 	let expandedObsId: string | null = null;
-	let sidebarCollapsed = true;
+	let sidebarCollapsed = false;
 	
 	// Make tab state
 	let leftImage: any = null;
@@ -78,6 +78,12 @@
 		}
 	}
 
+	function handleObservationClick(obsId: string) {
+		// Disable expand on mobile
+		if (window.innerWidth < 769) return;
+		expandedObsId = obsId;
+	}
+
 	function handleKeydown(e: KeyboardEvent) {
 		if (!expandedObsId) return;
 		if (e.key === 'ArrowLeft') {
@@ -92,6 +98,20 @@
 	onMount(() => {
 		observations.init();
 		refreshBoth();
+		
+		// Set sidebar collapsed state based on screen size
+		const isMobile = window.innerWidth < 769;
+		sidebarCollapsed = isMobile;
+		
+		// Ensure sidebar stays expanded on desktop when resizing
+		const handleResize = () => {
+			if (window.innerWidth >= 769) {
+				sidebarCollapsed = false;
+			}
+		};
+		
+		window.addEventListener('resize', handleResize);
+		return () => window.removeEventListener('resize', handleResize);
 	});
 </script>
 
@@ -180,7 +200,7 @@
 		{:else}
 			<div class="observations-container">
 				{#each $observations as obs (obs.id)}
-					<div class="observation-card" role="button" tabindex="0" on:click={() => expandedObsId = obs.id}>
+					<div class="observation-card">
 						<div class="pair-container">
 							<img src={obs.leftImage.thumbnail} alt={obs.leftImage.filename} title={obs.leftImage.filename} />
 							<img src={obs.rightImage.thumbnail} alt={obs.rightImage.filename} title={obs.rightImage.filename} />
@@ -500,6 +520,7 @@
 		justify-content: center;
 		flex-shrink: 0;
 		margin: 0;
+		margin-right: 0.5rem;
 		font-family: inherit;
 	}
 
@@ -623,9 +644,8 @@
 		display: flex;
 		flex-direction: column;
 		gap: 0.75rem;
-		padding: 1rem 0;
+		padding: 1rem;
 		background: transparent;
-		border: none;
 		align-items: center;
 		flex-shrink: 0;
 		box-sizing: border-box;
@@ -720,15 +740,15 @@
 
 	.expanded-pair {
 		display: flex;
-		gap: 5rem;
+		gap: 2rem;
 		align-items: center;
 		justify-content: center;
 		background: white;
-		padding: 5rem;
+		padding: 2rem;
 	}
 
 	.expanded-pair img {
-		height: 70vh;
+		height: 50vh;
 		aspect-ratio: 3 / 4;
 		object-fit: cover;
 		background: white;
@@ -872,6 +892,10 @@
 			height: 50vh;
 		}
 
+		.expanded-pair {
+			flex-direction: column;
+		}
+
 		.expanded-content {
 			max-height: 300px;
 		}
@@ -970,7 +994,7 @@
 	}
 
 	.expanded-image-wrapper img {
-		max-width: 100%;
+		width: min(50vw, 50vh);
 		height: auto;
 		aspect-ratio: 3 / 4;
 		object-fit: cover;
