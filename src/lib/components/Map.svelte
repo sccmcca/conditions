@@ -5,6 +5,7 @@
 
 	export let filteredImages: any[] = [];
 	export let expanded: boolean = false;
+	export let showThumbnails: boolean = false;
 
 	let mapContainer: HTMLDivElement;
 	let map: any;
@@ -13,6 +14,7 @@
 	let popupPos = { x: 0, y: 0 };
 	let layerInitialized = false;
 	let isFirstUpdate = true;
+	let markers: any[] = [];
 
 	// Handle map resize when expanding/collapsing
 	$: if (map && $mapExpanded !== undefined) {
@@ -22,7 +24,7 @@
 	}
 
 	onMount(async () => {
-		const { Map, ScaleControl } = await import('maplibre-gl');
+		const { Map, ScaleControl, Marker } = await import('maplibre-gl');
 		await import('maplibre-gl/dist/maplibre-gl.css');
 
 		// Initialize map
@@ -94,7 +96,7 @@
 				type: 'circle',
 				source: 'images',
 				paint: {
-					'circle-radius': 6,
+					'circle-radius': 4.5,
 					'circle-color': '#333',
 					'circle-opacity': 0.8
 				}
@@ -106,7 +108,7 @@
 				type: 'circle',
 				source: 'images',
 				paint: {
-					'circle-radius': 9,
+					'circle-radius': 7,
 					'circle-color': '#333',
 					'circle-opacity': 1
 				},

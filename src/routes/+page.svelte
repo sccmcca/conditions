@@ -133,7 +133,7 @@
 							expandedImageIndex.set(index);
 						}
 					}}>
-						<img src={image.thumbnail} alt={image.filename} title={image.filename} />
+						<img src={image.thumbnail} alt={image.filename} title={image.filename} loading="lazy" />
 					</button>
 					<div class="image-hover-info">
 
