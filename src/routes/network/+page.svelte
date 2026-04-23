@@ -304,11 +304,6 @@
 </main>
 
 <style>
-	:global(main) {
-		padding-top: 0 !important;
-		padding-bottom: 0 !important;
-	}
-
 	.relationships-page {
 		width: 100%;
 		height: 100vh;

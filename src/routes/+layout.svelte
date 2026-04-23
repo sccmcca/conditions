@@ -9,6 +9,9 @@
 	
 	// Check if we're on the gallery page
 	let isGalleryPage = $derived($page.url.pathname === base || $page.url.pathname === `${base}/`);
+	// Check if we're on a network page
+	let isNetworkPage = $derived($page.url.pathname?.includes('network'));
+
 </script>
 
 <svelte:head>
@@ -32,7 +35,7 @@
 		{/if}
 	</header>
 
-	<main>
+	<main class:is-network-page={isNetworkPage}>
 		{@render children?.()}
 	</main>
 
@@ -162,6 +165,10 @@
 		flex: 1;
 		padding-top: 4rem;
 		padding-bottom: 0 !important;
+	}
+
+	main.is-network-page {
+		padding-top: 0;
 	}
 
 		footer {
