@@ -474,6 +474,7 @@
 		padding: 0.35rem;
 		font-size: 0.65rem;
 		font-style: italic;
+		font-family: Georgia, serif;
 		border: 1px solid #e5e5e5;
 		background: white;
 		cursor: pointer;
@@ -490,6 +491,7 @@
 		padding: 0.35rem;
 		font-size: 0.65rem;
 		font-style: italic;
+		font-family: Georgia, serif;
 		font-weight: 500;
 		border: 1px solid #333;
 		background: white;
