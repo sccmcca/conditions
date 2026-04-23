@@ -7,6 +7,7 @@
 	const images = data.images;
 	let activeTab: 'make' | 'see' = 'see';
 	let expandedObsId: string | null = null;
+	let sidebarCollapsed = true;
 	
 	// Make tab state
 	let leftImage: any = null;
@@ -101,9 +102,14 @@
 <svelte:window on:keydown={handleKeydown} />
 
 <main>
-	<div class="sidebar">
+	<div class="sidebar" class:collapsed={sidebarCollapsed}>
 		<div class="sidebar-header">
-			<h1 class="sidebar-title">Diptychs</h1>
+			<div class="header-top">
+				<h1 class="sidebar-title">Diptychs</h1>
+				<button class="toggle-btn" on:click={() => (sidebarCollapsed = !sidebarCollapsed)} title={sidebarCollapsed ? 'Expand' : 'Collapse'}>
+				<span class="toggle-chevron" class:expanded={!sidebarCollapsed}>›</span>
+				</button>
+			</div>
 			<div class="tabs-header">
 				<button
 					class="tab-button"
@@ -123,45 +129,47 @@
 			</div>
 		</div>
 
-		<div class="sidebar-divider"></div>
+		{#if !sidebarCollapsed}
+			<div class="sidebar-divider"></div>
 
-		<div class="sidebar-content">
-			{#if activeTab === 'see'}
-				<div class="see-instructions">
-					<p>Diptychs reveal how juxtaposition creates meaning. By placing two images side by side, a third meaning emerges—one that neither image holds alone. This is the space between them.</p>
-				</div>
-			{:else}
-				<div class="make-controls">
-					<div class="make-instructions">
-						<p>Compare two images and save your observations</p>
+			<div class="sidebar-content">
+				{#if activeTab === 'see'}
+					<div class="see-instructions">
+						<p>Diptychs reveal how juxtaposition creates meaning. By placing two images side by side, a third meaning emerges—one that neither image holds alone. This is the space between them.</p>
 					</div>
-					<h2 class="sidebar-title">analysis</h2>
-					<div class="note-input-wrapper">
-						<textarea
-							id="note-input"
-							placeholder="add your analysis..."
-							bind:value={noteText}
-							class="note-input"
-						></textarea>
-					</div>
-					<button
-						on:click={saveObservation}
-						class="save-btn"
-						disabled={!leftImage || !rightImage || !noteText.trim()}
-					>
-						save
-					</button>
-					<div class="refresh-section">
-						<div class="refresh-label">refresh</div>
-						<div class="controls">
-							<button on:click={refreshLeft} class="refresh-side-btn">left</button>
-							<button on:click={refreshBoth} class="refresh-both-btn">both</button>
-							<button on:click={refreshRight} class="refresh-side-btn">right</button>
+				{:else}
+					<div class="make-controls">
+						<div class="make-instructions">
+							<p>Compare two images and save your observations</p>
+						</div>
+						<h2 class="sidebar-title">analysis</h2>
+						<div class="note-input-wrapper">
+							<textarea
+								id="note-input"
+								placeholder="add your analysis..."
+								bind:value={noteText}
+								class="note-input"
+							></textarea>
+						</div>
+						<button
+							on:click={saveObservation}
+							class="save-btn"
+							disabled={!leftImage || !rightImage || !noteText.trim()}
+						>
+							save
+						</button>
+						<div class="refresh-section">
+							<div class="refresh-label">refresh</div>
+							<div class="controls">
+								<button on:click={refreshLeft} class="refresh-side-btn">left</button>
+								<button on:click={refreshBoth} class="refresh-both-btn">both</button>
+								<button on:click={refreshRight} class="refresh-side-btn">right</button>
 						</div>
 					</div>
 				</div>
 			{/if}
-		</div>
+			</div>
+		{/if}
 	</div>
 
 	{#if activeTab === 'see'}
@@ -474,6 +482,60 @@
 		color: white;
 	}
 
+	.header-top {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+		gap: 0.5rem;
+	}
+
+	.toggle-btn {
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		margin: 0;
+		font-family: inherit;
+	}
+
+	.toggle-chevron {
+		display: inline-block;
+		font-size: 1.2rem;
+		transition: transform 0.2s ease;
+		color: #666;
+	}
+
+	.toggle-chevron.expanded {
+		transform: rotate(90deg);
+	}
+
+	.sidebar.collapsed {
+		width: auto;
+		aspect-ratio: auto;
+		max-height: auto;
+	}
+
+	.sidebar.collapsed .sidebar-header {
+		padding: 0.5rem;
+		border-bottom: none;
+	}
+
+	@media (min-width: 769px) {
+		.toggle-btn {
+			display: none;
+		}
+
+		.sidebar-divider,
+		.sidebar-content {
+			display: flex !important;
+		}
+	}
+
 	.main-content {
 		display: none;
 	}
@@ -759,7 +821,7 @@
 			right: 0;
 			width: 100%;
 			height: auto;
-			max-height: 30dvh;
+			max-height: 40dvh;
 			aspect-ratio: auto;
 			z-index: 10;
 			border-top: 1px solid #e5e5e5;
@@ -808,6 +870,10 @@
 
 		.expanded-pair img {
 			height: 50vh;
+		}
+
+		.expanded-content {
+			max-height: 300px;
 		}
 
 		.nav-btn {
@@ -862,20 +928,29 @@
 		background-color: rgba(0, 0, 0, 0.6);
 		backdrop-filter: blur(4px);
 		display: flex;
-		align-items: center;
+		align-items: stretch;
 		justify-content: center;
+		padding: 2rem 0;
+		box-sizing: border-box;
 		z-index: 3000;
 	}
 
 	.expanded-content {
 		position: relative;
-		max-width: 90vw;
-		max-height: 90vh;
+		max-width: 90%;
+		flex: 1;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		justify-content: center;
+		justify-content: flex-start;
 		gap: 1rem;
+		overflow-y: auto;
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+
+	.expanded-content::-webkit-scrollbar {
+		display: none;
 	}
 
 	.expanded-pair {
@@ -884,7 +959,8 @@
 		align-items: center;
 		justify-content: center;
 		background: white;
-		padding: 3rem;
+		padding: 2rem;
+		flex: 1;
 	}
 
 	.expanded-image-wrapper {
@@ -894,8 +970,7 @@
 	}
 
 	.expanded-image-wrapper img {
-		max-width: 35vw;
-		max-height: 70vh;
+		max-width: 100%;
 		height: auto;
 		aspect-ratio: 3 / 4;
 		object-fit: cover;
