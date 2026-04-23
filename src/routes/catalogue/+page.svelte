@@ -714,7 +714,7 @@
 		main {
 			padding: 1rem;
 			margin-left: 0;
-			margin-bottom: 50vh;
+			margin-bottom: 50dvh;
 		}
 
 		.view-toggle {
@@ -736,7 +736,7 @@
 			z-index: 5;
 			width: 100%;
 			height: auto;
-			max-height: 50vh;
+			max-height: 50dvh;
 			padding: 0;
 			border-right: none;
 			border-top: 1px solid #e5e5e5;

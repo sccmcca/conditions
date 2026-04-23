@@ -66,6 +66,17 @@
 	:global(body) {
 		margin: 0;
 		font-family: Times, 'Times New Roman', serif;
+		-webkit-user-select: none;
+	}
+
+	:global(button, a, h1, h2, h3, h4, h5, h6, span, div, p) {
+		-webkit-user-select: none;
+		-webkit-touch-callout: none;
+	}
+
+	:global(a) {
+		color: inherit;
+		text-decoration: none;
 	}
 
 	.layout {
