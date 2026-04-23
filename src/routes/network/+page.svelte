@@ -30,6 +30,10 @@
 	let dragMode: 'pan' | 'rotate' = 'pan';
 	let svgElement: SVGSVGElement | null = null;
 	let hoveredNode: string | null = null;
+	let isPlaying = true;
+	let raf = 0;
+	let startTime = Date.now();
+	let pausedTime = 0;
 
 	let projectedNodes: any[] = [];
 	let projectedEdges: any[] = [];
@@ -169,6 +173,7 @@
 
 	function setHoveredNode(nodeId: string | null) {
 		hoveredNode = nodeId;
+		updateProjection();
 	}
 
 	function onPointerDown(e: PointerEvent) {
@@ -194,12 +199,12 @@
 			const sy = bounds ? height / bounds.height : 1;
 			panX += dx * sx;
 			panY += dy * sy;
-			return;
+		} else {
+			rotY += dx * 0.0045;
+			rotX += dy * 0.0038;
+			rotX = Math.max(-1.25, Math.min(1.25, rotX));
 		}
-
-		rotY += dx * 0.0045;
-		rotX += dy * 0.0038;
-		rotX = Math.max(-1.25, Math.min(1.25, rotX));
+		updateProjection();
 	}
 
 	function onPointerUp() {
@@ -208,6 +213,7 @@
 
 	function onWheel(e: WheelEvent) {
 		zoom = Math.max(620, Math.min(1200, zoom + e.deltaY * 0.45));
+		updateProjection();
 	}
 
 	function resetView() {
@@ -218,11 +224,22 @@
 		panY = 0;
 	}
 
-	onMount(() => {
-		let raf = 0;
-		let startTime = Date.now();
+	function togglePlayPause() {
+		isPlaying = !isPlaying;
+		if (isPlaying) {
+			startTime = Date.now() - pausedTime;
+			tick();
+		} else {
+			pausedTime = Date.now() - startTime;
+			cancelAnimationFrame(raf);
+		}
+	}
 
-		const tick = () => {
+	let tick: () => void;
+
+	onMount(() => {
+		tick = () => {
+			if (!isPlaying) return;
 			const elapsed = (Date.now() - startTime) / 1000;
 			rotY = 0.2 + elapsed * 0.3; // Slow rotation: 0.3 radians per second
 			updateProjection();
@@ -251,7 +268,12 @@
 			showing top {network.params.top} tags, min edge weight {network.params.minEdge}, clustering threshold {network.params.clusterEdge}.
 		</p>
 		<p>drag to rotate, option+drag to pan, scroll to zoom.</p>
-		<button type="button" class="reset-view" on:click={resetView}>reset view</button>
+		<div class="controls">
+			<button type="button" class="reset-view" on:click={resetView}>reset view</button>
+			<button type="button" class="play-pause-btn" on:click={togglePlayPause} title={isPlaying ? 'pause' : 'play'}>
+				{#if isPlaying}| |{:else}›{/if}
+			</button>
+		</div>
 	</section>
 
 	<section class="network-wrap">
@@ -381,6 +403,32 @@
 		background: #fff;
 		padding: 0.25rem 0.5rem;
 		cursor: pointer;
+		transition: background 0.2s ease;
+	}
+
+	.reset-view:hover {
+		background: #f5f5f5;
+	}
+
+	.controls {
+		display: flex;
+		gap: 0.5rem;
+		align-items: center;
+	}
+
+	.play-pause-btn {
+		margin-top: 0.55rem;
+		font-family: inherit;
+		font-size: 0.82rem;
+		border: 1px solid #d6d6d6;
+		background: #fff;
+		padding: 0.25rem 0.4rem;
+		cursor: pointer;
+		transition: background 0.2s ease;
+	}
+
+	.play-pause-btn:hover {
+		background: #f5f5f5;
 	}
 
 	.legend {

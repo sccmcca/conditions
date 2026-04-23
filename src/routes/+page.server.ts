@@ -1,3 +1,1 @@
-import { loadGalleryData } from '$lib/server/gallery';
-
-export const load = async () => loadGalleryData();
+// No server-side data needed for info page
