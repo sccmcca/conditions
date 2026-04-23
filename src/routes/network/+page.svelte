@@ -35,6 +35,7 @@
 	let raf = 0;
 	let startTime = Date.now();
 	let pausedTime = 0;
+	let lastTouchDistance = 0;
 
 	let projectedNodes: any[] = [];
 	let projectedEdges: any[] = [];
@@ -217,6 +218,37 @@
 		updateProjection();
 	}
 
+	function getTouchDistance(touches: TouchList): number {
+		if (touches.length < 2) return 0;
+		const dx = touches[0].clientX - touches[1].clientX;
+		const dy = touches[0].clientY - touches[1].clientY;
+		return Math.sqrt(dx * dx + dy * dy);
+	}
+
+	function onTouchStart(e: TouchEvent) {
+		if (e.touches.length === 2) {
+			e.preventDefault();
+			lastTouchDistance = getTouchDistance(e.touches);
+		}
+	}
+
+	function onTouchMove(e: TouchEvent) {
+		if (e.touches.length === 2) {
+			e.preventDefault();
+			const currentDistance = getTouchDistance(e.touches);
+			if (lastTouchDistance > 0) {
+				const delta = currentDistance - lastTouchDistance;
+				zoom = Math.max(620, Math.min(1200, zoom - delta * 0.5));
+				updateProjection();
+			}
+			lastTouchDistance = currentDistance;
+		}
+	}
+
+	function onTouchEnd() {
+		lastTouchDistance = 0;
+	}
+
 	function resetView() {
 		rotX = 0.35;
 		rotY = 0.2;
@@ -273,6 +305,9 @@
 		on:pointerup={onPointerUp}
 		on:pointerleave={onPointerUp}
 		on:wheel|preventDefault={onWheel}
+		on:touchstart={onTouchStart}
+		on:touchmove|preventDefault={onTouchMove}
+		on:touchend={onTouchEnd}
 	>
 		{#each projectedEdges as edge (edge.key)}
 			<path
