@@ -24,9 +24,9 @@
 			<h1>Slow Practice</h1>
 		</a>
 		<div class="header-links">
+			<a class="category-link" href={`${base}/diptychs`}>diptychs</a>
 			<a class="category-link" href={`${base}/catalogue`}>catalogue</a>
 			<a class="category-link" href={`${base}/network`}>network</a>
-			<a class="category-link" href={`${base}/diptychs`}>diptychs</a>
 		</div>
 		<!-- <p>photographic research method</p> -->
 		
@@ -41,7 +41,7 @@
 
 		<footer>
 			<a href={`${base}/upload`} class="upload-icon" title="Upload">
-				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#777" stroke-width="0.75" opacity="0.5">
+			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#777" stroke-width="0.75" opacity="1">
 					<rect x="3" y="3" width="18" height="18" rx="2"/>
 					<line x1="12" y1="8" x2="12" y2="16"/>
 					<line x1="8" y1="12" x2="16" y2="12"/>
