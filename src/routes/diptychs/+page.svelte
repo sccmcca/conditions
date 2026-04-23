@@ -742,10 +742,10 @@
 		main {
 			flex-direction: column;
 			padding: 1rem;
-			padding-bottom: 52vh;
+			padding-bottom: 32dvh;
 			padding-top: 0;
 			height: auto;
-			min-height: calc(100vh - 4rem);
+			min-height: calc(100dvh - 4rem);
 			gap: 0;
 			align-items: stretch;
 			justify-content: flex-start;
@@ -759,7 +759,7 @@
 			right: 0;
 			width: 100%;
 			height: auto;
-			max-height: 50vh;
+			max-height: 30dvh;
 			aspect-ratio: auto;
 			z-index: 10;
 			border-top: 1px solid #e5e5e5;
@@ -774,7 +774,7 @@
 			width: 100%;
 			gap: 2rem;
 			padding: 2rem 0;
-			padding-bottom: 52vh;
+			padding-bottom: 32dvh;
 			flex: 1;
 			overflow-y: auto;
 			margin: 0;

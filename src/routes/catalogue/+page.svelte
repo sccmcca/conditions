@@ -724,7 +724,8 @@
 		.filters-title-button {
 			border-bottom: none;
 			padding: 0.7rem 0.9rem 0.7rem 0.5rem;
-			font-weight: 500;
+			font-weight: bold;
+			color: #666;
 		}
 
 		.filters-panel {
@@ -752,10 +753,11 @@
 			margin: 0;
 			padding: 0 0 0 0.5rem;
 			font-size: 0.82rem;
-			font-weight: 500;
+			font-weight: bold;
 			font-style: italic;
 			text-transform: lowercase;
 			text-align: left;
+			color: #666;
 		}
 
 		.filters-scroll {
@@ -784,6 +786,11 @@
 		.filter-summary :global(.map-wrapper) {
 			min-height: 350px;
 			padding-bottom: 2rem;
+		}
+
+		.map-toggle {
+			font-weight: bold;
+			color: #666;
 		}
 
 		.filter-tags {
