@@ -14,7 +14,7 @@
 
 	export let data;
 
-	const categories: Category[] = ['material', 'tectonic', 'interaction', 'phenomena'];
+	const categories: Category[] = ['material', 'form', 'element', 'interaction', 'phenomena'];
 	
 	let mapComponent: any;
 	let mapCollapsed = false;

@@ -10,7 +10,8 @@
 
 	const colorByCategory: Record<string, string> = {
 		material: '#1f6feb',
-		tectonic: '#0d7b4f',
+		element: '#0d7b4f',
+		form: '#2d9d6f',
 		interaction: '#8f4a00',
 		phenomena: '#7a3db8',
 		mixed: '#5b5b5b'
@@ -38,7 +39,7 @@
 	<section class="intro">
 		<h2>tag co-occurrence network</h2>
 		<p>
-			built from material, tectonic, interaction, and phenomena in metadata.json.
+			built from material, element, form, interaction, and phenomena in metadata.json.
 			edges connect tags that appear on the same image.
 		</p>
 		<p>
@@ -75,7 +76,8 @@
 
 	<section class="legend">
 		<div><span class="chip material"></span>material</div>
-		<div><span class="chip tectonic"></span>tectonic</div>
+		<div><span class="chip element"></span>element</div>
+		<div><span class="chip form"></span>form</div>
 		<div><span class="chip interaction"></span>interaction</div>
 		<div><span class="chip phenomena"></span>phenomena</div>
 		<div><span class="chip mixed"></span>mixed</div>
@@ -160,7 +162,8 @@
 	}
 
 	.chip.material { background: #1f6feb; }
-	.chip.tectonic { background: #0d7b4f; }
+	.chip.element { background: #0d7b4f; }
+	.chip.form { background: #2d9d6f; }
 	.chip.interaction { background: #8f4a00; }
 	.chip.phenomena { background: #7a3db8; }
 	.chip.mixed { background: #5b5b5b; }

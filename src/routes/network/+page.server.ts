@@ -41,7 +41,7 @@ class UnionFind {
 	}
 }
 
-const categories: GalleryCategory[] = ['material', 'tectonic', 'interaction', 'phenomena'];
+const categories: GalleryCategory[] = ['material', 'form', 'element', 'interaction', 'phenomena'];
 
 export const load = async ({ url }) => {
 	// Safely get search params with defaults for prerendering

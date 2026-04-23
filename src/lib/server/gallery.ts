@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { base } from '$app/paths';
 
-export type GalleryCategory = 'material' | 'tectonic' | 'interaction' | 'phenomena';
+export type GalleryCategory = 'material' | 'element' | 'form' | 'interaction' | 'phenomena';
 
 export type GalleryImage = {
 	filename: string;
@@ -13,7 +13,8 @@ export type GalleryImage = {
 	geolocation: { latitude: number; longitude: number } | null;
 	tags: string[];
 	material: string[];
-	tectonic: string[];
+	element: string[];
+	form: string[];
 	interaction: string[];
 	phenomena: string[];
 };
@@ -23,7 +24,7 @@ export type GalleryData = {
 	filterOptions: Record<GalleryCategory, string[]>;
 };
 
-const categories: GalleryCategory[] = ['material', 'tectonic', 'interaction', 'phenomena'];
+const categories: GalleryCategory[] = ['material', 'form', 'element', 'interaction', 'phenomena'];
 
 function toStringArray(value: unknown): string[] {
 	if (!Array.isArray(value)) return [];
@@ -57,39 +58,43 @@ export function loadGalleryData(): GalleryData {
 					const filenameWithoutExt = filename.split('.')[0];
 					const meta = metadata[filenameWithoutExt] || {};
 					const material = toStringArray(meta.material);
-					const tectonic = toStringArray(meta.tectonic);
-					const interaction = toStringArray(meta.interaction);
-					const phenomena = toStringArray(meta.phenomena);
-					const caption = typeof meta.caption === 'string' ? meta.caption.trim() : '';
+				const element = toStringArray(meta.element);
+				const form = toStringArray(meta.form);
+				const interaction = toStringArray(meta.interaction);
+				const phenomena = toStringArray(meta.phenomena);
+				const caption = typeof meta.caption === 'string' ? meta.caption.trim() : '';
 
-					material.forEach((value) => filterOptions.material.add(value));
-					tectonic.forEach((value) => filterOptions.tectonic.add(value));
-					interaction.forEach((value) => filterOptions.interaction.add(value));
-					phenomena.forEach((value) => filterOptions.phenomena.add(value));
+				material.forEach((value) => filterOptions.material.add(value));
+				element.forEach((value) => filterOptions.element.add(value));
+				form.forEach((value) => filterOptions.form.add(value));
+				interaction.forEach((value) => filterOptions.interaction.add(value));
+				phenomena.forEach((value) => filterOptions.phenomena.add(value));
 
-					const tags = Array.from(
-						new Set([
-							...toStringArray(meta.tags),
-							...material,
-							...tectonic,
-							...interaction,
-							...phenomena
-						])
-					);
+				const tags = Array.from(
+					new Set([
+						...toStringArray(meta.tags),
+						...material,
+						...element,
+						...form,
+						...interaction,
+						...phenomena
+					])
+				);
 
-					return {
-						filename,
-						thumbnail: `${base}/thumbnails/${filename}`,
-						caption,
-						date: meta.date || null,
-						author: meta.author || null,
-						geolocation: meta.geolocation || null,
-						tags,
-						material,
-						tectonic,
-						interaction,
-						phenomena
-					};
+				return {
+					filename,
+					thumbnail: `${base}/thumbnails/${filename}`,
+					caption,
+					date: meta.date || null,
+					author: meta.author || null,
+					geolocation: meta.geolocation || null,
+					tags,
+					material,
+					element,
+					form,
+					interaction,
+					phenomena
+				};
 				})
 				.sort((a, b) => {
 					if (!a.date && !b.date) return 0;
@@ -109,7 +114,8 @@ export function loadGalleryData(): GalleryData {
 		images,
 		filterOptions: {
 			material: Array.from(filterOptions.material).sort((a, b) => a.localeCompare(b)),
-			tectonic: Array.from(filterOptions.tectonic).sort((a, b) => a.localeCompare(b)),
+			form: Array.from(filterOptions.form).sort((a, b) => a.localeCompare(b)),
+			element: Array.from(filterOptions.element).sort((a, b) => a.localeCompare(b)),
 			interaction: Array.from(filterOptions.interaction).sort((a, b) => a.localeCompare(b)),
 			phenomena: Array.from(filterOptions.phenomena).sort((a, b) => a.localeCompare(b))
 		}

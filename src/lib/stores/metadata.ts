@@ -1,6 +1,6 @@
 import { writable, derived } from 'svelte/store';
 
-export type Category = 'material' | 'tectonic' | 'interaction' | 'phenomena';
+export type Category = 'material' | 'element' | 'form' | 'interaction' | 'phenomena';
 
 export interface Geolocation {
 	latitude: number;
@@ -11,7 +11,8 @@ export interface ImageMetadata {
 	filename: string;
 	thumbnail: string;
 	material: string[];
-	tectonic: string[];
+	element: string[];
+	form: string[];
 	interaction: string[];
 	phenomena: string[];
 	date: string | null;
@@ -32,7 +33,8 @@ function createMetadataStore() {
 		images: [],
 		filterOptions: {
 			material: [],
-			tectonic: [],
+			form: [],
+			element: [],
 			interaction: [],
 			phenomena: []
 		}
@@ -52,7 +54,8 @@ export type SelectedFilters = Record<Category, string[]>;
 function createSelectedFiltersStore() {
 	const initialFilters: SelectedFilters = {
 		material: [],
-		tectonic: [],
+		form: [],
+		element: [],
 		interaction: [],
 		phenomena: []
 	};

@@ -1,12 +1,13 @@
 import { writable, derived } from 'svelte/store';
 
-type Category = 'material' | 'tectonic' | 'interaction' | 'phenomena';
+type Category = 'material' | 'element' | 'form' | 'interaction' | 'phenomena';
 
 export type SelectedFilters = Record<Category, string[]>;
 
 const initialFilters: SelectedFilters = {
 	material: [],
-	tectonic: [],
+	form: [],
+	element: [],
 	interaction: [],
 	phenomena: []
 };
@@ -66,7 +67,7 @@ export function createImageFilterFunction(images: any[]) {
 
 		return images.filter((image) => {
 			const imageTags = Array.isArray(image?.tags) ? image.tags : [];
-			const categories: Category[] = ['material', 'tectonic', 'interaction', 'phenomena'];
+			const categories: Category[] = ['material', 'form', 'element', 'interaction', 'phenomena'];
 
 			// For each category with selected filters
 			for (const category of categories) {

@@ -13,7 +13,8 @@
 
 	const colorByCategory: Record<string, string> = {
 		material: '#1f6feb',
-		tectonic: '#0d7b4f',
+		element: '#0d7b4f',
+		form: '#2d9d6f',
 		interaction: '#8f4a00',
 		phenomena: '#7a3db8',
 		mixed: '#5b5b5b'
