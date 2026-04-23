@@ -63,21 +63,24 @@
 	});
 	
 	function nextImage() {
+		if (isMobile) return;
 		const current = $expandedImageIndex ?? -1;
 		$expandedImageIndex = (current + 1) % randomizedImages.length;
 	}
 	
 	function prevImage() {
+		if (isMobile) return;
 		const current = $expandedImageIndex ?? 0;
 		$expandedImageIndex = (current - 1 + randomizedImages.length) % randomizedImages.length;
 	}
 	
 	function closeExpanded() {
+		if (isMobile) return;
 		expandedImageIndex.set(null);
 	}
 	
 	function handleKeydown(e: KeyboardEvent) {
-		if ($expandedImageIndex === null) return;
+		if ($expandedImageIndex === null || isMobile) return;
 		if (e.key === 'ArrowRight') nextImage();
 		else if (e.key === 'ArrowLeft') prevImage();
 		else if (e.key === 'Escape') closeExpanded();
@@ -171,6 +174,7 @@
 			<div class="image-item-wrapper" id={image.filename}>
 				<div class="image-item-container">
 					<button type="button" class="image-item" on:click={(e) => {
+						if (isMobile) return;
 						const target = e.target as HTMLElement;
 						if (!target.closest('.info-geolocation')) {
 							expandedImageIndex.set(index);
@@ -538,6 +542,13 @@
 		pointer-events: auto;
 	}
 
+	@media (max-width: 768px) {
+		.image-item-container:hover .image-hover-info {
+			opacity: 0 !important;
+			pointer-events: none !important;
+		}
+	}
+
 	.image-hover-info p {
 		margin: 0;
 		padding: 0;
@@ -628,6 +639,12 @@
 		filter: blur(4px);
 	}
 
+	@media (max-width: 768px) {
+		.image-item-container:hover img {
+			filter: blur(0) !important;
+		}
+	}
+
 
 	
 	.modal-overlay {
@@ -642,6 +659,12 @@
 		align-items: center;
 		justify-content: center;
 		z-index: 1000;
+	}
+
+	@media (max-width: 768px) {
+		.modal-overlay {
+			display: none;
+		}
 	}
 	
 	.modal-content {
@@ -700,6 +723,12 @@
 	.nav-btn:disabled {
 		opacity: 0.3;
 		cursor: not-allowed;
+	}
+
+	@media (max-width: 768px) {
+		.nav-btn {
+			display: none;
+		}
 	}
 	
 	.prev-btn {
