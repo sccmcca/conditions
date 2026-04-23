@@ -204,7 +204,9 @@
 		padding: 0.75rem;
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
+		gap: 0.75rem;
+		align-items: center;
+		text-align: center;
 		border-bottom: 1px solid #e5e5e5;
 		background: white;
 	}
@@ -212,12 +214,12 @@
 	.sidebar-title {
 		margin: 0;
 		padding: 0;
-		font-size: 0.65rem;
+		font-size: 1rem;
 		font-weight: normal;
 		font-style: italic;
-		text-transform: lowercase;
 		color: #333;
 		letter-spacing: 0.5px;
+		width: 100%;
 	}
 
 	.sidebar-divider {
