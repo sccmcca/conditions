@@ -142,8 +142,8 @@
 				{#each $observations as obs (obs.id)}
 					<div class="observation-card">
 						<div class="pair-container">
-							<img src={obs.leftImage.thumbnail} alt={obs.leftImage.filename} />
-							<img src={obs.rightImage.thumbnail} alt={obs.rightImage.filename} />
+							<img src={obs.leftImage.thumbnail} alt={obs.leftImage.filename} title={obs.leftImage.filename} />
+							<img src={obs.rightImage.thumbnail} alt={obs.rightImage.filename} title={obs.rightImage.filename} />
 						</div>
 						<p class="card-note">{obs.note}</p>
 						<p class="card-date">{formatDate(obs.timestamp)}</p>
