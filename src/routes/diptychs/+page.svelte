@@ -70,26 +70,32 @@
 
 <main>
 	<div class="sidebar">
-		<div class="tabs-header">
-			<button
-				class="tab-button"
-				class:active={activeTab === 'see'}
-				on:click={() => (activeTab = 'see')}
-			>
-				see
-			</button>
-			<button
-				class="tab-button"
-				class:active={activeTab === 'make'}
-				on:click={() => (activeTab = 'make')}
-			>
-				make
-			</button>
+		<div class="sidebar-header">
+			<h1 class="sidebar-title">Diptychs</h1>
+			<div class="tabs-header">
+				<button
+					class="tab-button"
+					class:active={activeTab === 'see'}
+					on:click={() => (activeTab = 'see')}
+				>
+					see
+				</button>
+				<span class="tab-divider">/</span>
+				<button
+					class="tab-button"
+					class:active={activeTab === 'make'}
+					on:click={() => (activeTab = 'make')}
+				>
+					make
+				</button>
+			</div>
 		</div>
+
+		<div class="sidebar-divider"></div>
 
 		<div class="sidebar-content">
 			{#if activeTab === 'see'}
-				<p class="sidebar-title observations-title">observations</p>
+				<!-- See tab content empty, just scrolls main area -->
 			{:else}
 				<div class="make-controls">
 					<h2 class="sidebar-title">analysis</h2>
@@ -141,23 +147,23 @@
 					{/each}
 				</div>
 			{/if}
-		{:else}
-			<div class="split-screen">
-				<div class="pair-container">
-					<div class="image-wrapper">
-						{#if leftImage}
-							<img src={leftImage.thumbnail} alt={leftImage.filename} title={leftImage.filename} />
-						{/if}
-					</div>
-					<div class="image-wrapper">
-						{#if rightImage}
-							<img src={rightImage.thumbnail} alt={rightImage.filename} title={rightImage.filename} />
-						{/if}
-					</div>
-				</div>
-			</div>
 		{/if}
 	</div>
+
+	{#if activeTab === 'make'}
+		<div class="image-pair-wrapper">
+			<div class="image-wrapper">
+				{#if leftImage}
+					<img src={leftImage.thumbnail} alt={leftImage.filename} title={leftImage.filename} />
+				{/if}
+			</div>
+			<div class="image-wrapper">
+				{#if rightImage}
+					<img src={rightImage.thumbnail} alt={rightImage.filename} title={rightImage.filename} />
+				{/if}
+			</div>
+		</div>
+	{/if}
 </main>
 
 <style>
@@ -165,67 +171,100 @@
 		width: 100%;
 		height: calc(100vh - 4rem);
 		display: flex;
-		padding: 0;
+		padding: 0 4rem;
 		margin: 0;
 		overflow: hidden;
+		align-items: center;
+		justify-content: center;
+		gap: 1.5rem;
+		box-sizing: border-box;
+	}
+
+	main > * {
+		flex: 0 0 auto;
 	}
 
 	.sidebar {
-		width: max(20vw, 250px);
-		height: 100%;
-		border-right: 1px solid #e5e5e5;
-		background: rgba(255, 255, 255, 0.98);
-		backdrop-filter: blur(4px);
+		width: min(42.5vw, 42.5vh);
+		aspect-ratio: 3 / 4;
+		height: auto;
+		max-height: 100%;
+		border: 1px solid #e5e5e5;
+		background: white;
 		display: flex;
 		flex-direction: column;
 		overflow: hidden;
 		z-index: 5;
 	}
 
-	.tabs-header {
+	.sidebar-header {
+		padding: 0.75rem;
 		display: flex;
-		gap: 0;
-		padding: 0;
+		flex-direction: column;
+		gap: 0.5rem;
 		border-bottom: 1px solid #e5e5e5;
 		background: white;
 	}
 
+	.sidebar-title {
+		margin: 0;
+		padding: 0;
+		font-size: 0.65rem;
+		font-weight: normal;
+		font-style: italic;
+		text-transform: lowercase;
+		color: #333;
+		letter-spacing: 0.5px;
+	}
+
+	.sidebar-divider {
+		height: 1px;
+		background: #e5e5e5;
+	}
+
+	.tabs-header {
+		display: flex;
+		gap: 0.5rem;
+		padding: 0;
+		align-items: center;
+		justify-content: center;
+	}
+
 	.tab-button {
-		flex: 1;
 		background: none;
 		border: none;
 		cursor: pointer;
-		font-size: 0.75rem;
+		font-size: 0.7rem;
 		font-style: italic;
 		color: #999;
 		transition: all 0.2s ease;
-		padding: 0.5rem 0;
+		padding: 0;
 		margin: 0;
-		border-right: 1px solid #e5e5e5;
 		position: relative;
-	}
-
-	.tab-button:last-child {
-		border-right: none;
 	}
 
 	.tab-button:hover {
 		color: #666;
-		background: #fafafa;
 	}
 
 	.tab-button.active {
 		color: #333;
-		font-weight: 500;
-		background: white;
+		filter: blur(4px);
+	}
+
+	.tab-divider {
+		color: #999;
+		font-size: 0.7rem;
+		font-style: italic;
+		margin: 0 0.3rem;
 	}
 
 	.sidebar-content {
 		flex: 1;
 		display: flex;
 		flex-direction: column;
-		padding: 1rem;
-		gap: 1rem;
+		padding: 0.75rem;
+		gap: 0.75rem;
 		overflow-y: auto;
 		-ms-overflow-style: none;
 		scrollbar-width: none;
@@ -233,16 +272,6 @@
 
 	.sidebar-content::-webkit-scrollbar {
 		display: none;
-	}
-
-	.sidebar-title {
-		margin: 0;
-		padding: 0;
-		font-size: 0.7rem;
-		font-weight: 600;
-		font-style: italic;
-		text-transform: lowercase;
-		color: #333;
 	}
 
 	.make-controls {
@@ -355,7 +384,7 @@
 	.main-content {
 		flex: 1;
 		height: 100%;
-		overflow: hidden;
+		overflow: auto;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -364,8 +393,37 @@
 		padding: 0;
 	}
 
-	.main-content:has(.split-screen) {
+	main:has(.image-pair-wrapper) .main-content {
+		display: none;
+	}
+
+	.image-pair-wrapper {
+		display: flex;
+		gap: 1.5rem;
+		align-items: center;
 		justify-content: center;
+		background: #f9f9f9;
+		width: calc(min(42.5vw, 42.5vh) * 2 + 1.5rem);
+		height: calc(min(42.5vw, 42.5vh) * 4 / 3);
+	}
+
+	.image-pair-wrapper .image-wrapper {
+		width: calc(min(42.5vw, 42.5vh) / 2);
+		height: calc(min(42.5vw, 42.5vh) * 4 / 3);
+		aspect-ratio: 3 / 4;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+	}
+
+	.image-pair-wrapper .image-wrapper img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		aspect-ratio: 3 / 4;
+		border-radius: 0;
+		background: white;
 	}
 
 	.pair-container {
@@ -399,8 +457,9 @@
 	}
 
 	.observation-card {
-		width: min(85vw, 85vh);
-		max-height: 95vh;
+		width: 100%;
+		max-width: min(85vw, 85vh);
+		max-height: none;
 		display: flex;
 		flex-direction: column;
 		gap: 0;
@@ -478,49 +537,6 @@
 		aspect-ratio: 3 / 4;
 		border-radius: 4px;
 		background: #f5f5f5;
-	}
-
-	.split-screen {
-		display: flex;
-		gap: 0.5rem;
-		width: 100%;
-		height: auto;
-		align-items: center;
-		justify-content: center;
-		background: #f9f9f9;
-		max-width: min(85vw, 85vh);
-	}
-
-	.split-screen .pair-container {
-		width: 100%;
-		height: auto;
-		gap: 0.5rem;
-		max-height: none;
-		margin: 0;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		padding: 0;
-		background: transparent;
-	}
-
-	.split-screen .image-wrapper {
-		width: calc(50% - 0.25rem);
-		height: auto;
-		max-width: none;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		overflow: hidden;
-	}
-
-	.split-screen .image-wrapper img {
-		width: 100%;
-		height: auto;
-		object-fit: cover;
-		aspect-ratio: 3 / 4;
-		border-radius: 0;
-		background: white;
 	}
 
 	.empty-pair-state {
