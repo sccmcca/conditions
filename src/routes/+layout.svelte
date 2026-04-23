@@ -16,6 +16,7 @@
 		$page.url.pathname?.includes('diptychs') ? 'diptychs' :
 		$page.url.pathname?.includes('catalogue') ? 'catalogue' :
 		$page.url.pathname?.includes('network') ? 'network' :
+		$page.url.pathname?.includes('prompt') ? 'prompt' :
 		null
 	);
 
@@ -34,6 +35,7 @@
 			<a class="category-link" class:inactive={activeNav !== 'diptychs'} href={`${base}/diptychs`}>diptychs</a>
 			<a class="category-link" class:inactive={activeNav !== 'catalogue'} href={`${base}/catalogue`}>catalogue</a>
 			<a class="category-link" class:inactive={activeNav !== 'network'} href={`${base}/network`}>network</a>
+			<a class="category-link" class:inactive={activeNav !== 'prompt'} href={`${base}/prompt`}>prompt</a>
 		</div>
 		<!-- <p>photographic research method</p> -->
 		
