@@ -1,6 +1,45 @@
 [
   {
     "leftImage": {
+      "filename": "70241922141__698A3423-570F-4242-83E5-B083622452A8.jpg",
+      "thumbnail": "/thumbnails/70241922141__698A3423-570F-4242-83E5-B083622452A8.jpg"
+    },
+    "rightImage": {
+      "filename": "IMG_20210102_132328732.jpg",
+      "thumbnail": "/thumbnails/IMG_20210102_132328732.jpg"
+    },
+    "note": "glacial assemblages",
+    "id": "rw2ncagh6",
+    "timestamp": 1776917616304
+  },
+  {
+    "leftImage": {
+      "filename": "877933ED-4810-4D88-BDEE-91988DE2089E.jpg",
+      "thumbnail": "/thumbnails/877933ED-4810-4D88-BDEE-91988DE2089E.jpg"
+    },
+    "rightImage": {
+      "filename": "IMG_1298.jpg",
+      "thumbnail": "/thumbnails/IMG_1298.jpg"
+    },
+    "note": "arcs",
+    "id": "tiz54wxll",
+    "timestamp": 1776915005305
+  },
+  {
+    "leftImage": {
+      "filename": "IMG_3712.jpg",
+      "thumbnail": "/thumbnails/IMG_3712.jpg"
+    },
+    "rightImage": {
+      "filename": "IMG_6783.jpg",
+      "thumbnail": "/thumbnails/IMG_6783.jpg"
+    },
+    "note": "eroded art pieces",
+    "id": "uxl3w5k04",
+    "timestamp": 1776914846687
+  },
+  {
+    "leftImage": {
       "filename": "IMG_7710.jpg",
       "thumbnail": "/thumbnails/IMG_7710.jpg"
     },

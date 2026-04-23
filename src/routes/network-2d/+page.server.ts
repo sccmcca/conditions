@@ -70,10 +70,6 @@ export const load = async ({ url }) => {
 		}
 	};
 
-	const top = Math.max(10, Math.min(120, getParam('top', 45)));
-	const minEdge = Math.max(1, Math.min(20, getParam('minEdge', 2)));
-	const clusterEdge = Math.max(minEdge, Math.min(20, getParam('clusterEdge', 3)));
-
 	const { images } = loadGalleryData();
 	const nodeCount = new Map<string, number>();
 	const nodeCategory = new Map<string, GalleryCategory | 'mixed'>();
@@ -104,6 +100,11 @@ export const load = async ({ url }) => {
 			}
 		}
 	}
+
+	const totalTags = nodeCount.size;
+	const top = Math.max(10, Math.min(totalTags, getParam('top', 45)));
+	const minEdge = Math.max(1, Math.min(20, getParam('minEdge', 2)));
+	const clusterEdge = Math.max(minEdge, Math.min(20, getParam('clusterEdge', 3)));
 
 	const selectedNodeIds = new Set(
 		Array.from(nodeCount.entries())

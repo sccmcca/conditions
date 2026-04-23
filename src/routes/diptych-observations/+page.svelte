@@ -4,6 +4,7 @@
 	import { observations } from '$lib/stores/observations';
 
 	let expandedId: string | null = null;
+	let viewMode: 'grid' | 'list' = 'list';
 
 	function formatDate(timestamp: number) {
 		const date = new Date(timestamp);
@@ -38,7 +39,26 @@
 			</p>
 		</div>
 	{:else}
-		<div class="observations-grid">
+		<div class="view-toggle">
+			<button 
+				type="button"
+				class="toggle-btn"
+				class:active={viewMode === 'grid'}
+				on:click={() => viewMode = 'grid'}
+			>
+				grid
+			</button>
+			<button 
+				type="button"
+				class="toggle-btn"
+				class:active={viewMode === 'list'}
+				on:click={() => viewMode = 'list'}
+			>
+				list
+			</button>
+		</div>
+
+		<div class="observations-grid" class:list-view={viewMode === 'list'}>
 			{#each $observations as obs (obs.id)}
 				<div class="observation-card">
 					<div class="image-pair" on:click={() => toggleExpanded(obs.id)} role="button" tabindex="0">
@@ -84,6 +104,37 @@
 		margin: 0;
 	}
 
+	.view-toggle {
+		position: fixed;
+		top: 4rem;
+		right: 1rem;
+		display: flex;
+		gap: 1rem;
+		z-index: 10;
+	}
+
+	.toggle-btn {
+		background: none;
+		border: none;
+		cursor: pointer;
+		color: #999;
+		font-size: 0.85rem;
+		font-family: inherit;
+		font-style: italic;
+		transition: color 0.2s ease;
+		padding: 0;
+		margin: 0;
+	}
+
+	.toggle-btn:hover {
+		color: #333;
+	}
+
+	.toggle-btn.active {
+		color: #333;
+		font-weight: 500;
+	}
+
 	.empty-state {
 		display: flex;
 		flex-direction: column;
@@ -112,9 +163,20 @@
 		align-content: flex-start;
 	}
 
+	.observations-grid.list-view {
+		flex-direction: column;
+		flex-wrap: nowrap;
+		align-items: center;
+		justify-content: flex-start;
+	}
+
+	.observations-grid.list-view .observation-card {
+		width: min(85vw, 85vh);
+		max-height: 95vh;
+	}
+
 	.observation-card {
 		background: white;
-		border: 1px solid #e5e5e5;
 		display: flex;
 		flex-direction: column;
 		position: relative;
@@ -144,6 +206,16 @@
 		overflow: hidden;
 		width: calc(50% - 0.25rem);
 		height: 200px;
+		aspect-ratio: 3 / 4;
+	}
+
+	.observations-grid.list-view .image-pair {
+		gap: 1rem;
+	}
+
+	.observations-grid.list-view .image-item {
+		height: auto;
+		width: 50vw;
 	}
 
 	.image-item img {
@@ -166,7 +238,7 @@
 
 	.observation-note {
 		margin: 0;
-		font-size: 0.95rem;
+		font-size: 0.85rem;
 		line-height: 1.5;
 		color: #999;
 		font-style: italic;
@@ -221,13 +293,13 @@
 	.expanded-container {
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
+		gap: 0.25rem;
 		width: 100%;
 	}
 
 	.expanded-note {
 		margin: 0;
-		font-size: 0.95rem;
+		font-size: 0.85rem;
 		line-height: 1.5;
 		color: #333;
 		max-width: 100%;
