@@ -241,7 +241,7 @@
 		tick = () => {
 			if (!isPlaying) return;
 			const elapsed = (Date.now() - startTime) / 1000;
-			rotY = 0.2 + elapsed * 0.3; // Slow rotation: 0.3 radians per second
+			rotY = 0.2 + elapsed * 0.15; // Slow rotation: 0.15 radians per second
 			updateProjection();
 			raf = requestAnimationFrame(tick);
 		};
@@ -258,166 +258,74 @@
 </svelte:head>
 
 <main class="relationships-page">
-	<section class="intro">
-		<h2>tag co-occurrence network</h2>
-		<p>
-			built from material, tectonic, interaction, and phenomena in metadata.json.
-			edges connect tags that appear on the same image.
-		</p>
-		<p>
-			showing top {network.params.top} tags, min edge weight {network.params.minEdge}, clustering threshold {network.params.clusterEdge}.
-		</p>
-		<p>drag to rotate, option+drag to pan, scroll to zoom.</p>
-		<div class="controls">
-			<button type="button" class="reset-view" on:click={resetView}>reset view</button>
-			<button type="button" class="play-pause-btn" on:click={togglePlayPause} title={isPlaying ? 'pause' : 'play'}>
-				{#if isPlaying}| |{:else}›{/if}
-			</button>
-		</div>
-	</section>
+	<button type="button" class="play-pause-btn" on:click={togglePlayPause} title={isPlaying ? 'pause' : 'play'}>
+		{#if isPlaying}| |{:else}›{/if}
+	</button>
 
-	<section class="network-wrap">
-		<svg
-			bind:this={svgElement}
-			viewBox={`0 0 ${width} ${height}`}
-			role="img"
-			aria-label="Interactive 3D tag network"
-			on:pointerdown={onPointerDown}
-			on:pointermove={onPointerMove}
-			on:pointerup={onPointerUp}
-			on:pointerleave={onPointerUp}
-			on:wheel|preventDefault={onWheel}
-		>
-			{#each projectedEdges as edge (edge.key)}
-				<path
-					d={edge.d}
-					stroke={edge.stroke}
-					stroke-opacity={0.02 + edge.opacity * 0.58}
-					stroke-width="0.7"
-					fill="none"
-				/>
-			{/each}
-
-			{#each projectedNodes as node (node.id)}
-				<text
-					x={node.x}
-					y={node.y}
-					text-anchor="middle"
-					dominant-baseline="middle"
-					role="img"
-					aria-label={`${node.id} (${node.count})`}
-					fill={colorByCategory[node.category] ?? colorByCategory.mixed}
-					fill-opacity={node.displayAlpha}
-					style={`font-size:${Math.max(8, Math.min(22, node.fontSize * node.scale * 0.75))}px`}
-					on:mouseenter={() => setHoveredNode(node.id)}
-					on:mouseleave={() => setHoveredNode(null)}
-				>
-					{node.id} ({node.count})
-				</text>
-			{/each}
-		</svg>
-	</section>
-
-	<section class="legend">
-		<div><span class="chip material"></span>material</div>
-		<div><span class="chip tectonic"></span>tectonic</div>
-		<div><span class="chip interaction"></span>interaction</div>
-		<div><span class="chip phenomena"></span>phenomena</div>
-		<div><span class="chip mixed"></span>mixed</div>
-	</section>
-
-	<section class="clusters">
-		<h3>clusters</h3>
-		{#each network.clusters as cluster}
-			<div class="cluster-item">
-				<div class="cluster-title">cluster {cluster.cluster} ({cluster.size})</div>
-				<p>{cluster.nodes.map((n: any) => `${n.id} (${n.count})`).join(', ')}</p>
-			</div>
+	<svg
+		bind:this={svgElement}
+		viewBox={`0 0 ${width} ${height}`}
+		role="img"
+		aria-label="Interactive 3D tag network"
+		on:pointerdown={onPointerDown}
+		on:pointermove={onPointerMove}
+		on:pointerup={onPointerUp}
+		on:pointerleave={onPointerUp}
+		on:wheel|preventDefault={onWheel}
+	>
+		{#each projectedEdges as edge (edge.key)}
+			<path
+				d={edge.d}
+				stroke={edge.stroke}
+				stroke-opacity={0.02 + edge.opacity * 0.58}
+				stroke-width="0.7"
+				fill="none"
+			/>
 		{/each}
-	</section>
+
+		{#each projectedNodes as node (node.id)}
+			<text
+				x={node.x}
+				y={node.y}
+				text-anchor="middle"
+				dominant-baseline="middle"
+				role="img"
+				aria-label={`${node.id} (${node.count})`}
+				fill={colorByCategory[node.category] ?? colorByCategory.mixed}
+				fill-opacity={node.displayAlpha}
+				style={`font-size:${Math.max(8, Math.min(22, node.fontSize * node.scale * 0.75))}px`}
+				on:mouseenter={() => setHoveredNode(node.id)}
+				on:mouseleave={() => setHoveredNode(null)}
+			>
+				{node.id} ({node.count})
+			</text>
+		{/each}
+	</svg>
 </main>
 
 <style>
+	:global(main) {
+		padding-top: 0 !important;
+		padding-bottom: 0 !important;
+	}
+
 	.relationships-page {
-		max-width: 1180px;
-		margin: 0 auto;
-		padding: 1.5rem 1rem 3rem;
+		width: 100%;
+		height: 100vh;
+		margin: 0;
+		padding: 0;
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
-	}
-
-	.intro h2,
-	.clusters h3 {
-		margin: 0;
-		font-size: 1.15rem;
-		font-style: italic;
-		font-weight: 500;
-		text-transform: lowercase;
-	}
-
-	.intro p {
-		margin: 0.35rem 0 0;
-		font-size: 0.9rem;
-		font-style: italic;
-		color: #444;
-	}
-
-	.network-wrap {
-		border: 1px solid #e5e5e5;
-		background: #fff;
-		overflow-x: auto;
-		cursor: move;
-		touch-action: none;
-		user-select: none;
-		-webkit-user-select: none;
-	}
-
-	.network-wrap:active {
-		cursor: grabbing;
-	}
-
-	svg {
-		display: block;
-		width: 100%;
-		height: auto;
-		min-width: 900px;
-		user-select: none;
-		-webkit-user-select: none;
-	}
-
-	text {
-		font-family: Times, 'Times New Roman', serif;
-		font-style: italic;
-		fill: #2d2d2d;
-		user-select: none;
-		-webkit-user-select: none;
-	}
-
-	.reset-view {
-		margin-top: 0.55rem;
-		font-family: inherit;
-		font-size: 0.82rem;
-		font-style: italic;
-		border: 1px solid #d6d6d6;
-		background: #fff;
-		padding: 0.25rem 0.5rem;
-		cursor: pointer;
-		transition: background 0.2s ease;
-	}
-
-	.reset-view:hover {
-		background: #f5f5f5;
-	}
-
-	.controls {
-		display: flex;
-		gap: 0.5rem;
-		align-items: center;
+		gap: 0;
+		overflow: hidden;
+		position: relative;
 	}
 
 	.play-pause-btn {
-		margin-top: 0.55rem;
+		position: absolute;
+		top: 6rem;
+		right: 1rem;
+		z-index: 100;
 		font-family: inherit;
 		font-size: 0.82rem;
 		border: 1px solid #d6d6d6;
@@ -431,55 +339,26 @@
 		background: #f5f5f5;
 	}
 
-	.legend {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.75rem;
-		font-size: 0.82rem;
+	svg {
+		display: block;
+		width: 100%;
+		height: 100%;
+		max-width: 100%;
+		cursor: move;
+		touch-action: none;
+		user-select: none;
+		-webkit-user-select: none;
+	}
+
+	svg:active {
+		cursor: grabbing;
+	}
+
+	text {
+		font-family: Times, 'Times New Roman', serif;
 		font-style: italic;
-	}
-
-	.legend div {
-		display: flex;
-		align-items: center;
-		gap: 0.35rem;
-	}
-
-	.chip {
-		width: 10px;
-		height: 10px;
-		display: inline-block;
-		border-radius: 999px;
-	}
-
-	.chip.material { background: #1f6feb; }
-	.chip.tectonic { background: #0d7b4f; }
-	.chip.interaction { background: #8f4a00; }
-	.chip.phenomena { background: #7a3db8; }
-	.chip.mixed { background: #5b5b5b; }
-
-	.clusters {
-		display: flex;
-		flex-direction: column;
-		gap: 0.6rem;
-		padding-bottom: 2rem;
-	}
-
-	.cluster-item {
-		border-top: 1px solid #ececec;
-		padding-top: 0.45rem;
-	}
-
-	.cluster-title {
-		font-size: 0.86rem;
-		font-style: italic;
-		color: #333;
-	}
-
-	.cluster-item p {
-		margin: 0.3rem 0 0;
-		font-size: 0.82rem;
-		line-height: 1.35;
-		color: #555;
+		fill: #2d2d2d;
+		user-select: none;
+		-webkit-user-select: none;
 	}
 </style>

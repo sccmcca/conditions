@@ -17,9 +17,9 @@
 
 	let hoveredNode: string | null = null;
 	let svgElement: SVGSVGElement | null = null;
-	let zoom = 1;
-	let panX = 0;
-	let panY = 0;
+	let zoom = 0.75;
+	let panX = (width / 2) * (1 - zoom);
+	let panY = (height / 2) * (1 - zoom);
 	let isPanning = false;
 	let panStart = { x: 0, y: 0, panX: 0, panY: 0 };
 
@@ -223,116 +223,77 @@
 </svelte:head>
 
 <main class="relationships-page">
-	<section class="intro">
-		<h2>tag co-occurrence network, 2d</h2>
-		<p>
-			flat version of the network built from material, tectonic, interaction, and phenomena.
-			edge thickness reflects number of connections.
-		</p>
-		<p>
-			showing top {network.params.top} tags, min edge weight {network.params.minEdge}, clustering threshold {network.params.clusterEdge}.
-		</p>
-		<p>
-			use the mouse wheel or trackpad to zoom and drag the empty space to pan. double-click to reset.
-		</p>
-	</section>
+	<svg
+		bind:this={svgElement}
+		viewBox={`0 0 ${width} ${height}`}
+		role="img"
+		aria-label="2D tag network"
+		on:wheel={zoomAtPoint}
+		on:pointerdown={startPan}
+		on:dblclick={resetView}
+		class:is-panning={isPanning}
+	>
+		<rect x="0" y="0" width={width} height={height} fill="transparent" />
+		<g transform={`translate(${panX} ${panY}) scale(${zoom})`}>
+			{#each positionedEdges as edge (edge.key)}
+				<path
+					d={edge.d}
+					stroke={edge.stroke}
+					stroke-opacity={0.02 + edge.opacity * 0.58}
+					stroke-width="0.7"
+					fill="none"
+					vector-effect="non-scaling-stroke"
+				/>
+			{/each}
 
-	<section class="network-wrap">
-		<svg
-			bind:this={svgElement}
-			viewBox={`0 0 ${width} ${height}`}
-			role="img"
-			aria-label="2D tag network"
-			on:wheel={zoomAtPoint}
-			on:pointerdown={startPan}
-			on:dblclick={resetView}
-			class:is-panning={isPanning}
-		>
-			<rect x="0" y="0" width={width} height={height} fill="transparent" />
-			<g transform={`translate(${panX} ${panY}) scale(${zoom})`}>
-				{#each positionedEdges as edge (edge.key)}
-					<path
-						d={edge.d}
-						stroke={edge.stroke}
-						stroke-opacity={0.02 + edge.opacity * 0.58}
-						stroke-width="0.7"
-						fill="none"
-						vector-effect="non-scaling-stroke"
-					/>
-				{/each}
-
-				{#each positionedNodes as node (node.id)}
-					<text
-						x={node.x}
-						y={node.y}
-						text-anchor="middle"
-						dominant-baseline="middle"
-						role="img"
-						aria-label={`${node.id} (${node.count})`}
-						fill={colorByCategory[node.category] ?? colorByCategory.mixed}
-						style={`font-size:${Math.max(7, Math.min(16, node.fontSize * 0.72))}px`}
-						on:mouseenter={() => setHoveredNode(node.id)}
-						on:mouseleave={() => setHoveredNode(null)}
-					>
-						{node.id} ({node.count})
-					</text>
-				{/each}
-			</g>
-		</svg>
-	</section>
-
-	<section class="legend">
-		<div><span class="chip material"></span>material</div>
-		<div><span class="chip tectonic"></span>tectonic</div>
-		<div><span class="chip interaction"></span>interaction</div>
-		<div><span class="chip phenomena"></span>phenomena</div>
-		<div><span class="chip mixed"></span>mixed</div>
-	</section>
+			{#each positionedNodes as node (node.id)}
+				<text
+					x={node.x}
+					y={node.y}
+					text-anchor="middle"
+					dominant-baseline="middle"
+					role="img"
+					aria-label={`${node.id} (${node.count})`}
+					fill={colorByCategory[node.category] ?? colorByCategory.mixed}
+					style={`font-size:${Math.max(7, Math.min(16, node.fontSize * 0.72))}px`}
+					on:mouseenter={() => setHoveredNode(node.id)}
+					on:mouseleave={() => setHoveredNode(null)}
+				>
+					{node.id} ({node.count})
+				</text>
+			{/each}
+		</g>
+	</svg>
 </main>
 
 <style>
+	:global(main) {
+		padding-top: 0 !important;
+		padding-bottom: 0 !important;
+	}
+
 	.relationships-page {
-		max-width: 100%;
-		margin: 0 auto;
-		padding: 1.25rem 0.75rem 2.5rem;
+		width: 100%;
+		height: 100vh;
+		margin: 0;
+		padding: 0;
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
-	}
-
-	.intro h2 {
-		margin: 0;
-		font-size: 1.15rem;
-		font-style: italic;
-		font-weight: 500;
-		text-transform: lowercase;
-	}
-
-	.intro p {
-		margin: 0.35rem 0 0;
-		font-size: 0.9rem;
-		font-style: italic;
-		color: #444;
-	}
-
-	.network-wrap {
-		border: 1px solid #e5e5e5;
-		background: #fff;
+		gap: 0;
 		overflow: hidden;
-		cursor: grab;
-		user-select: none;
-	}
-
-	.network-wrap:active,
-	svg.is-panning {
-		cursor: grabbing;
 	}
 
 	svg {
 		display: block;
 		width: 100%;
-		height: auto;
+		height: 100%;
 		max-width: 100%;
+		cursor: grab;
+		user-select: none;
+	}
+
+	svg.is-panning {
+		cursor: grabbing;
 	}
 
 	text {
@@ -340,31 +301,4 @@
 		font-style: italic;
 		fill: #2d2d2d;
 	}
-
-	.legend {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.75rem;
-		font-size: 0.82rem;
-		font-style: italic;
-	}
-
-	.legend div {
-		display: flex;
-		align-items: center;
-		gap: 0.35rem;
-	}
-
-	.chip {
-		width: 10px;
-		height: 10px;
-		display: inline-block;
-		border-radius: 999px;
-	}
-
-	.chip.material { background: #1f6feb; }
-	.chip.tectonic { background: #0d7b4f; }
-	.chip.interaction { background: #8f4a00; }
-	.chip.phenomena { background: #7a3db8; }
-	.chip.mixed { background: #5b5b5b; }
 </style>
