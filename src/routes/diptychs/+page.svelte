@@ -6,6 +6,7 @@
 
 	const images = data.images;
 	let activeTab: 'make' | 'see' = 'see';
+	let expandedObsId: string | null = null;
 	
 	// Make tab state
 	let leftImage: any = null;
@@ -58,6 +59,35 @@
 		});
 	}
 
+	function getCurrentIndex() {
+		return $observations.findIndex(obs => obs.id === expandedObsId);
+	}
+
+	function goToPrevious() {
+		const currentIndex = getCurrentIndex();
+		if (currentIndex > 0) {
+			expandedObsId = $observations[currentIndex - 1].id;
+		}
+	}
+
+	function goToNext() {
+		const currentIndex = getCurrentIndex();
+		if (currentIndex < $observations.length - 1) {
+			expandedObsId = $observations[currentIndex + 1].id;
+		}
+	}
+
+	function handleKeydown(e: KeyboardEvent) {
+		if (!expandedObsId) return;
+		if (e.key === 'ArrowLeft') {
+			e.preventDefault();
+			goToPrevious();
+		} else if (e.key === 'ArrowRight') {
+			e.preventDefault();
+			goToNext();
+		}
+	}
+
 	onMount(() => {
 		observations.init();
 		refreshBoth();
@@ -65,8 +95,10 @@
 </script>
 
 <svelte:head>
-	<title>Diptychs</title>
+	<title>Conditions of Observation</title>
 </svelte:head>
+
+<svelte:window on:keydown={handleKeydown} />
 
 <main>
 	<div class="sidebar">
@@ -140,7 +172,7 @@
 		{:else}
 			<div class="observations-container">
 				{#each $observations as obs (obs.id)}
-					<div class="observation-card">
+					<div class="observation-card" role="button" tabindex="0" on:click={() => expandedObsId = obs.id}>
 						<div class="pair-container">
 							<img src={obs.leftImage.thumbnail} alt={obs.leftImage.filename} title={obs.leftImage.filename} />
 							<img src={obs.rightImage.thumbnail} alt={obs.rightImage.filename} title={obs.rightImage.filename} />
@@ -150,6 +182,30 @@
 					</div>
 				{/each}
 			</div>
+		{/if}
+
+		{#if expandedObsId}
+			{@const expandedObs = $observations.find(obs => obs.id === expandedObsId)}
+			{@const currentIndex = getCurrentIndex()}
+			{@const canGoPrev = currentIndex > 0}
+			{@const canGoNext = currentIndex < $observations.length - 1}
+			{#if expandedObs}
+				<div class="expanded-overlay" on:click={() => expandedObsId = null}>
+					<button class="nav-btn prev-btn" on:click={(e) => { e.stopPropagation(); goToPrevious(); }} disabled={!canGoPrev} title="Previous (←)" aria-label="Previous observation">‹</button>
+					<div class="expanded-content" on:click={(e) => e.stopPropagation()}>
+						<div class="expanded-pair">
+							<div class="expanded-image-wrapper">
+								<img src={expandedObs.leftImage.thumbnail} alt={expandedObs.leftImage.filename} title={expandedObs.leftImage.filename} />
+							</div>
+							<div class="expanded-image-wrapper">
+								<img src={expandedObs.rightImage.thumbnail} alt={expandedObs.rightImage.filename} title={expandedObs.rightImage.filename} />
+							</div>
+						</div>
+						<div class="carousel-counter">{currentIndex + 1} / {$observations.length}</div>
+					</div>
+					<button class="nav-btn next-btn" on:click={(e) => { e.stopPropagation(); goToNext(); }} disabled={!canGoNext} title="Next (→)" aria-label="Next observation">›</button>
+				</div>
+			{/if}
 		{/if}
 	{/if}
 
@@ -435,6 +491,7 @@
 		overflow-x: hidden;
 		padding: 0;
 		padding-top: calc((100vh - 4rem - min(56.67vw, 56.67vh)) / 2 - 1rem);
+		padding-bottom: calc((100vh - 4rem - min(56.67vw, 56.67vh)) / 2 - 4rem);
 		box-sizing: border-box;
 		-ms-overflow-style: none;
 		scrollbar-width: none;
@@ -601,9 +658,11 @@
 
 	.expanded-pair {
 		display: flex;
-		gap: 1.5rem;
+		gap: 5rem;
 		align-items: center;
 		justify-content: center;
+		background: white;
+		padding: 5rem;
 	}
 
 	.expanded-pair img {
@@ -788,5 +847,83 @@
 			aspect-ratio: 3 / 4;
 			object-fit: cover;
 		}
+	}
+
+	.observation-card {
+		cursor: pointer;
+	}
+
+	.expanded-overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba(0, 0, 0, 0.6);
+		backdrop-filter: blur(4px);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 3000;
+	}
+
+	.expanded-content {
+		position: relative;
+		max-width: 90vw;
+		max-height: 90vh;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 1rem;
+	}
+
+	.expanded-pair {
+		display: flex;
+		gap: 3rem;
+		align-items: center;
+		justify-content: center;
+		background: white;
+		padding: 3rem;
+	}
+
+	.expanded-image-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.expanded-image-wrapper img {
+		max-width: 35vw;
+		max-height: 70vh;
+		height: auto;
+		aspect-ratio: 3 / 4;
+		object-fit: cover;
+	}
+
+	.expanded-info {
+		text-align: center;
+		max-width: 80vw;
+	}
+
+	.expanded-note {
+		margin: 0;
+		font-size: 0.95rem;
+		font-style: italic;
+	}
+
+	.expanded-date {
+		margin: 0.5rem 0 0 0;
+		font-size: 0.8rem;
+		color: #666;
+	}
+
+	.carousel-counter {
+		margin: 0;
+		font-size: 0.85rem;
+		color: #666;
+		font-style: italic;
+		font-family: Georgia, serif;
+		text-align: center;
 	}
 </style>

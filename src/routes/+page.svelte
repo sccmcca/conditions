@@ -37,7 +37,7 @@
         justify-content: center;
         align-items: center;
         min-height: 100%;
-        padding: 0 2rem;
+        padding: 6rem 2rem 0 2rem;
     }
 
     p {

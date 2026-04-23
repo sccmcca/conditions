@@ -5193,10 +5193,10 @@
       "metal"
     ],
     "tectonic": [
-      "partial"
+      
     ],
     "interaction": [
-      "image"
+      "image","partial"
     ],
     "phenomena": [
       "foliage"

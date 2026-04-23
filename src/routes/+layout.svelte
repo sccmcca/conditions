@@ -11,6 +11,13 @@
 	let isGalleryPage = $derived($page.url.pathname === base || $page.url.pathname === `${base}/`);
 	// Check if we're on a network page
 	let isNetworkPage = $derived($page.url.pathname?.includes('network'));
+	// Check which nav item is active
+	let activeNav = $derived(
+		$page.url.pathname?.includes('diptychs') ? 'diptychs' :
+		$page.url.pathname?.includes('catalogue') ? 'catalogue' :
+		$page.url.pathname?.includes('network') ? 'network' :
+		null
+	);
 
 </script>
 
@@ -21,12 +28,12 @@
 <div class="layout">
 	<header>
 		<a href={base || "/"}>
-			<h1>Slow Practice</h1>
+			<h1>Conditions of Observation</h1>
 		</a>
 		<div class="header-links">
-			<a class="category-link" href={`${base}/diptychs`}>diptychs</a>
-			<a class="category-link" href={`${base}/catalogue`}>catalogue</a>
-			<a class="category-link" href={`${base}/network`}>network</a>
+			<a class="category-link" class:inactive={activeNav !== 'diptychs'} href={`${base}/diptychs`}>diptychs</a>
+			<a class="category-link" class:inactive={activeNav !== 'catalogue'} href={`${base}/catalogue`}>catalogue</a>
+			<a class="category-link" class:inactive={activeNav !== 'network'} href={`${base}/network`}>network</a>
 		</div>
 		<!-- <p>photographic research method</p> -->
 		
@@ -124,6 +131,10 @@
 	.category-link:hover {
 		filter: blur(4px);
 		-webkit-filter: blur(4px);
+	}
+
+	.category-link.inactive {
+		color: #999;
 	}
 
 	p {
