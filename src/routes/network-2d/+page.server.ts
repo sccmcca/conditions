@@ -41,7 +41,7 @@ class UnionFind {
 	}
 }
 
-const categories: GalleryCategory[] = ['material', 'tectonic', 'interaction', 'phenomena'];
+const categories: GalleryCategory[] = ['material', 'form', 'element', 'interaction', 'phenomena'];
 
 function hashString(value: string) {
 	let hash = 2166136261;

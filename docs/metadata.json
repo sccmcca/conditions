@@ -4,9 +4,6 @@
     "material": [
       "concrete"
     ],
-    "tectonic": [
-      "floor"
-    ],
     "interaction": [],
     "phenomena": [
       "caustic"
@@ -14,7 +11,11 @@
     "date": "8 April 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [
+      "floor"
+    ],
+    "form": []
   },
   {
     "filename": "0040B8F7-57F4-4583-A07E-F3E5A1B60A11",
@@ -22,7 +23,6 @@
       "plywood",
       "lumber"
     ],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [
       "shadow"
@@ -30,14 +30,15 @@
     "date": "16 July 2022",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "0569A3FC-227E-4526-95AF-A919DAF71D0D",
     "material": [
       "snow"
     ],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [
       "twin"
@@ -48,17 +49,15 @@
       "latitude": 45.51920277777778,
       "longitude": -73.58582222222222
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "133729638_1870942493084418_4538788331428045785_n_17876160071094718",
     "material": [
       "metal",
       "glass"
-    ],
-    "tectonic": [
-      "corrugated",
-      "corner"
     ],
     "interaction": [],
     "phenomena": [
@@ -67,15 +66,17 @@
     "date": null,
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "corrugated",
+      "corner"
+    ]
   },
   {
     "filename": "19570257-4E33-4712-B87A-3A79B1C24962",
     "material": [
       "concrete"
-    ],
-    "tectonic": [
-      "floor"
     ],
     "interaction": [],
     "phenomena": [
@@ -84,14 +85,15 @@
     "date": null,
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [
+      "floor"
+    ],
+    "form": []
   },
   {
     "filename": "21F3D255-2014-4F02-8F62-A41A0970A803",
     "material": [],
-    "tectonic": [
-      "wall"
-    ],
     "interaction": [],
     "phenomena": [
       "shadow",
@@ -100,7 +102,11 @@
     "date": null,
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [
+      "wall"
+    ],
+    "form": []
   },
   {
     "filename": "25010371_537137903312759_6788783500293046272_n_17909260540071633",
@@ -108,7 +114,6 @@
       "ice",
       "water"
     ],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [
       "frozen"
@@ -116,12 +121,13 @@
     "date": null,
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "26865827_238267230048420_7971936901739315200_n_17849649106225170",
     "material": [],
-    "tectonic": [],
     "interaction": [
       "tied"
     ],
@@ -131,29 +137,29 @@
     "date": null,
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "2CD3C982-E384-4AFE-BC7D-9B8D259C9116",
     "material": [
       "snow"
     ],
-    "tectonic": [
-      "floor"
-    ],
     "interaction": [],
     "phenomena": [],
     "date": null,
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [
+      "floor"
+    ],
+    "form": []
   },
   {
     "filename": "2F354878-3500-45CC-BA7B-D33BCA873AA1",
     "material": [],
-    "tectonic": [
-      "wall"
-    ],
     "interaction": [],
     "phenomena": [
       "caustic"
@@ -161,14 +167,15 @@
     "date": "19 November 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [
+      "wall"
+    ],
+    "form": []
   },
   {
     "filename": "3C541D0E-2233-4F7D-982F-FB6B5E1C1AA6",
     "material": [],
-    "tectonic": [
-      "repetition"
-    ],
     "interaction": [],
     "phenomena": [
       "shadow",
@@ -177,27 +184,31 @@
     "date": "24 December 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "repetition"
+    ]
   },
   {
     "filename": "40D4E67F-68F0-46FA-BC50-C418EA90F782",
     "material": [],
-    "tectonic": [
-      "chair"
-    ],
     "interaction": [],
     "phenomena": [],
     "date": "22 August 2022",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [
+      "chair"
+    ],
+    "form": []
   },
   {
     "filename": "458C1582-2798-4E2D-83DB-9A876A2B6C06",
     "material": [
       "metal"
     ],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [
       "deformed"
@@ -205,40 +216,43 @@
     "date": "10 November 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "459367C5-2155-4E3C-9672-7FAC689EDC84",
     "material": [
       "concrete"
     ],
-    "tectonic": [
-      "tunnel"
-    ],
     "interaction": [],
     "phenomena": [],
     "date": "9 February 2023",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "tunnel"
+    ]
   },
   {
     "filename": "46CA0A7F-B385-4410-B4EE-9802F71383C0",
     "material": [],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [],
     "date": null,
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "476683C6-3A53-48E8-8342-379E8809A5B4",
     "material": [
       "metal"
     ],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [
       "shadow"
@@ -246,14 +260,13 @@
     "date": null,
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "4CA530BA-91B6-4198-8109-911C153E2379",
     "material": [],
-    "tectonic": [
-      "vehicle"
-    ],
     "interaction": [
       "graffiti"
     ],
@@ -263,29 +276,31 @@
     "date": null,
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [
+      "vehicle"
+    ],
+    "form": []
   },
   {
     "filename": "4CE6D162-9794-4BBC-90D0-98388662DB9D",
     "material": [],
-    "tectonic": [
-      "chair"
-    ],
     "interaction": [],
     "phenomena": [],
     "date": "16 May 2022",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [
+      "chair"
+    ],
+    "form": []
   },
   {
     "filename": "4D0B9761-EF3C-439E-BE12-AAE05E5D2112",
     "material": [
       "concrete",
       "glass"
-    ],
-    "tectonic": [
-      "floor"
     ],
     "interaction": [],
     "phenomena": [
@@ -294,25 +309,29 @@
     "date": "15 March 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [
+      "floor"
+    ],
+    "form": []
   },
   {
     "filename": "4F1FE53B-DB11-41F9-A7EE-B23590CA3AEC",
     "material": [],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [],
     "date": "3 June 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "70241922141__698A3423-570F-4242-83E5-B083622452A8",
     "material": [
       "ice"
     ],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [
       "frozen"
@@ -320,12 +339,13 @@
     "date": "5 April 2023",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "73717680930__E8FF6022-17A3-4F3D-A9C4-9D618DF4F4BD",
     "material": [],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [
       ""
@@ -333,15 +353,14 @@
     "date": "11 May 2024",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "7398C507-83AA-4955-A003-6E676AC7713E",
     "material": [
       "fabric"
-    ],
-    "tectonic": [
-      "stair"
     ],
     "interaction": [
       "construction"
@@ -350,14 +369,15 @@
     "date": "13 February 2022",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [
+      "stair"
+    ],
+    "form": []
   },
   {
     "filename": "784A47BD-399C-4FFF-A554-A8685A53B450",
     "material": [],
-    "tectonic": [
-      "vehicle"
-    ],
     "interaction": [
       "graphic"
     ],
@@ -365,14 +385,15 @@
     "date": "16 December 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [
+      "vehicle"
+    ],
+    "form": []
   },
   {
     "filename": "795BDFFB-94D8-4AFA-8E93-8110E27F919B",
     "material": [],
-    "tectonic": [
-      "wave"
-    ],
     "interaction": [],
     "phenomena": [
       "shadow"
@@ -380,15 +401,16 @@
     "date": "5 October 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "wave"
+    ]
   },
   {
     "filename": "7EEA4B78-9786-4E08-94F6-10826E76E672",
     "material": [
       "glass"
-    ],
-    "tectonic": [
-      "door"
     ],
     "interaction": [
       "graffiti"
@@ -397,12 +419,15 @@
     "date": "18 August 2022",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [
+      "door"
+    ],
+    "form": []
   },
   {
     "filename": "7FBC03DF-1C9D-4951-A300-809DC26E6102",
     "material": [],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [
       "shadow"
@@ -410,16 +435,15 @@
     "date": "19 November 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "851C31C0-77A3-4B67-9AFF-6F3AFF2B8210",
     "material": [
       "concrete",
       "metal"
-    ],
-    "tectonic": [
-      "stair"
     ],
     "interaction": [],
     "phenomena": [
@@ -428,12 +452,15 @@
     "date": "5 April 2022",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [
+      "stair"
+    ],
+    "form": []
   },
   {
     "filename": "877933ED-4810-4D88-BDEE-91988DE2089E",
     "material": [],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [
       "sky"
@@ -441,15 +468,14 @@
     "date": "3 July 2022",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "8A61AB92-3E37-405A-B16F-F32E715D5743",
     "material": [
       "concrete"
-    ],
-    "tectonic": [
-      "monolith"
     ],
     "interaction": [
       "graffiti"
@@ -460,12 +486,15 @@
     "date": "24 May 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "monolith"
+    ]
   },
   {
     "filename": "99F266F8-2138-4C63-A286-D5E6D6929FCE",
     "material": [],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [
       "sky"
@@ -473,14 +502,15 @@
     "date": "3 May 2022",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "9D5306E5-808A-4C6C-9FDC-735FB5FB5A07",
     "material": [
       "plastic"
     ],
-    "tectonic": [],
     "interaction": [
       "graffiti"
     ],
@@ -490,31 +520,31 @@
     "date": "10 February 2022",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "9F412CBC-2767-4A2B-88E7-A6C2BDCE6D3B",
     "material": [
       "metal"
     ],
-    "tectonic": [
-      "door"
-    ],
     "interaction": [],
     "phenomena": [],
     "date": null,
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [
+      "door"
+    ],
+    "form": []
   },
   {
     "filename": "9FBC1A1B-BD69-418F-B29F-247DADEAFB6E",
     "material": [
       "metal",
       "concrete"
-    ],
-    "tectonic": [
-      "chainlink"
     ],
     "interaction": [],
     "phenomena": [
@@ -523,14 +553,15 @@
     "date": "7 November 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [
+      "chainlink"
+    ],
+    "form": []
   },
   {
     "filename": "A2ED4CDB-3FF9-484A-AD27-3CD57148B76D",
     "material": [],
-    "tectonic": [
-      "floor"
-    ],
     "interaction": [],
     "phenomena": [
       "caustic"
@@ -538,25 +569,27 @@
     "date": null,
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [
+      "floor"
+    ],
+    "form": []
   },
   {
     "filename": "A8105588-66C9-49E0-B344-0A1B0D2D7063",
     "material": [],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [],
     "date": "10 May 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "AD035389-B49A-4036-94AE-EEE2EEA19838",
     "material": [],
-    "tectonic": [
-      ""
-    ],
     "interaction": [],
     "phenomena": [
       "sky"
@@ -564,12 +597,13 @@
     "date": "2 July 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "BC304BA2-7985-4E70-955C-3C9E5A5BCD34",
     "material": [],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [
       "shadow"
@@ -577,16 +611,14 @@
     "date": "29 March 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "BD394B32-FCE4-41CA-8555-879DB3CA1F13",
     "material": [
       "fabric"
-    ],
-    "tectonic": [
-      "drape",
-      "wave"
     ],
     "interaction": [],
     "phenomena": [
@@ -595,15 +627,17 @@
     "date": "8 May 2022",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "drape",
+      "wave"
+    ]
   },
   {
     "filename": "CDDDE781-4146-4DD8-BFCE-7B8E023837B9",
     "material": [
       "plastic"
-    ],
-    "tectonic": [
-      "fence"
     ],
     "interaction": [
       "graffiti"
@@ -612,15 +646,16 @@
     "date": "1 November 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [
+      "fence"
+    ],
+    "form": []
   },
   {
     "filename": "E4DE5FB5-9403-49E8-AFF3-0F8A28A29AEB",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "chainlink"
     ],
     "interaction": [
       "graffiti",
@@ -630,15 +665,16 @@
     "date": null,
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [
+      "chainlink"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_0040",
     "material": [
       "snow"
-    ],
-    "tectonic": [
-      "room"
     ],
     "interaction": [],
     "phenomena": [],
@@ -648,15 +684,16 @@
       "latitude": 45.52161111111111,
       "longitude": -73.60108055555555
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "room"
+    ]
   },
   {
     "filename": "IMG_0141",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "fence"
     ],
     "interaction": [],
     "phenomena": [
@@ -668,12 +705,15 @@
       "latitude": 43.65275833333333,
       "longitude": -79.40138888888889
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "fence"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_0176",
     "material": [],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [
       "animal"
@@ -684,15 +724,14 @@
       "latitude": 43.65700833333333,
       "longitude": -79.397925
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_0194",
     "material": [
       "snow"
-    ],
-    "tectonic": [
-      "void"
     ],
     "interaction": [
       "body"
@@ -706,15 +745,16 @@
       "latitude": 45.52130833333333,
       "longitude": -73.6064611111111
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "void"
+    ]
   },
   {
     "filename": "IMG_0217",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "wall"
     ],
     "interaction": [
       "watching"
@@ -726,15 +766,16 @@
       "latitude": 48.874563888888886,
       "longitude": 2.2935555555555553
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "wall"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_0269",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "vehicle"
     ],
     "interaction": [],
     "phenomena": [],
@@ -744,15 +785,16 @@
       "latitude": 43.65764166666666,
       "longitude": -79.40214444444445
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "vehicle"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_0277",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "vehicle"
     ],
     "interaction": [
       "graffiti"
@@ -764,7 +806,11 @@
       "latitude": 43.65765833333333,
       "longitude": -79.41076666666667
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "vehicle"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_0317",
@@ -772,10 +818,9 @@
       "plastic",
       "snow"
     ],
-    "tectonic": [
+    "interaction": [
       "cluster"
     ],
-    "interaction": [],
     "phenomena": [],
     "date": "19 February 2021",
     "author": "Scott Christian McCallum",
@@ -783,15 +828,13 @@
       "latitude": 45.58311388888889,
       "longitude": -75.8737861111111
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_0333",
     "material": [],
-    "tectonic": [
-      "round",
-      "wall"
-    ],
     "interaction": [
       "graffiti"
     ],
@@ -802,16 +845,18 @@
       "latitude": 45.63941111111111,
       "longitude": -75.93170833333333
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "wall"
+    ],
+    "form": [
+      "round"
+    ]
   },
   {
     "filename": "IMG_0340",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "gate",
-      "wall"
     ],
     "interaction": [],
     "phenomena": [
@@ -823,12 +868,16 @@
       "latitude": 43.658766666666665,
       "longitude": -79.40052777777778
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "gate",
+      "wall"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_0395",
     "material": [],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [
       "foliage"
@@ -839,15 +888,14 @@
       "latitude": 45.63891944444445,
       "longitude": -75.9322138888889
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_0524",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "ceiling"
     ],
     "interaction": [],
     "phenomena": [
@@ -860,15 +908,16 @@
       "latitude": 45.416755555555554,
       "longitude": -75.65300833333333
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "ceiling"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_0538",
     "material": [
       "glass"
-    ],
-    "tectonic": [
-      "vessel"
     ],
     "interaction": [
       "pun"
@@ -882,15 +931,16 @@
       "latitude": 45.51718611111111,
       "longitude": -73.58256666666666
     },
-    "caption": "A broken wine bottle with a derivative pun of a 1939 British propaganda poster: “keep calm and thrive”. A sculpture that embodies a hopelessly optimistic message despite its own damage followed by the completion of a large personal amount of alcohol – an allegory for my concluding journey in architecture school."
+    "caption": "A broken wine bottle with a derivative pun of a 1939 British propaganda poster: “keep calm and thrive”. A sculpture that embodies a hopelessly optimistic message despite its own damage followed by the completion of a large personal amount of alcohol – an allegory for my concluding journey in architecture school.",
+    "element": [
+      "vessel"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_0559",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "box"
     ],
     "interaction": [
       "graffiti"
@@ -902,14 +952,15 @@
       "latitude": 45.534283333333335,
       "longitude": -73.60925277777777
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "box"
+    ]
   },
   {
     "filename": "IMG_0633",
     "material": [],
-    "tectonic": [
-      "wall"
-    ],
     "interaction": [
       "graffiti",
       "partial"
@@ -921,15 +972,16 @@
       "latitude": 48.86048888888889,
       "longitude": 2.3818527777777776
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "wall"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_0638",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "chair"
     ],
     "interaction": [],
     "phenomena": [
@@ -941,16 +993,16 @@
       "latitude": 48.86081388888889,
       "longitude": 2.378286111111111
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "chair"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_0641",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "box",
-      "corrugated"
     ],
     "interaction": [],
     "phenomena": [],
@@ -960,14 +1012,16 @@
       "latitude": 45.5053,
       "longitude": -73.5706861111111
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "box",
+      "corrugated"
+    ]
   },
   {
     "filename": "IMG_0673",
     "material": [],
-    "tectonic": [
-      "fence"
-    ],
     "interaction": [],
     "phenomena": [
       "shadow"
@@ -978,12 +1032,15 @@
       "latitude": 45.56052777777777,
       "longitude": -73.55274166666666
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "fence"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_0703",
     "material": [],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [],
     "date": "2 June 2025",
@@ -992,16 +1049,14 @@
       "latitude": 48.877858333333336,
       "longitude": 2.3714472222222223
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_0713",
     "material": [
       "plywood"
-    ],
-    "tectonic": [
-      "stair",
-      "wall"
     ],
     "interaction": [
       "accommodation"
@@ -1013,7 +1068,12 @@
       "latitude": 45.45390833333334,
       "longitude": -73.64176944444445
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "stair",
+      "wall"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_0763",
@@ -1021,7 +1081,6 @@
       "glass",
       "metal"
     ],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [
       "shadow"
@@ -1032,14 +1091,15 @@
       "latitude": 45.53273055555555,
       "longitude": -73.46203611111112
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_0823",
     "material": [
       "plywood"
     ],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [],
     "date": "21 March 2021",
@@ -1048,15 +1108,14 @@
       "latitude": 45.50489722222222,
       "longitude": -73.57277777777777
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_0877",
     "material": [
       "plywood"
-    ],
-    "tectonic": [
-      "wall"
     ],
     "interaction": [
       "graffiti"
@@ -1068,12 +1127,15 @@
       "latitude": 45.52238333333333,
       "longitude": -73.57939999999999
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "wall"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_0902",
     "material": [],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [
       "weathered"
@@ -1084,15 +1146,14 @@
       "latitude": 43.61446388888889,
       "longitude": -79.34371944444445
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_0926",
     "material": [
       "fabric"
-    ],
-    "tectonic": [
-      "drape"
     ],
     "interaction": [],
     "phenomena": [
@@ -1104,15 +1165,16 @@
       "latitude": 43.66820833333333,
       "longitude": -79.42756666666668
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "drape"
+    ]
   },
   {
     "filename": "IMG_0937",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "wedge"
     ],
     "interaction": [
       "graffiti"
@@ -1124,15 +1186,16 @@
       "latitude": 43.66806111111111,
       "longitude": -79.42863333333334
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "wedge"
+    ]
   },
   {
     "filename": "IMG_0945",
     "material": [
       "plywood"
-    ],
-    "tectonic": [
-      "wedge"
     ],
     "interaction": [
       "graffiti"
@@ -1144,12 +1207,15 @@
       "latitude": 45.514744444444446,
       "longitude": -73.56264444444444
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "wedge"
+    ]
   },
   {
     "filename": "IMG_0978",
     "material": [],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [
       "sky"
@@ -1160,15 +1226,14 @@
       "latitude": 43.65615833333333,
       "longitude": -79.3974
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_1035 (1)",
     "material": [
       "concrete"
-    ],
-    "tectonic": [
-      "floor"
     ],
     "interaction": [],
     "phenomena": [
@@ -1180,15 +1245,16 @@
       "latitude": 43.29696388888889,
       "longitude": 5.3607499999999995
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "floor"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_1035",
     "material": [
       "concrete"
-    ],
-    "tectonic": [
-      "stair"
     ],
     "interaction": [],
     "phenomena": [
@@ -1200,14 +1266,17 @@
       "latitude": 45.48945277777778,
       "longitude": -73.57798055555556
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "stair"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_1037",
     "material": [
       "metal"
     ],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [
       "deformed"
@@ -1218,14 +1287,15 @@
       "latitude": 45.49568055555556,
       "longitude": -73.57968888888888
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_1047",
     "material": [
       "metal"
     ],
-    "tectonic": [],
     "interaction": [
       "discard"
     ],
@@ -1233,15 +1303,14 @@
     "date": "3 April 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_1130",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "box"
     ],
     "interaction": [
       "graffiti"
@@ -1253,12 +1322,15 @@
       "latitude": 43.647925,
       "longitude": -79.40106944444445
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "box"
+    ]
   },
   {
     "filename": "IMG_1218",
     "material": [],
-    "tectonic": [],
     "interaction": [
       "section"
     ],
@@ -1269,12 +1341,13 @@
       "latitude": 43.66231666666666,
       "longitude": -79.36496666666666
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_1252",
     "material": [],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [],
     "date": "19 August 2022",
@@ -1283,16 +1356,14 @@
       "latitude": 45.53066388888889,
       "longitude": -73.59151388888888
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_1298",
     "material": [
       "plastic"
-    ],
-    "tectonic": [
-      "wave",
-      "wall"
     ],
     "interaction": [],
     "phenomena": [],
@@ -1302,14 +1373,17 @@
       "latitude": 45.527049999999996,
       "longitude": -73.61573888888888
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "wall"
+    ],
+    "form": [
+      "wave"
+    ]
   },
   {
     "filename": "IMG_1459",
     "material": [],
-    "tectonic": [
-      "void"
-    ],
     "interaction": [
       "text"
     ],
@@ -1320,16 +1394,17 @@
       "latitude": 45.53307777777778,
       "longitude": -73.61563888888888
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "void"
+    ]
   },
   {
     "filename": "IMG_1498",
     "material": [
       "concrete",
       "water"
-    ],
-    "tectonic": [
-      "floor"
     ],
     "interaction": [],
     "phenomena": [
@@ -1341,14 +1416,17 @@
       "latitude": 43.65048888888889,
       "longitude": -79.39440833333335
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "floor"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_1499",
     "material": [
       "plastic"
     ],
-    "tectonic": [],
     "interaction": [
       "construction"
     ],
@@ -1361,14 +1439,15 @@
       "latitude": 45.529177777777775,
       "longitude": -73.61078611111111
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_1513",
     "material": [
       "plastic"
     ],
-    "tectonic": [],
     "interaction": [
       "construction"
     ],
@@ -1381,14 +1460,13 @@
       "latitude": 43.67035,
       "longitude": -79.35999166666666
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_1562",
     "material": [],
-    "tectonic": [
-      "vehicle"
-    ],
     "interaction": [
       "image"
     ],
@@ -1399,15 +1477,16 @@
       "latitude": 45.519333333333336,
       "longitude": -73.58640277777778
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "vehicle"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_1696",
     "material": [
       "glass"
-    ],
-    "tectonic": [
-      "window"
     ],
     "interaction": [
       "contradiction"
@@ -1419,14 +1498,15 @@
       "latitude": 45.52036944444444,
       "longitude": -73.57520277777778
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "window"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_1742",
     "material": [],
-    "tectonic": [
-      "vehicle"
-    ],
     "interaction": [
       "graffiti"
     ],
@@ -1437,12 +1517,15 @@
       "latitude": 45.529066666666665,
       "longitude": -73.60568888888888
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "vehicle"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_1838",
     "material": [],
-    "tectonic": [],
     "interaction": [
       "text",
       "pun"
@@ -1454,14 +1537,13 @@
       "latitude": 43.65363611111111,
       "longitude": -79.39521111111112
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_1876",
     "material": [],
-    "tectonic": [
-      "door"
-    ],
     "interaction": [
       "section"
     ],
@@ -1472,14 +1554,15 @@
       "latitude": 43.65528055555556,
       "longitude": -79.441475
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "door"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_1917",
     "material": [],
-    "tectonic": [
-      "round"
-    ],
     "interaction": [],
     "phenomena": [],
     "date": "23 May 2021",
@@ -1488,15 +1571,16 @@
       "latitude": 45.50856111111111,
       "longitude": -73.55124722222222
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "round"
+    ]
   },
   {
     "filename": "IMG_1956",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "escape"
     ],
     "interaction": [],
     "phenomena": [
@@ -1508,15 +1592,14 @@
       "latitude": 45.52073333333333,
       "longitude": -73.57650833333334
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_1984",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "fence"
     ],
     "interaction": [
       "ornament"
@@ -1528,16 +1611,17 @@
       "latitude": 45.433033333333334,
       "longitude": 12.351866666666666
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "fence"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_20180831_173424_059",
     "material": [
       "plastic",
       "glass"
-    ],
-    "tectonic": [
-      "window"
     ],
     "interaction": [
       "contradiction"
@@ -1546,12 +1630,15 @@
     "date": null,
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [
+      "window"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_20180917_145810469",
     "material": [],
-    "tectonic": [],
     "interaction": [
       "text"
     ],
@@ -1559,15 +1646,14 @@
     "date": "17 September 2018",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_20180921_160004071_HDR",
     "material": [
       "fabric"
-    ],
-    "tectonic": [
-      "fence"
     ],
     "interaction": [
       "discard"
@@ -1576,14 +1662,15 @@
     "date": "21 September 2018",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [
+      "fence"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_20181219_124548280_HDR",
     "material": [],
-    "tectonic": [
-      "vehicle"
-    ],
     "interaction": [
       "text"
     ],
@@ -1596,12 +1683,15 @@
       "latitude": 45.496307944444446,
       "longitude": -73.57832694444444
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "vehicle"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_20190520_200549059",
     "material": [],
-    "tectonic": [],
     "interaction": [
       "text",
       "pun"
@@ -1610,14 +1700,13 @@
     "date": "20 May 2019",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_20190604_202115844_HDR",
     "material": [],
-    "tectonic": [
-      ""
-    ],
     "interaction": [],
     "phenomena": [
       "shadow"
@@ -1625,14 +1714,13 @@
     "date": "4 June 2019",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_20190730_080813002_HDR",
     "material": [],
-    "tectonic": [
-      "escape"
-    ],
     "interaction": [
       "text"
     ],
@@ -1642,14 +1730,13 @@
     "date": "30 July 2019",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_20191226_205516_387",
     "material": [],
-    "tectonic": [
-      "line"
-    ],
     "interaction": [],
     "phenomena": [
       "sky"
@@ -1657,28 +1744,29 @@
     "date": null,
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "line"
+    ]
   },
   {
     "filename": "IMG_20200424_161627_990",
     "material": [],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [],
     "date": null,
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_20200424_162246_166",
     "material": [
       "metal",
       "concrete"
-    ],
-    "tectonic": [
-      "stair",
-      "wall"
     ],
     "interaction": [],
     "phenomena": [
@@ -1687,18 +1775,18 @@
     "date": null,
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [
+      "stair",
+      "wall"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_20210102_132328732",
     "material": [
       "metal",
       "snow"
-    ],
-    "tectonic": [
-      "corner",
-      "fence",
-      "chainlink"
     ],
     "interaction": [],
     "phenomena": [
@@ -1707,12 +1795,18 @@
     "date": "2 January 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [
+      "fence",
+      "chainlink"
+    ],
+    "form": [
+      "corner"
+    ]
   },
   {
     "filename": "IMG_20210124_124003090",
     "material": [],
-    "tectonic": [],
     "interaction": [
       "text"
     ],
@@ -1720,15 +1814,14 @@
     "date": "24 January 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_2040",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "tube"
     ],
     "interaction": [
       "discard"
@@ -1740,15 +1833,16 @@
       "latitude": 45.63922222222222,
       "longitude": -75.93159444444444
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "tube"
+    ]
   },
   {
     "filename": "IMG_2276",
     "material": [
       "plastic"
-    ],
-    "tectonic": [
-      "object"
     ],
     "interaction": [],
     "phenomena": [],
@@ -1758,15 +1852,16 @@
       "latitude": 45.45141666666667,
       "longitude": 12.349391666666667
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "object"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_2516",
     "material": [
       "fabric"
-    ],
-    "tectonic": [
-      "drape"
     ],
     "interaction": [],
     "phenomena": [],
@@ -1776,14 +1871,16 @@
       "latitude": 45.55865555555555,
       "longitude": -73.61435833333333
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "drape"
+    ]
   },
   {
     "filename": "IMG_2525",
-    "material": ["drywall"],
-    "tectonic": [
-      "wall",
-      "ceiling"
+    "material": [
+      "drywall"
     ],
     "interaction": [
       "section"
@@ -1795,15 +1892,17 @@
       "latitude": 45.52453888888889,
       "longitude": -73.58964444444445
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "wall",
+      "ceiling"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_2533",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "round"
     ],
     "interaction": [],
     "phenomena": [],
@@ -1813,14 +1912,15 @@
       "latitude": 45.56379722222222,
       "longitude": -73.62074999999999
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "round"
+    ]
   },
   {
     "filename": "IMG_2569",
     "material": [],
-    "tectonic": [
-      "wall"
-    ],
     "interaction": [],
     "phenomena": [],
     "date": "15 October 2023",
@@ -1829,14 +1929,15 @@
       "latitude": 43.64960555555555,
       "longitude": -79.42593333333333
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "wall"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_2682",
     "material": [],
-    "tectonic": [
-      "vehicle"
-    ],
     "interaction": [
       "image"
     ],
@@ -1849,18 +1950,20 @@
       "latitude": 45.53200833333333,
       "longitude": -73.61172499999999
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "vehicle"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_2683",
     "material": [
       "plastic"
     ],
-    "tectonic": [
-      "tube",
+    "interaction": [
       "cluster"
     ],
-    "interaction": [],
     "phenomena": [],
     "date": "1 July 2021",
     "author": "Scott Christian McCallum",
@@ -1868,14 +1971,15 @@
       "latitude": 45.53389444444444,
       "longitude": -73.6140361111111
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "tube"
+    ]
   },
   {
     "filename": "IMG_2725",
     "material": [],
-    "tectonic": [
-      "room"
-    ],
     "interaction": [
       "section"
     ],
@@ -1886,15 +1990,16 @@
       "latitude": 43.65190833333333,
       "longitude": -79.40126666666667
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "room"
+    ]
   },
   {
     "filename": "IMG_2734",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "box"
     ],
     "interaction": [
       "graffiti"
@@ -1906,15 +2011,16 @@
       "latitude": 43.657980555555554,
       "longitude": -79.44395555555556
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "box"
+    ]
   },
   {
     "filename": "IMG_2742",
     "material": [
       "fabric"
-    ],
-    "tectonic": [
-      "drape"
     ],
     "interaction": [],
     "phenomena": [
@@ -1927,12 +2033,15 @@
       "latitude": 43.64175,
       "longitude": -79.35163055555554
     },
-    "caption": "A grand entrance to the driving range. The repeated interference patterns of the bellied netting create satisfying gradients, suspended in sunset."
+    "caption": "A grand entrance to the driving range. The repeated interference patterns of the bellied netting create satisfying gradients, suspended in sunset.",
+    "element": [],
+    "form": [
+      "drape"
+    ]
   },
   {
     "filename": "IMG_2786",
     "material": [],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [],
     "date": "9 July 2021",
@@ -1941,14 +2050,13 @@
       "latitude": 45.56540555555555,
       "longitude": -73.62353611111111
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_2851",
     "material": [],
-    "tectonic": [
-      "repetition"
-    ],
     "interaction": [
       "ornament"
     ],
@@ -1959,16 +2067,16 @@
       "latitude": 43.65806666666666,
       "longitude": -79.40151111111112
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "repetition"
+    ]
   },
   {
     "filename": "IMG_2907",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "corrugated",
-      "roof"
     ],
     "interaction": [],
     "phenomena": [
@@ -1980,14 +2088,17 @@
       "latitude": 43.65663055555555,
       "longitude": -79.39575833333333
     },
-    "caption": "The corrugation lines of this metal sheet reveal themselves as a ruled surface, twisted but solved."
+    "caption": "The corrugation lines of this metal sheet reveal themselves as a ruled surface, twisted but solved.",
+    "element": [
+      "roof"
+    ],
+    "form": [
+      "corrugated"
+    ]
   },
   {
     "filename": "IMG_3043",
     "material": [],
-    "tectonic": [
-      "vessel"
-    ],
     "interaction": [
       "propped"
     ],
@@ -1998,16 +2109,17 @@
       "latitude": 43.660849999999996,
       "longitude": -79.39672777777778
     },
-    "caption": "A cup of coffee coming down with me in the elevator on my lunch break from work. The placement of this mug on the cylindrical form of the balustrade communicates the precarity of walking a tightrope, much like talking office politics. Yet, the liquid finds a just level thanks to the mug’s leaning on the wall at just the right offset distance from the cylindrical surface."
+    "caption": "A cup of coffee coming down with me in the elevator on my lunch break from work. The placement of this mug on the cylindrical form of the balustrade communicates the precarity of walking a tightrope, much like talking office politics. Yet, the liquid finds a just level thanks to the mug’s leaning on the wall at just the right offset distance from the cylindrical surface.",
+    "element": [
+      "vessel"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_3052",
     "material": [
       "metal",
       "ice"
-    ],
-    "tectonic": [
-      "object"
     ],
     "interaction": [
       "mechanical"
@@ -2021,16 +2133,16 @@
       "latitude": 43.65996111111111,
       "longitude": -79.38724444444445
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "object"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_3055",
     "material": [
       "plastic"
-    ],
-    "tectonic": [
-      "wall",
-      "repetition"
     ],
     "interaction": [],
     "phenomena": [
@@ -2042,15 +2154,18 @@
       "latitude": 45.539402777777774,
       "longitude": -73.61620277777777
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "wall"
+    ],
+    "form": [
+      "repetition"
+    ]
   },
   {
     "filename": "IMG_3076",
     "material": [
       "drywall"
-    ],
-    "tectonic": [
-      "room"
     ],
     "interaction": [],
     "phenomena": [],
@@ -2060,15 +2175,15 @@
       "latitude": 45.53881944444444,
       "longitude": -73.61418888888889
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "room"
+    ]
   },
   {
     "filename": "IMG_3088",
     "material": [],
-    "tectonic": [
-      "door",
-      "stair"
-    ],
     "interaction": [
       "text"
     ],
@@ -2079,14 +2194,18 @@
       "latitude": 43.65761666666666,
       "longitude": -79.40129166666667
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "door",
+      "stair"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_3356",
     "material": [
       "ice"
     ],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [
       "frozen"
@@ -2097,14 +2216,13 @@
       "latitude": 45.53749166666667,
       "longitude": -73.57001388888888
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_3422",
     "material": [],
-    "tectonic": [
-      "room"
-    ],
     "interaction": [
       "section"
     ],
@@ -2115,16 +2233,17 @@
       "latitude": 45.533775,
       "longitude": -73.61447777777778
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "room"
+    ]
   },
   {
     "filename": "IMG_3654",
     "material": [
       "glass",
       "metal"
-    ],
-    "tectonic": [
-      "door"
     ],
     "interaction": [],
     "phenomena": [
@@ -2136,12 +2255,15 @@
       "latitude": 45.53256111111111,
       "longitude": -73.60546944444444
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "door"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_3666 (1)",
     "material": [],
-    "tectonic": [],
     "interaction": [
       "image"
     ],
@@ -2152,14 +2274,13 @@
       "latitude": 45.53491111111111,
       "longitude": -73.61968888888889
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_3666",
     "material": [],
-    "tectonic": [
-      "void"
-    ],
     "interaction": [
       "text"
     ],
@@ -2170,12 +2291,15 @@
       "latitude": 45.52990277777778,
       "longitude": -73.60771944444444
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "void"
+    ]
   },
   {
     "filename": "IMG_3712",
     "material": [],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [
       "weathered"
@@ -2186,16 +2310,14 @@
       "latitude": 43.664313888888884,
       "longitude": -79.39479722222222
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_3722",
     "material": [
       "plywood"
-    ],
-    "tectonic": [
-      "door",
-      "gate"
     ],
     "interaction": [],
     "phenomena": [
@@ -2207,15 +2329,19 @@
       "latitude": 43.66565,
       "longitude": -79.39533333333334
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "door",
+      "gate"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_3823",
     "material": [],
-    "tectonic": [
+    "interaction": [
       "cluster"
     ],
-    "interaction": [],
     "phenomena": [],
     "date": "22 August 2021",
     "author": "Scott Christian McCallum",
@@ -2223,17 +2349,18 @@
       "latitude": 45.529019444444444,
       "longitude": -73.60621666666665
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_3870",
     "material": [
       "concrete"
     ],
-    "tectonic": [
+    "interaction": [
       "cluster"
     ],
-    "interaction": [],
     "phenomena": [],
     "date": "24 August 2021",
     "author": "Scott Christian McCallum",
@@ -2241,15 +2368,14 @@
       "latitude": 45.52869166666667,
       "longitude": -73.60771944444444
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_3898",
     "material": [
       "concrete"
-    ],
-    "tectonic": [
-      "floor"
     ],
     "interaction": [
       "graffiti"
@@ -2261,15 +2387,16 @@
       "latitude": 45.52838055555556,
       "longitude": -73.60973333333332
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "floor"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_3920",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "box"
     ],
     "interaction": [],
     "phenomena": [],
@@ -2279,14 +2406,15 @@
       "latitude": 43.65960277777778,
       "longitude": -79.401375
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "box"
+    ]
   },
   {
     "filename": "IMG_3980",
     "material": [],
-    "tectonic": [
-      "vehicle"
-    ],
     "interaction": [
       "image"
     ],
@@ -2297,18 +2425,20 @@
       "latitude": 45.53393888888889,
       "longitude": -73.61588333333333
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "vehicle"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_4030",
     "material": [
       "plastic"
     ],
-    "tectonic": [
-      "tube",
+    "interaction": [
       "cluster"
     ],
-    "interaction": [],
     "phenomena": [],
     "date": "9 December 2023",
     "author": "Scott Christian McCallum",
@@ -2316,14 +2446,15 @@
       "latitude": 43.670005555555555,
       "longitude": -79.43167777777778
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "tube"
+    ]
   },
   {
     "filename": "IMG_4081",
     "material": [],
-    "tectonic": [
-      "window"
-    ],
     "interaction": [
       "image"
     ],
@@ -2336,14 +2467,15 @@
       "latitude": 45.538180555555556,
       "longitude": -73.61443333333332
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "window"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_4085",
     "material": [],
-    "tectonic": [
-      "window"
-    ],
     "interaction": [],
     "phenomena": [],
     "date": "22 February 2023",
@@ -2352,15 +2484,16 @@
       "latitude": 45.53199722222222,
       "longitude": -73.61640833333333
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "window"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_4097",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "fence"
     ],
     "interaction": [],
     "phenomena": [],
@@ -2370,15 +2503,16 @@
       "latitude": 45.532275,
       "longitude": -73.61638611111111
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "fence"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_4115",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "fence"
     ],
     "interaction": [],
     "phenomena": [
@@ -2391,15 +2525,16 @@
       "latitude": 45.53100277777778,
       "longitude": -73.6167611111111
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "fence"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_4228",
     "material": [
       "concrete"
-    ],
-    "tectonic": [
-      "stair"
     ],
     "interaction": [],
     "phenomena": [
@@ -2411,14 +2546,15 @@
       "latitude": 45.50378055555556,
       "longitude": -73.58726388888888
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "stair"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_4277",
     "material": [],
-    "tectonic": [
-      "void"
-    ],
     "interaction": [],
     "phenomena": [],
     "date": "29 October 2024",
@@ -2427,14 +2563,15 @@
       "latitude": 45.42745277777777,
       "longitude": -75.68981111111111
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "void"
+    ]
   },
   {
     "filename": "IMG_4355",
     "material": [],
-    "tectonic": [
-      "wall"
-    ],
     "interaction": [
       "graffiti"
     ],
@@ -2445,15 +2582,16 @@
       "latitude": 45.53460277777778,
       "longitude": -73.61756944444444
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "wall"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_4405",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "fence"
     ],
     "interaction": [],
     "phenomena": [
@@ -2466,15 +2604,16 @@
       "latitude": 45.531058333333334,
       "longitude": -73.616875
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "fence"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_4511",
     "material": [
       "glass"
-    ],
-    "tectonic": [
-      "round"
     ],
     "interaction": [],
     "phenomena": [
@@ -2486,14 +2625,15 @@
       "latitude": 45.53106666666667,
       "longitude": -73.59101944444444
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "round"
+    ]
   },
   {
     "filename": "IMG_4518",
     "material": [],
-    "tectonic": [
-      "repetition"
-    ],
     "interaction": [],
     "phenomena": [
       "deformed"
@@ -2504,18 +2644,20 @@
       "latitude": 45.532202777777776,
       "longitude": -73.6129
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "repetition"
+    ]
   },
   {
     "filename": "IMG_4545",
     "material": [
       "metal"
     ],
-    "tectonic": [
-      "corrugated",
+    "interaction": [
       "cluster"
     ],
-    "interaction": [],
     "phenomena": [],
     "date": "4 January 2024",
     "author": "Scott Christian McCallum",
@@ -2523,15 +2665,15 @@
       "latitude": 43.663719444444446,
       "longitude": -79.41728888888889
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "corrugated"
+    ]
   },
   {
     "filename": "IMG_4570",
     "material": [],
-    "tectonic": [
-      "gate",
-      ""
-    ],
     "interaction": [
       "construction",
       "propped"
@@ -2543,12 +2685,15 @@
       "latitude": 43.66240555555555,
       "longitude": -79.41471944444444
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "gate"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_4585",
     "material": [],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [],
     "date": "8 November 2024",
@@ -2557,14 +2702,15 @@
       "latitude": 43.65971666666667,
       "longitude": -79.40013888888889
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_4609",
     "material": [
       "glass"
     ],
-    "tectonic": [],
     "interaction": [
       "discard"
     ],
@@ -2578,15 +2724,14 @@
       "latitude": 43.657075,
       "longitude": -79.40519722222223
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_4622",
     "material": [
       "lumber"
-    ],
-    "tectonic": [
-      "repetition"
     ],
     "interaction": [],
     "phenomena": [],
@@ -2596,14 +2741,15 @@
       "latitude": 40.73832222222222,
       "longitude": -73.99321666666667
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "repetition"
+    ]
   },
   {
     "filename": "IMG_4648",
     "material": [],
-    "tectonic": [
-      "floor"
-    ],
     "interaction": [],
     "phenomena": [],
     "date": "11 November 2024",
@@ -2612,7 +2758,11 @@
       "latitude": 43.65937777777778,
       "longitude": -79.400575
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "floor"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_4659",
@@ -2620,7 +2770,6 @@
       "plastic",
       "water"
     ],
-    "tectonic": [],
     "interaction": [
       "discard"
     ],
@@ -2634,15 +2783,14 @@
       "latitude": 43.65588888888889,
       "longitude": -79.40997222222222
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_4688",
     "material": [
       "glass"
-    ],
-    "tectonic": [
-      "window"
     ],
     "interaction": [
       "repair"
@@ -2657,12 +2805,15 @@
       "latitude": 40.67001388888889,
       "longitude": -73.98905833333333
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "window"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_4778",
     "material": [],
-    "tectonic": [],
     "interaction": [
       "image"
     ],
@@ -2673,14 +2824,13 @@
       "latitude": 40.702780555555556,
       "longitude": -73.90513611111112
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_4780",
     "material": [],
-    "tectonic": [
-      "vehicle"
-    ],
     "interaction": [
       "discard"
     ],
@@ -2691,14 +2841,15 @@
       "latitude": 40.70265555555556,
       "longitude": -73.90421944444445
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "vehicle"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_4789",
     "material": [],
-    "tectonic": [
-      "repetition"
-    ],
     "interaction": [
       "image"
     ],
@@ -2709,14 +2860,15 @@
       "latitude": 43.65125,
       "longitude": -79.44512222222222
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "repetition"
+    ]
   },
   {
     "filename": "IMG_4834",
     "material": [],
-    "tectonic": [
-      "vehicle"
-    ],
     "interaction": [
       "image"
     ],
@@ -2727,14 +2879,15 @@
       "latitude": 40.67780277777778,
       "longitude": -73.98188888888889
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "vehicle"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_4839",
     "material": [],
-    "tectonic": [
-      "vehicle"
-    ],
     "interaction": [
       "image"
     ],
@@ -2745,14 +2898,17 @@
       "latitude": 40.66684444444444,
       "longitude": -73.99166111111111
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "vehicle"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_4866",
     "material": [
       "metal"
     ],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [
       "shadow"
@@ -2763,16 +2919,14 @@
       "latitude": 40.69318888888888,
       "longitude": -73.97118333333333
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_4885",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "gate",
-      "repetition"
     ],
     "interaction": [],
     "phenomena": [],
@@ -2782,12 +2936,17 @@
       "latitude": 40.68612222222222,
       "longitude": -73.9781888888889
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "gate"
+    ],
+    "form": [
+      "repetition"
+    ]
   },
   {
     "filename": "IMG_4906",
     "material": [],
-    "tectonic": [],
     "interaction": [
       "graffiti"
     ],
@@ -2798,16 +2957,14 @@
       "latitude": 40.705088888888895,
       "longitude": -73.92030277777778
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_4923",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "repetition",
-      "room"
     ],
     "interaction": [
       "construction"
@@ -2819,15 +2976,17 @@
       "latitude": 45.531127777777776,
       "longitude": -73.61958333333332
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "repetition",
+      "room"
+    ]
   },
   {
     "filename": "IMG_4941",
     "material": [
       "concrete"
-    ],
-    "tectonic": [
-      "object"
     ],
     "interaction": [],
     "phenomena": [],
@@ -2837,18 +2996,17 @@
       "latitude": 45.53046111111111,
       "longitude": -73.61615833333333
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "object"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_4944",
     "material": [
       "glass",
       "concrete"
-    ],
-    "tectonic": [
-      "window",
-      "floor",
-      "monolith"
     ],
     "interaction": [],
     "phenomena": [
@@ -2860,16 +3018,21 @@
       "latitude": 40.71736388888889,
       "longitude": -73.99079166666667
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "window",
+      "floor"
+    ],
+    "form": [
+      "monolith"
+    ]
   },
   {
     "filename": "IMG_4957",
     "material": [],
-    "tectonic": [
-      "vehicle",
+    "interaction": [
       "cluster"
     ],
-    "interaction": [],
     "phenomena": [],
     "date": "21 March 2023",
     "author": "Scott Christian McCallum",
@@ -2877,14 +3040,17 @@
       "latitude": 40.71873055555556,
       "longitude": -73.99912222222223
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "vehicle"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_4958",
     "material": [
       "fabric"
     ],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [
       "refraction"
@@ -2895,12 +3061,13 @@
       "latitude": 45.531666666666666,
       "longitude": -73.58303055555555
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_4976",
     "material": [],
-    "tectonic": [],
     "interaction": [
       "image"
     ],
@@ -2913,16 +3080,15 @@
       "latitude": 40.661563888888885,
       "longitude": -73.99393333333333
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_5049",
     "material": [
       "concrete",
       "metal"
-    ],
-    "tectonic": [
-      "floor"
     ],
     "interaction": [],
     "phenomena": [
@@ -2934,15 +3100,16 @@
       "latitude": 45.5206,
       "longitude": -73.59773333333332
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "floor"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_5085",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "wall"
     ],
     "interaction": [],
     "phenomena": [
@@ -2954,12 +3121,15 @@
       "latitude": 45.532313888888886,
       "longitude": -73.61994166666666
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "wall"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_5209",
     "material": [],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [
       "reflection",
@@ -2971,17 +3141,15 @@
       "latitude": 45.480494444444446,
       "longitude": -73.57655277777778
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_5244",
     "material": [
       "metal",
       "concrete"
-    ],
-    "tectonic": [
-      "gate",
-      "floor"
     ],
     "interaction": [
       "ornament"
@@ -2995,12 +3163,16 @@
       "latitude": 45.53603333333333,
       "longitude": -73.57163333333332
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "gate",
+      "floor"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_5283",
     "material": [],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [
       "foliage"
@@ -3011,19 +3183,18 @@
       "latitude": 43.65698611111111,
       "longitude": -79.40460277777778
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_5296",
     "material": [
       "plywood"
     ],
-    "tectonic": [
-      "wedge",
-      "cluster"
-    ],
     "interaction": [
-      "construction"
+      "construction",
+      "cluster"
     ],
     "phenomena": [],
     "date": "16 November 2021",
@@ -3032,16 +3203,16 @@
       "latitude": 45.52856944444444,
       "longitude": -73.61610277777777
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "wedge"
+    ]
   },
   {
     "filename": "IMG_5313",
     "material": [
       "fabric"
-    ],
-    "tectonic": [
-      "gate",
-      "drape"
     ],
     "interaction": [],
     "phenomena": [
@@ -3053,15 +3224,18 @@
       "latitude": 45.53388888888889,
       "longitude": -73.56841944444444
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "gate"
+    ],
+    "form": [
+      "drape"
+    ]
   },
   {
     "filename": "IMG_5324 (1)",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "floor"
     ],
     "interaction": [
       "text"
@@ -3073,15 +3247,16 @@
       "latitude": 43.66114722222222,
       "longitude": -79.38270555555555
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "floor"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_5329",
     "material": [
       "fabric"
-    ],
-    "tectonic": [
-      "drape"
     ],
     "interaction": [],
     "phenomena": [
@@ -3093,16 +3268,18 @@
       "latitude": 45.50261388888889,
       "longitude": -73.63738333333335
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "drape"
+    ]
   },
   {
     "filename": "IMG_5340",
     "material": [],
-    "tectonic": [
-      "cluster",
-      "line"
+    "interaction": [
+      "cluster"
     ],
-    "interaction": [],
     "phenomena": [
       "animal"
     ],
@@ -3112,14 +3289,15 @@
       "latitude": 45.50053333333334,
       "longitude": -73.63863333333335
     },
-    "caption": "Morse code birds."
+    "caption": "Morse code birds.",
+    "element": [],
+    "form": [
+      "line"
+    ]
   },
   {
     "filename": "IMG_5411",
     "material": [],
-    "tectonic": [
-      "tube"
-    ],
     "interaction": [
       "accommodation"
     ],
@@ -3130,15 +3308,16 @@
       "latitude": 43.65976666666666,
       "longitude": -79.40049722222223
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "tube"
+    ]
   },
   {
     "filename": "IMG_5542",
     "material": [
       "concrete"
-    ],
-    "tectonic": [
-      "floor"
     ],
     "interaction": [],
     "phenomena": [
@@ -3150,12 +3329,15 @@
       "latitude": 45.539433333333335,
       "longitude": -73.61599722222222
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "floor"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_5594",
     "material": [],
-    "tectonic": [],
     "interaction": [
       "image"
     ],
@@ -3166,14 +3348,15 @@
       "latitude": 45.557944444444445,
       "longitude": -73.61175555555555
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_5644",
     "material": [
       "metal"
     ],
-    "tectonic": [],
     "interaction": [
       "discard"
     ],
@@ -3184,16 +3367,16 @@
       "latitude": 45.532980555555554,
       "longitude": -73.61904166666666
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_5714",
     "material": [],
-    "tectonic": [
-      "wrapped"
-    ],
     "interaction": [
-      "construction"
+      "construction",
+      "wrapped"
     ],
     "phenomena": [],
     "date": "9 December 2021",
@@ -3202,14 +3385,15 @@
       "latitude": 40.675013888888884,
       "longitude": -73.98503055555555
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_5761",
     "material": [
       "water"
     ],
-    "tectonic": [],
     "interaction": [
       "spill"
     ],
@@ -3220,12 +3404,13 @@
       "latitude": 45.53254444444444,
       "longitude": -73.61583611111111
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_5896",
     "material": [],
-    "tectonic": [],
     "interaction": [
       "image"
     ],
@@ -3236,15 +3421,14 @@
       "latitude": 45.538802777777775,
       "longitude": -73.61408888888889
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_5936",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "stair"
     ],
     "interaction": [
       "accommodation"
@@ -3256,15 +3440,16 @@
       "latitude": 45.50616388888889,
       "longitude": -73.55992222222221
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "stair"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_5950",
     "material": [
       "glass"
-    ],
-    "tectonic": [
-      "window"
     ],
     "interaction": [
       "graffiti"
@@ -3276,12 +3461,15 @@
       "latitude": 45.54009722222222,
       "longitude": -73.6119611111111
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "window"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_6038",
     "material": [],
-    "tectonic": [],
     "interaction": [
       "pun"
     ],
@@ -3292,14 +3480,13 @@
       "latitude": 43.65513333333333,
       "longitude": -79.40077222222223
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_6052",
     "material": [],
-    "tectonic": [
-      "line"
-    ],
     "interaction": [],
     "phenomena": [],
     "date": "9 February 2024",
@@ -3308,15 +3495,16 @@
       "latitude": 43.652816666666666,
       "longitude": -79.39825555555556
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "line"
+    ]
   },
   {
     "filename": "IMG_6063",
     "material": [
       "glass"
-    ],
-    "tectonic": [
-      "window"
     ],
     "interaction": [],
     "phenomena": [
@@ -3328,15 +3516,16 @@
       "latitude": 45.53803333333333,
       "longitude": -73.61364722222221
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "window"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_6084",
     "material": [
       "concrete"
-    ],
-    "tectonic": [
-      "tunnel"
     ],
     "interaction": [],
     "phenomena": [
@@ -3348,15 +3537,18 @@
       "latitude": 45.53063888888889,
       "longitude": -73.62241388888889
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "tunnel"
+    ]
   },
   {
     "filename": "IMG_6086",
     "material": [],
-    "tectonic": [
+    "interaction": [
       "cluster"
     ],
-    "interaction": [],
     "phenomena": [
       "animal",
       "sky"
@@ -3367,17 +3559,18 @@
       "latitude": 45.53013333333333,
       "longitude": -73.62216944444444
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_6098",
     "material": [
       "snow"
     ],
-    "tectonic": [
+    "interaction": [
       "cluster"
     ],
-    "interaction": [],
     "phenomena": [],
     "date": "24 December 2021",
     "author": "Scott Christian McCallum",
@@ -3385,15 +3578,14 @@
       "latitude": 45.525708333333334,
       "longitude": -73.61874444444443
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_6143",
     "material": [
       "concrete"
-    ],
-    "tectonic": [
-      "void"
     ],
     "interaction": [],
     "phenomena": [],
@@ -3403,14 +3595,15 @@
       "latitude": 43.657241666666664,
       "longitude": -79.40532777777779
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "void"
+    ]
   },
   {
     "filename": "IMG_6156",
     "material": [],
-    "tectonic": [
-      "stair"
-    ],
     "interaction": [],
     "phenomena": [],
     "date": "9 February 2024",
@@ -3419,14 +3612,17 @@
       "latitude": 43.653825,
       "longitude": -79.39760555555556
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "stair"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_6220",
     "material": [
       "plywood"
     ],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [],
     "date": "9 January 2022",
@@ -3435,14 +3631,13 @@
       "latitude": 45.52997222222222,
       "longitude": -73.5771861111111
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_6290",
     "material": [],
-    "tectonic": [
-      "chair"
-    ],
     "interaction": [
       "watching"
     ],
@@ -3453,14 +3648,15 @@
       "latitude": 43.65060833333333,
       "longitude": -79.41228611111111
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "chair"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_6295",
     "material": [],
-    "tectonic": [
-      "tube"
-    ],
     "interaction": [],
     "phenomena": [],
     "date": "20 May 2023",
@@ -3469,14 +3665,15 @@
       "latitude": 45.53557222222222,
       "longitude": -73.61094722222222
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "tube"
+    ]
   },
   {
     "filename": "IMG_6398",
     "material": [],
-    "tectonic": [
-      "tube"
-    ],
     "interaction": [],
     "phenomena": [],
     "date": "17 January 2025",
@@ -3485,15 +3682,16 @@
       "latitude": 43.65405,
       "longitude": -79.40129166666667
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "tube"
+    ]
   },
   {
     "filename": "IMG_6439",
     "material": [
       "plywood"
-    ],
-    "tectonic": [
-      "wall"
     ],
     "interaction": [
       "graffiti"
@@ -3505,7 +3703,11 @@
       "latitude": 45.53097777777778,
       "longitude": -73.6172861111111
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "wall"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_6440",
@@ -3513,7 +3715,6 @@
       "metal",
       "snow"
     ],
-    "tectonic": [],
     "interaction": [
       "discard"
     ],
@@ -3524,14 +3725,15 @@
       "latitude": 45.53060833333333,
       "longitude": -73.61858333333333
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_6460",
     "material": [
       "snow"
     ],
-    "tectonic": [],
     "interaction": [
       "spill",
       "discard"
@@ -3543,14 +3745,13 @@
       "latitude": 45.50969444444444,
       "longitude": -73.57337222222222
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_6480",
     "material": [],
-    "tectonic": [
-      "floor"
-    ],
     "interaction": [
       "spill"
     ],
@@ -3563,15 +3764,16 @@
       "latitude": 43.65806111111111,
       "longitude": -79.40003333333334
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "floor"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_6591",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "fence"
     ],
     "interaction": [],
     "phenomena": [
@@ -3584,16 +3786,16 @@
       "latitude": 45.53163055555555,
       "longitude": -73.6180111111111
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "fence"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_6617",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "gate",
-      "door"
     ],
     "interaction": [
       "ornament"
@@ -3605,12 +3807,16 @@
       "latitude": 45.53154444444444,
       "longitude": -73.61818055555555
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "gate",
+      "door"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_6647",
     "material": [],
-    "tectonic": [],
     "interaction": [
       "image",
       "partial"
@@ -3625,12 +3831,13 @@
       "latitude": 43.65108055555555,
       "longitude": -79.41216944444444
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_6730",
     "material": [],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [],
     "date": "10 June 2023",
@@ -3639,15 +3846,14 @@
       "latitude": 45.56262222222222,
       "longitude": -73.60434722222222
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_6783",
     "material": [
       "drywall"
-    ],
-    "tectonic": [
-      "wall"
     ],
     "interaction": [
       "section"
@@ -3659,14 +3865,15 @@
       "latitude": 43.65974722222222,
       "longitude": -79.40056666666668
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "wall"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_6894",
     "material": [],
-    "tectonic": [
-      "repetition"
-    ],
     "interaction": [],
     "phenomena": [],
     "date": "13 March 2024",
@@ -3675,17 +3882,17 @@
       "latitude": 43.65550555555556,
       "longitude": -79.4140388888889
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "repetition"
+    ]
   },
   {
     "filename": "IMG_6959",
     "material": [
       "metal",
       "concrete"
-    ],
-    "tectonic": [
-      "fence",
-      "floor"
     ],
     "interaction": [
       "discard"
@@ -3694,14 +3901,18 @@
     "date": "7 September 2019",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [
+      "fence",
+      "floor"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_6977",
     "material": [
       "metal"
     ],
-    "tectonic": [],
     "interaction": [
       "text"
     ],
@@ -3712,14 +3923,13 @@
       "latitude": 43.65933888888889,
       "longitude": -79.40041388888889
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_7025",
     "material": [],
-    "tectonic": [
-      "round"
-    ],
     "interaction": [],
     "phenomena": [],
     "date": "19 February 2025",
@@ -3728,16 +3938,16 @@
       "latitude": 44.02213611111111,
       "longitude": -77.90559444444445
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "round"
+    ]
   },
   {
     "filename": "IMG_7067",
     "material": [
       "snow"
-    ],
-    "tectonic": [
-      "wave",
-      "floor"
     ],
     "interaction": [],
     "phenomena": [
@@ -3749,15 +3959,18 @@
       "latitude": 43.659908333333334,
       "longitude": -79.4002388888889
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "floor"
+    ],
+    "form": [
+      "wave"
+    ]
   },
   {
     "filename": "IMG_7090",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "floor"
     ],
     "interaction": [
       "text"
@@ -3769,12 +3982,15 @@
       "latitude": 43.657738888888886,
       "longitude": -79.40050555555555
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "floor"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_7092",
     "material": [],
-    "tectonic": [],
     "interaction": [
       "image"
     ],
@@ -3787,15 +4003,14 @@
       "latitude": 43.64976388888889,
       "longitude": -79.39691944444445
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_7363",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "wave"
     ],
     "interaction": [],
     "phenomena": [],
@@ -3805,16 +4020,17 @@
       "latitude": 45.53004444444444,
       "longitude": -73.61118333333333
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "wave"
+    ]
   },
   {
     "filename": "IMG_7365",
     "material": [
       "plastic",
       "metal"
-    ],
-    "tectonic": [
-      "roof"
     ],
     "interaction": [],
     "phenomena": [
@@ -3826,17 +4042,20 @@
       "latitude": 45.53143333333333,
       "longitude": -73.6130361111111
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "roof"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_7396",
     "material": [
       "concrete"
     ],
-    "tectonic": [
-      "floor"
+    "interaction": [
+      "body"
     ],
-    "interaction": ["body"],
     "phenomena": [
       "shadow"
     ],
@@ -3846,12 +4065,15 @@
       "latitude": 43.65817222222222,
       "longitude": -79.40019166666667
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "floor"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_7400",
     "material": [],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [
       "sky"
@@ -3862,12 +4084,13 @@
       "latitude": 45.52585277777778,
       "longitude": -73.59893055555555
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_7434",
     "material": [],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [
       "sky"
@@ -3878,14 +4101,15 @@
       "latitude": 45.529627777777776,
       "longitude": -73.61710277777777
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_7473",
     "material": [
       "metal"
     ],
-    "tectonic": [],
     "interaction": [
       "discard"
     ],
@@ -3900,15 +4124,14 @@
       "latitude": 45.53254444444444,
       "longitude": -73.61611111111111
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_7517",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "wave"
     ],
     "interaction": [],
     "phenomena": [],
@@ -3918,14 +4141,17 @@
       "latitude": 49.31991111111112,
       "longitude": -124.30864722222222
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "wave"
+    ]
   },
   {
     "filename": "IMG_7615",
     "material": [
       "water"
     ],
-    "tectonic": [],
     "interaction": [
       "image",
       "text"
@@ -3937,14 +4163,15 @@
       "latitude": 49.26343055555556,
       "longitude": -123.12362777777777
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_7630",
     "material": [
       "metal"
     ],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [],
     "date": "15 March 2022",
@@ -3953,14 +4180,13 @@
       "latitude": 49.19526388888889,
       "longitude": -123.12485555555556
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_7650",
     "material": [],
-    "tectonic": [
-      "floor"
-    ],
     "interaction": [],
     "phenomena": [],
     "date": "15 March 2022",
@@ -3969,14 +4195,15 @@
       "latitude": 49.252205555555555,
       "longitude": -123.08990555555555
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "floor"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_7678",
     "material": [],
-    "tectonic": [
-      "vehicle"
-    ],
     "interaction": [],
     "phenomena": [
       "refraction"
@@ -3987,12 +4214,15 @@
       "latitude": 49.26702777777778,
       "longitude": -123.09474999999999
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "vehicle"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_7682",
     "material": [],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [
       "animal"
@@ -4003,15 +4233,14 @@
       "latitude": 43.65926388888889,
       "longitude": -79.40065
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_7710",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "wall"
     ],
     "interaction": [
       "image",
@@ -4026,16 +4255,16 @@
       "latitude": 49.283852777777774,
       "longitude": -123.08931666666666
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "wall"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_7770",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "corrugated",
-      "wall"
     ],
     "interaction": [],
     "phenomena": [
@@ -4048,14 +4277,17 @@
       "latitude": 49.27745,
       "longitude": -123.07927777777778
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "wall"
+    ],
+    "form": [
+      "corrugated"
+    ]
   },
   {
     "filename": "IMG_7800",
     "material": [],
-    "tectonic": [
-      "object"
-    ],
     "interaction": [],
     "phenomena": [],
     "date": "17 March 2022",
@@ -4064,14 +4296,15 @@
       "latitude": 49.271652777777774,
       "longitude": -123.19288611111112
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "object"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_7852 (1)",
     "material": [],
-    "tectonic": [
-      "wall"
-    ],
     "interaction": [
       "image",
       "text"
@@ -4083,16 +4316,17 @@
       "latitude": 49.25689722222222,
       "longitude": -123.11514166666666
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "wall"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_7950",
     "material": [
       "concrete",
       "water"
-    ],
-    "tectonic": [
-      "stair"
     ],
     "interaction": [],
     "phenomena": [],
@@ -4102,16 +4336,16 @@
       "latitude": 49.30084166666666,
       "longitude": -123.11708888888889
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "stair"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_7985",
     "material": [
       "glass"
-    ],
-    "tectonic": [
-      "wall",
-      "window"
     ],
     "interaction": [
       "image",
@@ -4126,15 +4360,17 @@
       "latitude": 49.256997222222225,
       "longitude": -123.08942499999999
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "wall",
+      "window"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_7990",
     "material": [
       "glass"
-    ],
-    "tectonic": [
-      "window"
     ],
     "interaction": [
       "text"
@@ -4148,15 +4384,16 @@
       "latitude": 49.26495833333333,
       "longitude": -123.06983888888888
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "window"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_8026",
     "material": [
       "glass"
-    ],
-    "tectonic": [
-      "window"
     ],
     "interaction": [],
     "phenomena": [
@@ -4168,14 +4405,15 @@
       "latitude": 49.28041944444444,
       "longitude": -123.09561944444444
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "window"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_8172",
     "material": [],
-    "tectonic": [
-      "floor"
-    ],
     "interaction": [
       "spill"
     ],
@@ -4186,15 +4424,16 @@
       "latitude": 49.133716666666665,
       "longitude": -125.9058388888889
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "floor"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_8318",
     "material": [
       "concrete"
-    ],
-    "tectonic": [
-      "floor"
     ],
     "interaction": [
       "spill"
@@ -4206,14 +4445,15 @@
       "latitude": 45.52942222222222,
       "longitude": -73.60656666666667
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "floor"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_8367",
     "material": [],
-    "tectonic": [
-      "vehicle"
-    ],
     "interaction": [],
     "phenomena": [],
     "date": "6 May 2025",
@@ -4222,16 +4462,16 @@
       "latitude": 43.65795555555555,
       "longitude": -79.39793333333334
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "vehicle"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_8394",
     "material": [
       "plastic"
-    ],
-    "tectonic": [
-      "line",
-      "wave"
     ],
     "interaction": [],
     "phenomena": [
@@ -4243,14 +4483,16 @@
       "latitude": 40.77616388888889,
       "longitude": -73.87217777777776
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "line",
+      "wave"
+    ]
   },
   {
     "filename": "IMG_8511",
     "material": [],
-    "tectonic": [
-      "room"
-    ],
     "interaction": [],
     "phenomena": [],
     "date": "28 April 2022",
@@ -4259,12 +4501,15 @@
       "latitude": 40.726025,
       "longitude": -73.99980277777777
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "room"
+    ]
   },
   {
     "filename": "IMG_8570",
     "material": [],
-    "tectonic": [],
     "interaction": [
       "image"
     ],
@@ -4275,15 +4520,14 @@
       "latitude": 40.68250555555555,
       "longitude": -73.97956111111111
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_8572",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "fence"
     ],
     "interaction": [
       "graffiti"
@@ -4295,17 +4539,20 @@
       "latitude": 40.678555555555555,
       "longitude": -73.95581111111112
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "fence"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_8578",
     "material": [
       "concrete"
     ],
-    "tectonic": [
-      "wall"
+    "interaction": [
+      "body"
     ],
-    "interaction": ["body"],
     "phenomena": [
       "shadow"
     ],
@@ -4315,16 +4562,18 @@
       "latitude": 40.70570277777778,
       "longitude": -73.93009166666667
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "wall"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_8586",
     "material": [],
-    "tectonic": [
-      "cluster"
-    ],
     "interaction": [
-      "discard"
+      "discard",
+      "cluster"
     ],
     "phenomena": [],
     "date": "29 April 2022",
@@ -4333,18 +4582,18 @@
       "latitude": 40.705911111111114,
       "longitude": -73.92994722222222
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_8614",
     "material": [
       "fabric"
     ],
-    "tectonic": [
-      "wrapped"
-    ],
     "interaction": [
-      "image"
+      "image",
+      "wrapped"
     ],
     "phenomena": [],
     "date": "17 May 2025",
@@ -4353,18 +4602,18 @@
       "latitude": 45.53707222222222,
       "longitude": -73.61166388888888
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_8615",
     "material": [
       "fabric"
     ],
-    "tectonic": [
-      "wrapped",
-      "door"
+    "interaction": [
+      "wrapped"
     ],
-    "interaction": [],
     "phenomena": [],
     "date": "17 May 2025",
     "author": "Scott Christian McCallum",
@@ -4372,14 +4621,17 @@
       "latitude": 45.534724999999995,
       "longitude": -73.60605555555556
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "door"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_8619",
     "material": [
       "metal"
     ],
-    "tectonic": [],
     "interaction": [
       "tied"
     ],
@@ -4392,15 +4644,14 @@
       "latitude": 40.7019,
       "longitude": -73.92384444444446
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_8624",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "fence"
     ],
     "interaction": [
       "ornament"
@@ -4412,14 +4663,15 @@
       "latitude": 40.70205277777778,
       "longitude": -73.91584722222223
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "fence"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_8646",
     "material": [],
-    "tectonic": [
-      "object"
-    ],
     "interaction": [],
     "phenomena": [],
     "date": "30 April 2022",
@@ -4428,14 +4680,15 @@
       "latitude": 40.66376388888889,
       "longitude": -73.9842
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "object"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_8793",
     "material": [],
-    "tectonic": [
-      "roof"
-    ],
     "interaction": [],
     "phenomena": [
       "sky",
@@ -4447,17 +4700,20 @@
       "latitude": 48.89384444444445,
       "longitude": -123.56689444444444
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "roof"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_8836",
     "material": [
       "fabric"
     ],
-    "tectonic": [
+    "interaction": [
       "cluster"
     ],
-    "interaction": [],
     "phenomena": [],
     "date": "16 May 2024",
     "author": "Scott Christian McCallum",
@@ -4465,16 +4721,15 @@
       "latitude": 43.66078611111111,
       "longitude": -79.39651388888889
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_8867",
     "material": [
       "metal",
       "concrete"
-    ],
-    "tectonic": [
-      "round"
     ],
     "interaction": [],
     "phenomena": [],
@@ -4484,15 +4739,16 @@
       "latitude": 45.534675,
       "longitude": -73.61973611111111
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "round"
+    ]
   },
   {
     "filename": "IMG_8873",
     "material": [
       "lumber"
-    ],
-    "tectonic": [
-      "wall"
     ],
     "interaction": [
       "propped"
@@ -4506,15 +4762,16 @@
       "latitude": 45.53365833333333,
       "longitude": -73.57882777777778
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "wall"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_9065",
     "material": [
       "concrete"
-    ],
-    "tectonic": [
-      "floor"
     ],
     "interaction": [
       "repair",
@@ -4527,17 +4784,17 @@
       "latitude": 43.65636111111111,
       "longitude": -79.39836944444446
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "floor"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_9114",
     "material": [
       "concrete",
       "metal"
-    ],
-    "tectonic": [
-      "floor",
-      "object"
     ],
     "interaction": [],
     "phenomena": [
@@ -4549,16 +4806,17 @@
       "latitude": 43.65221111111111,
       "longitude": -79.40209166666668
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "floor",
+      "object"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_9139",
     "material": [
       "concrete"
-    ],
-    "tectonic": [
-      "repetition",
-      "floor"
     ],
     "interaction": [],
     "phenomena": [
@@ -4570,16 +4828,18 @@
       "latitude": 43.66036111111111,
       "longitude": -79.38514722222223
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "floor"
+    ],
+    "form": [
+      "repetition"
+    ]
   },
   {
     "filename": "IMG_9176",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "object",
-      "box"
     ],
     "interaction": [
       "text"
@@ -4591,14 +4851,19 @@
       "latitude": 45.077963888888895,
       "longitude": -64.50508888888889
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "object"
+    ],
+    "form": [
+      "box"
+    ]
   },
   {
     "filename": "IMG_9325",
     "material": [
       "fabric"
     ],
-    "tectonic": [],
     "interaction": [
       "text",
       "pun"
@@ -4612,16 +4877,15 @@
       "latitude": 43.65889444444444,
       "longitude": -79.36795
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_9335",
     "material": [
       "metal",
       "concrete"
-    ],
-    "tectonic": [
-      "object"
     ],
     "interaction": [],
     "phenomena": [
@@ -4633,16 +4897,17 @@
       "latitude": 43.662083333333335,
       "longitude": -79.36032777777777
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "object"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_9366",
     "material": [
       "concrete",
       "water"
-    ],
-    "tectonic": [
-      "floor"
     ],
     "interaction": [],
     "phenomena": [
@@ -4655,14 +4920,15 @@
       "latitude": 43.674974999999996,
       "longitude": -79.3639361111111
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "floor"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_9388",
     "material": [],
-    "tectonic": [
-      "wall"
-    ],
     "interaction": [
       "image"
     ],
@@ -4673,18 +4939,16 @@
       "latitude": 43.652027777777775,
       "longitude": -79.39187500000001
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "wall"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_9471",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "line",
-      "wave",
-      "fence",
-      "chainlink"
     ],
     "interaction": [],
     "phenomena": [],
@@ -4694,12 +4958,19 @@
       "latitude": 40.69679166666666,
       "longitude": -73.98522222222222
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "fence",
+      "chainlink"
+    ],
+    "form": [
+      "line",
+      "wave"
+    ]
   },
   {
     "filename": "IMG_9481",
     "material": [],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [],
     "date": "29 May 2024",
@@ -4708,16 +4979,14 @@
       "latitude": 40.69728333333333,
       "longitude": -73.98713055555555
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_9485",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "wave",
-      "window"
     ],
     "interaction": [
       "ornament"
@@ -4729,15 +4998,18 @@
       "latitude": 48.837161111111115,
       "longitude": 2.3215166666666662
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "window"
+    ],
+    "form": [
+      "wave"
+    ]
   },
   {
     "filename": "IMG_9520",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "object"
     ],
     "interaction": [
       "ornament",
@@ -4750,14 +5022,15 @@
       "latitude": 48.843875000000004,
       "longitude": 2.3228777777777774
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "object"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_9526",
     "material": [],
-    "tectonic": [
-      "floor"
-    ],
     "interaction": [
       "text",
       "discard",
@@ -4770,15 +5043,16 @@
       "latitude": 40.66155277777778,
       "longitude": -73.99363611111112
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "floor"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_9541",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "gate"
     ],
     "interaction": [
       "graffiti"
@@ -4790,16 +5064,17 @@
       "latitude": 48.84361388888889,
       "longitude": 2.314983333333333
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "gate"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_9553",
     "material": [
       "metal",
       "plastic"
-    ],
-    "tectonic": [
-      "object"
     ],
     "interaction": [],
     "phenomena": [
@@ -4811,15 +5086,16 @@
       "latitude": 40.66053333333333,
       "longitude": -73.99431666666666
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "object"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_9562",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "chainlink"
     ],
     "interaction": [],
     "phenomena": [
@@ -4831,15 +5107,16 @@
       "latitude": 44.65734166666667,
       "longitude": -63.59805555555556
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "chainlink"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_9617",
     "material": [
       "concrete"
-    ],
-    "tectonic": [
-      "floor"
     ],
     "interaction": [
       "repair",
@@ -4855,16 +5132,16 @@
       "latitude": 40.71582777777778,
       "longitude": -73.96463055555556
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "floor"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_9627",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "gate",
-      "floor"
     ],
     "interaction": [
       "ornament"
@@ -4878,16 +5155,17 @@
       "latitude": 40.71309166666667,
       "longitude": -73.9459138888889
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "gate",
+      "floor"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_9629",
     "material": [
       "fabric"
-    ],
-    "tectonic": [
-      "wave",
-      "drape"
     ],
     "interaction": [],
     "phenomena": [
@@ -4899,12 +5177,16 @@
       "latitude": 40.71258055555556,
       "longitude": -73.94604444444445
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": [
+      "wave",
+      "drape"
+    ]
   },
   {
     "filename": "IMG_9710",
     "material": [],
-    "tectonic": [],
     "interaction": [
       "text"
     ],
@@ -4915,15 +5197,14 @@
       "latitude": 40.68150833333333,
       "longitude": -73.9580388888889
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "IMG_9762",
     "material": [
       "plywood"
-    ],
-    "tectonic": [
-      "wall"
     ],
     "interaction": [
       "graffiti"
@@ -4935,15 +5216,16 @@
       "latitude": 45.49006666666667,
       "longitude": -73.58301666666667
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "wall"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_9778",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "chainlink"
     ],
     "interaction": [],
     "phenomena": [],
@@ -4953,15 +5235,16 @@
       "latitude": 40.69969444444444,
       "longitude": -73.98613055555556
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "chainlink"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_9878",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "door"
     ],
     "interaction": [],
     "phenomena": [
@@ -4973,16 +5256,16 @@
       "latitude": 45.531933333333335,
       "longitude": -73.61637777777777
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "door"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_9951",
     "material": [
       "glass"
-    ],
-    "tectonic": [
-      "object",
-      "window"
     ],
     "interaction": [],
     "phenomena": [
@@ -4994,14 +5277,16 @@
       "latitude": 48.852000000000004,
       "longitude": 2.2652277777777776
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "object",
+      "window"
+    ],
+    "form": []
   },
   {
     "filename": "IMG_9976",
     "material": [],
-    "tectonic": [
-      "floor"
-    ],
     "interaction": [],
     "phenomena": [
       "animal"
@@ -5012,18 +5297,20 @@
       "latitude": 48.85472222222222,
       "longitude": 2.269066666666667
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "floor"
+    ],
+    "form": []
   },
   {
     "filename": "bench_object_seating_still-life",
     "material": [
       "metal"
     ],
-    "tectonic": [
-      "chair",
+    "interaction": [
       "cluster"
     ],
-    "interaction": [],
     "phenomena": [],
     "date": "2 June 2024",
     "author": "Scott Christian McCallum",
@@ -5031,7 +5318,11 @@
       "latitude": 40.711736111111115,
       "longitude": -74.01028333333333
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "chair"
+    ],
+    "form": []
   },
   {
     "filename": "floating-plastic_plastic_water_soak",
@@ -5039,9 +5330,6 @@
       "concrete",
       "plastic",
       "water"
-    ],
-    "tectonic": [
-      "floor"
     ],
     "interaction": [
       "discard"
@@ -5052,15 +5340,16 @@
     "date": "3 May 2022",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [
+      "floor"
+    ],
+    "form": []
   },
   {
     "filename": "freezer-glass_ice_cold_glass_broken_shatter",
     "material": [
       "ice"
-    ],
-    "tectonic": [
-      "object"
     ],
     "interaction": [],
     "phenomena": [
@@ -5070,15 +5359,16 @@
     "date": "28 September 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [
+      "object"
+    ],
+    "form": []
   },
   {
     "filename": "hvac-crush_metal_dent",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "object"
     ],
     "interaction": [
       "mechanical"
@@ -5089,17 +5379,16 @@
     "date": "27 September 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [
+      "object"
+    ],
+    "form": []
   },
   {
     "filename": "hvac_hvac_metal_shadow_striation_reflectance",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "box",
-      "stair",
-      "repetition"
     ],
     "interaction": [
       "mechanical"
@@ -5110,14 +5399,18 @@
     "date": null,
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [
+      "stair"
+    ],
+    "form": [
+      "box",
+      "repetition"
+    ]
   },
   {
     "filename": "kersm_graffiti_graphic_wall_paint",
     "material": [],
-    "tectonic": [
-      "wall"
-    ],
     "interaction": [
       "graffiti",
       "partial"
@@ -5126,16 +5419,16 @@
     "date": "10 November 2021",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [
+      "wall"
+    ],
+    "form": []
   },
   {
     "filename": "mile-ex_shadow_mesh_metal_circle",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "wall",
-      "fence"
     ],
     "interaction": [],
     "phenomena": [
@@ -5144,15 +5437,17 @@
     "date": "27 October 2022",
     "author": "Scott Christian McCallum",
     "geolocation": null,
-    "caption": ""
+    "caption": "",
+    "element": [
+      "wall",
+      "fence"
+    ],
+    "form": []
   },
   {
     "filename": "montreal-garbage_trash_bent_crush_metal",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "object"
     ],
     "interaction": [
       "discard"
@@ -5166,16 +5461,16 @@
       "latitude": 45.53971111111111,
       "longitude": -73.61356388888888
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "object"
+    ],
+    "form": []
   },
   {
     "filename": "paris-rack_bend_metal_pipe_zigzag",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "wave",
-      "object"
     ],
     "interaction": [],
     "phenomena": [],
@@ -5185,15 +5480,18 @@
       "latitude": 48.848683333333334,
       "longitude": 2.2638777777777777
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "object"
+    ],
+    "form": [
+      "wave"
+    ]
   },
   {
     "filename": "sign-tree_tree_engulf_sign_graphic",
     "material": [
       "metal"
-    ],
-    "tectonic": [
-      "partial"
     ],
     "interaction": [
       "image"
@@ -5207,15 +5505,14 @@
       "latitude": 40.67150833333333,
       "longitude": -73.97791388888889
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "stair_object_stair_still-life",
     "material": [
       "concrete"
-    ],
-    "tectonic": [
-      "stair"
     ],
     "interaction": [],
     "phenomena": [
@@ -5227,14 +5524,17 @@
       "latitude": 40.75015555555556,
       "longitude": -73.99423333333334
     },
-    "caption": ""
+    "caption": "",
+    "element": [
+      "stair"
+    ],
+    "form": []
   },
   {
     "filename": "tree-light_tree_light_plywood_outdoor",
     "material": [
       "plywood"
     ],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [
       "foliage"
@@ -5245,7 +5545,9 @@
       "latitude": 43.65969444444444,
       "longitude": -79.43580555555556
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   },
   {
     "filename": "wakefield-ice_ice_frozen_pipe_metal_snow",
@@ -5254,7 +5556,6 @@
       "metal",
       "ice"
     ],
-    "tectonic": [],
     "interaction": [],
     "phenomena": [
       "frozen"
@@ -5265,6 +5566,8 @@
       "latitude": 45.63200344444444,
       "longitude": -75.93998425000001
     },
-    "caption": ""
+    "caption": "",
+    "element": [],
+    "form": []
   }
 ]
