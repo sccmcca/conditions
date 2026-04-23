@@ -217,6 +217,7 @@
 		font-size: 1rem;
 		font-weight: normal;
 		font-style: italic;
+		font-family: Georgia, serif;
 		color: #333;
 		letter-spacing: 0.5px;
 		width: 100%;
@@ -297,6 +298,7 @@
 		margin: 0;
 		font-size: 0.8rem;
 		font-style: italic;
+		font-family: Georgia, serif;
 		color: #999;
 		line-height: 1.4;
 	}
@@ -310,6 +312,7 @@
 		margin: 0;
 		font-size: 0.8rem;
 		font-style: italic;
+		font-family: Georgia, serif;
 		color: #999;
 		line-height: 1.4;
 	}
@@ -366,6 +369,7 @@
 	.refresh-label {
 		font-size: 0.65rem;
 		font-style: italic;
+		font-family: Georgia, serif;
 		color: #666;
 	}
 
@@ -421,7 +425,7 @@
 	.observations-container {
 		display: flex;
 		flex-direction: column;
-		gap: 1.5rem;
+		gap: 6.5rem;
 		align-items: center;
 		justify-content: flex-start;
 		background: white;
@@ -430,7 +434,7 @@
 		overflow-y: auto;
 		overflow-x: hidden;
 		padding: 0;
-		padding-top: calc((100vh - 4rem - min(56.67vw, 56.67vh)) / 2);
+		padding-top: calc((100vh - 4rem - min(56.67vw, 56.67vh)) / 2 - 1rem);
 		box-sizing: border-box;
 		-ms-overflow-style: none;
 		scrollbar-width: none;
@@ -500,7 +504,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: 0.75rem;
-		padding: 0;
+		padding: 1rem 0;
 		background: transparent;
 		border: none;
 		align-items: center;
@@ -532,6 +536,7 @@
 		font-size: 0.75rem;
 		color: #666;
 		font-style: italic;
+		font-family: Georgia, serif;
 		line-height: 1.4;
 		text-align: center;
 		max-width: calc(min(42.5vw, 42.5vh) * 2 + 1.5rem);
@@ -542,6 +547,7 @@
 		font-size: 0.65rem;
 		color: #999;
 		font-style: italic;
+		font-family: Georgia, serif;
 		text-align: center;
 		max-width: calc(min(42.5vw, 42.5vh) * 2 + 1.5rem);
 	}
