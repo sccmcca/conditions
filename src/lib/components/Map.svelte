@@ -11,10 +11,17 @@
 	let map: any;
 	let hoveredImageFilename: string | null = null;
 	let selectedImageFilename: string | null = null;
+	let expandedImageFilename: string | null = null;
 	let popupPos = { x: 0, y: 0 };
 	let layerInitialized = false;
 	let isFirstUpdate = true;
-	let markers: any[] = [];
+	let thumbnailMarkers: any[] = [];
+
+	declare global {
+		interface Window {
+			maplibreMarker: any;
+		}
+	}
 
 	// Handle map resize when expanding/collapsing
 	$: if (map && $mapExpanded !== undefined) {
@@ -24,8 +31,12 @@
 	}
 
 	onMount(async () => {
-		const { Map, ScaleControl, Marker } = await import('maplibre-gl');
+		const maplibregl = await import('maplibre-gl');
+		const { Map, ScaleControl, Marker } = maplibregl.default || maplibregl;
 		await import('maplibre-gl/dist/maplibre-gl.css');
+
+		// Store Marker in window for use in renderThumbnails
+		window.maplibreMarker = Marker;
 
 		// Initialize map
 		map = new Map({
@@ -48,13 +59,28 @@
 		map.on('move', () => {
 			mapCenter.set(map.getCenter());
 			mapZoom.set(map.getZoom());
+			updateThumbnailsVisibility();
 		});
 
 		// Wait for style to load
 		map.once('style.load', () => {
 			console.log('Map style loaded');
 			updateMap(expanded);
+			updateThumbnailsVisibility();
 		});
+
+		// Add global keydown listener for Escape key
+		const handleGlobalKeydown = (e: KeyboardEvent) => {
+			if (e.key === 'Escape' && expandedImageFilename) {
+				expandedImageFilename = null;
+			}
+		};
+		document.addEventListener('keydown', handleGlobalKeydown);
+
+		// Cleanup on unmount
+		return () => {
+			document.removeEventListener('keydown', handleGlobalKeydown);
+		};
 	});
 
 	function updateMap(skipFitBounds: boolean = false) {
@@ -149,6 +175,102 @@
 		}
 	}
 
+	function updateThumbnailsVisibility() {
+		if (!map) return;
+		const zoom = map.getZoom();
+		
+		// Above zoom 12, show thumbnails and hide circles
+		if (zoom >= 12) {
+			if (map.getLayer('image-points')) {
+				map.setLayoutProperty('image-points', 'visibility', 'none');
+			}
+			if (map.getLayer('image-points-hover')) {
+				map.setLayoutProperty('image-points-hover', 'visibility', 'none');
+			}
+			renderThumbnails();
+		} else {
+			// Below zoom 12, show circles and hide thumbnails
+			if (map.getLayer('image-points')) {
+				map.setLayoutProperty('image-points', 'visibility', 'visible');
+			}
+			if (map.getLayer('image-points-hover')) {
+				map.setLayoutProperty('image-points-hover', 'visibility', 'visible');
+			}
+			clearThumbnails();
+		}
+	}
+
+	function renderThumbnails() {
+		const geotaggedImages = filteredImages.filter(img => img.geolocation);
+		const bounds = map.getBounds();
+		
+		// Clear existing markers
+		clearThumbnails();
+		
+		let rendered = 0;
+		const maxThumbnails = 30;
+
+		geotaggedImages.forEach((img: any) => {
+			if (rendered >= maxThumbnails) return;
+
+			const { longitude, latitude } = img.geolocation;
+			
+			// Check if within bounds
+			if (
+				longitude >= bounds.getWest() &&
+				longitude <= bounds.getEast() &&
+				latitude >= bounds.getSouth() &&
+				latitude <= bounds.getNorth()
+			) {
+				const el = document.createElement('div');
+				el.style.width = '60px';
+				el.style.height = '80px';
+				el.style.cursor = 'pointer';
+				el.style.borderRadius = '2px';
+				el.style.overflow = 'hidden';
+				el.style.border = '1px solid #ccc';
+				el.style.boxShadow = '0 2px 4px rgba(0,0,0,0.2)';
+				
+				const img_el = document.createElement('img');
+				img_el.src = img.thumbnail;
+				img_el.style.width = '100%';
+				img_el.style.height = '100%';
+				img_el.style.objectFit = 'cover';
+				img_el.style.display = 'block';
+				img_el.loading = 'lazy';
+				
+				el.appendChild(img_el);
+				
+				el.addEventListener('mouseenter', () => {
+					el.style.opacity = '0.7';
+					el.style.boxShadow = '0 4px 8px rgba(0,0,0,0.3)';
+				});
+				
+				el.addEventListener('mouseleave', () => {
+					el.style.opacity = '1';
+					el.style.boxShadow = '0 2px 4px rgba(0,0,0,0.2)';
+				});
+
+				el.addEventListener('click', () => {
+					// Expand the thumbnail image
+					expandedImageFilename = img.filename;
+				});
+
+				const marker = new (window.maplibreMarker as any)({ element: el })
+					.setLngLat([longitude, latitude])
+					.addTo(map);
+				
+				thumbnailMarkers.push(marker);
+				rendered++;
+			}
+		});
+	}
+
+	function clearThumbnails() {
+		thumbnailMarkers.forEach(marker => marker.remove());
+		thumbnailMarkers = [];
+	}
+
 	function setupHoverEvents() {
 		if (!map) return;
 
@@ -161,10 +283,9 @@
 		map.on('mouseenter', 'image-points', (e: any) => {
 			if (e.features.length > 0) {
 				const filename = e.features[0].properties.filename;
-				// Hovering over any point clears selection and shows preview
+				// Don't show preview for circles anymore
 				selectedImageFilename = null;
-				hoveredImageFilename = filename;
-				updatePopupPosition(e);
+				hoveredImageFilename = null;
 			}
 			map.getCanvas().style.cursor = 'pointer';
 		});
@@ -177,37 +298,36 @@
 
 		// Move mouse while hovering to keep popup positioned correctly
 		map.on('mousemove', 'image-points', (e: any) => {
-			if (hoveredImageFilename && e.features.length > 0) {
-				updatePopupPosition(e);
-			}
+			// No-op for circles now
 		});
 
-		// Click handler on points layer - toggle selection on/off
+		// Click handler on points layer - flyto on click
 		map.on('click', 'image-points', (e: any) => {
 			if (e.features.length > 0) {
-				const filename = e.features[0].properties.filename;
-				console.log('Clicked/tapped on point:', filename);
+				const feature = e.features[0];
+				const [longitude, latitude] = feature.geometry.coordinates;
+				console.log('Clicked on point, flying to:', latitude, longitude);
 				
 				justClickedPoint = true;
 				
-				// Toggle selection
-				if (selectedImageFilename === filename) {
-					selectedImageFilename = null;
-				} else {
-					selectedImageFilename = filename;
-					hoveredImageFilename = null;
-					updatePopupPosition(e);
-				}
+				// Flyto the clicked point
+				map.flyTo({
+					center: [longitude, latitude],
+					zoom: 15,
+					duration: 4000
+				});
 			}
 		});
 
-		// Click elsewhere on map to close popup
+		// Click elsewhere on map to close popup and clear hover
 		map.on('click', (e: any) => {
 			// Only process if we didn't just click a point
 			if (!justClickedPoint && selectedImageFilename) {
 				console.log('Clicked on map background, closing popup');
 				selectedImageFilename = null;
 			}
+			// Clear hovered image
+			hoveredImageFilename = null;
 			justClickedPoint = false;
 		});
 
@@ -262,6 +382,7 @@
 	// Watch map initialization and filtered images - update when filters change
 	$: if (map && layerInitialized && filteredImages.length >= 0) {
 		updateMap(expanded);
+		updateThumbnailsVisibility();
 	}
 
 	export function flyToLocation(latitude: number, longitude: number) {
@@ -316,13 +437,24 @@
 		</button>
 	{/if}
 	
-	{#if hoveredImageFilename || selectedImageFilename}
+	{#if hoveredImageFilename}
 		<div class="hover-popup" style="left: {popupPos.x}px; top: {popupPos.y}px;">
 			<img 
-				src="{base}/thumbnails/{(selectedImageFilename || hoveredImageFilename).split('.')[0]}.jpg" 
-				alt={selectedImageFilename || hoveredImageFilename}
+				src="{base}/thumbnails/{hoveredImageFilename.split('.')[0]}.jpg" 
+				alt={hoveredImageFilename}
 			/>
 		</div>
+	{/if}
+
+	{#if expandedImageFilename}
+		{@const expandedImage = filteredImages.find(img => img.filename === expandedImageFilename)}
+		{#if expandedImage}
+			<div class="expanded-overlay" on:click={() => expandedImageFilename = null}>
+				<div class="expanded-content">
+					<img src={expandedImage.thumbnail} alt={expandedImage.filename} />
+				</div>
+			</div>
+		{/if}
 	{/if}
 </div>
 
@@ -405,6 +537,37 @@
 		margin: 5px 10px !important;
 		border: 1px solid rgba(0, 0, 0, 0.1) !important;
 		background: rgba(255, 255, 255, 0.3) !important;
+	}
+
+	.expanded-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba(255, 255, 255, 0.6);
+		backdrop-filter: blur(4px);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 2000;
+	}
+
+	.expanded-content {
+		position: relative;
+		max-width: 90vw;
+		max-height: 90vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.expanded-content img {
+		width: 60%;
+		height: auto;
+		aspect-ratio: 3 / 4;
+		object-fit: cover;
+		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
 	}
 </style>
 
