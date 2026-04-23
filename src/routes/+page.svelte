@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import {
 		metadataStore,
 		selectedFiltersStore,
@@ -18,20 +19,43 @@
 	let mapComponent: any;
 	let mapCollapsed = false;
 	let viewMode: 'grid' | 'list' = 'grid';
+	let randomizedImages: any[] = [];
+
+	// Shuffle function
+	function shuffleArray<T>(array: T[]): T[] {
+		const shuffled = [...array];
+		for (let i = shuffled.length - 1; i > 0; i--) {
+			const j = Math.floor(Math.random() * (i + 1));
+			[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+		}
+		return shuffled;
+	}
 
 	// Load metadata on mount
 	$: if (data?.images) {
 		metadataStore.loadData(data);
 	}
+
+	onMount(() => {
+		// Subscribe to filtered images changes
+		const unsubscribe = filteredImages.subscribe((images) => {
+			randomizedImages = shuffleArray(images);
+			// Reset expanded index if out of bounds
+			if ($expandedImageIndex !== null && $expandedImageIndex >= randomizedImages.length) {
+				expandedImageIndex.set(randomizedImages.length > 0 ? randomizedImages.length - 1 : null);
+			}
+		});
+		return unsubscribe;
+	});
 	
 	function nextImage() {
 		const current = $expandedImageIndex ?? -1;
-		$expandedImageIndex = (current + 1) % $filteredImages.length;
+		$expandedImageIndex = (current + 1) % randomizedImages.length;
 	}
 	
 	function prevImage() {
 		const current = $expandedImageIndex ?? 0;
-		$expandedImageIndex = (current - 1 + $filteredImages.length) % $filteredImages.length;
+		$expandedImageIndex = (current - 1 + randomizedImages.length) % randomizedImages.length;
 	}
 	
 	function closeExpanded() {
@@ -43,10 +67,6 @@
 		if (e.key === 'ArrowRight') nextImage();
 		else if (e.key === 'ArrowLeft') prevImage();
 		else if (e.key === 'Escape') closeExpanded();
-	}
-
-	$: if ($expandedImageIndex !== null && $expandedImageIndex >= $filteredImages.length) {
-		expandedImageIndex.set($filteredImages.length > 0 ? $filteredImages.length - 1 : null);
 	}
 </script>
 
@@ -124,7 +144,7 @@
 		</div>
 
 	<div class="image-container" class:list-view={viewMode === 'list'}>
-		{#each $filteredImages as image, index (image.filename)}
+		{#each randomizedImages as image, index (image.filename)}
 			<div class="image-item-wrapper" id={image.filename}>
 				<div class="image-item-container">
 					<button type="button" class="image-item" on:click={(e) => {
@@ -154,7 +174,7 @@
 		<div class="modal-overlay" role="button" tabindex="0" on:click={closeExpanded} on:keydown={(e) => e.key === 'Escape' && closeExpanded()}>
 			<div class="modal-content" on:click={(e) => e.stopPropagation()} role="presentation">
 				<button type="button" class="modal-image" on:click={closeExpanded}>
-					<img src={$filteredImages[$expandedImageIndex].thumbnail} alt={$filteredImages[$expandedImageIndex].filename} />
+					<img src={randomizedImages[$expandedImageIndex].thumbnail} alt={randomizedImages[$expandedImageIndex].filename} />
 				</button>
 				<button class="nav-btn prev-btn" type="button" on:click={prevImage}>‹</button>
 				<button class="nav-btn next-btn" type="button" on:click={nextImage}>›</button>
@@ -388,15 +408,12 @@
 		gap: 0.75rem;
 		align-items: center;
 		justify-content: flex-start;
-		height: calc(100vh - 4rem);
-		overflow-y: scroll;
+		overflow-y: auto;
 		overflow-x: hidden;
 		scrollbar-width: none;
+		-ms-overflow-style: none;
 		margin: 0 auto;
-		width: 100%;
-		margin-left: 0;
-		margin-top: -3rem;
-		padding-top: 3rem;
+		width: 90%;
 	}
 
 	.image-container.list-view::-webkit-scrollbar {

@@ -451,7 +451,12 @@
 		{#if expandedImage}
 			<div class="expanded-overlay" on:click={() => expandedImageFilename = null}>
 				<div class="expanded-content">
-					<img src={expandedImage.thumbnail} alt={expandedImage.filename} />
+					<div class="expanded-image-wrapper">
+						<img src={expandedImage.thumbnail} alt={expandedImage.filename} />
+					{#if expandedImage.caption && expanded}
+							<div class="expanded-caption">{expandedImage.caption}</div>
+						{/if}
+					</div>
 				</div>
 			</div>
 		{/if}
@@ -562,12 +567,28 @@
 		justify-content: center;
 	}
 
+	.expanded-image-wrapper {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 10px;
+	}
+
 	.expanded-content img {
 		width: 60%;
 		height: auto;
 		aspect-ratio: 3 / 4;
 		object-fit: cover;
 		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+	}
+
+	.expanded-caption {
+		font-size: 14px;
+		color: #999;
+		text-align: left;
+		font-style: italic;
+		max-width: 60%;
+		padding: 0 10px;
 	}
 </style>
 

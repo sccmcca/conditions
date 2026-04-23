@@ -8,10 +8,38 @@
   function openModal(imgPath: string) {
     modalImg = imgPath;
   }
+
   function closeModal() {
     modalImg = null;
   }
+
+  function goToNext() {
+    if (!modalImg) return;
+    const currentIndex = data.imgDipList.indexOf(modalImg);
+    const nextIndex = (currentIndex + 1) % data.imgDipList.length;
+    modalImg = data.imgDipList[nextIndex];
+  }
+
+  function goToPrev() {
+    if (!modalImg) return;
+    const currentIndex = data.imgDipList.indexOf(modalImg);
+    const prevIndex = (currentIndex - 1 + data.imgDipList.length) % data.imgDipList.length;
+    modalImg = data.imgDipList[prevIndex];
+  }
+
+  function handleKeydown(e: KeyboardEvent) {
+    if (!modalImg) return;
+    if (e.key === 'ArrowRight') {
+      goToNext();
+    } else if (e.key === 'ArrowLeft') {
+      goToPrev();
+    } else if (e.key === 'Escape') {
+      closeModal();
+    }
+  }
 </script>
+
+<svelte:window on:keydown={handleKeydown} />
 
 <main>
   <div class="gallery-container">
@@ -59,7 +87,15 @@
   {#if modalImg}
     <div class="modal-overlay" on:click={closeModal}>
       <div class="modal-img-container">
-        <img src={`${base}${modalImg}`} alt="Enlarged" style="cursor:pointer; user-drag: none; -webkit-user-drag: none;" draggable="false" on:click={closeModal} />
+        <button class="nav-button prev-button" on:click={goToPrev} title="Previous">❮</button>
+        <img 
+          src={`${base}${modalImg}`} 
+          alt="Enlarged" 
+          style="cursor:pointer; user-drag: none; -webkit-user-drag: none;" 
+          draggable="false" 
+          on:click={closeModal} 
+        />
+        <button class="nav-button next-button" on:click={goToNext} title="Next">❯</button>
       </div>
     </div>
   {/if}
@@ -286,9 +322,9 @@
     max-width: 85vw;
     max-height: 80vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 2rem;
   }
   .modal-img-container img {
     max-width: 85vw;
@@ -297,5 +333,26 @@
     box-shadow: 0 2px 16px rgba(0,0,0,0.12);
     background: #f8f8f8;
     display: block;
+  }
+
+  .nav-button {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #333;
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .nav-button:hover {
+    opacity: 1;
   }
 </style>

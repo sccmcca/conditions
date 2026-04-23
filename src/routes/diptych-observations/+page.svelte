@@ -5,12 +5,6 @@
 
 	let expandedId: string | null = null;
 
-	function deleteObservation(id: string) {
-		if (confirm('Delete this observation?')) {
-			observations.remove(id);
-		}
-	}
-
 	function formatDate(timestamp: number) {
 		const date = new Date(timestamp);
 		return date.toLocaleDateString('en-US', {
@@ -57,12 +51,7 @@
 					</div>
 					<div class="observation-content">
 						<p class="observation-note">{obs.note}</p>
-						<div class="timestamp-delete">
-							<p class="observation-timestamp">{formatDate(obs.timestamp)}</p>
-							<button class="delete-btn" on:click={() => deleteObservation(obs.id)} title="Delete">
-								x
-							</button>
-						</div>
+					<p class="observation-timestamp">{formatDate(obs.timestamp)}</p>
 					</div>
 				</div>
 			{/each}
@@ -74,12 +63,12 @@
 					{#each $observations as obs (obs.id)}
 						{#if obs.id === expandedId}
 							<div class="expanded-container">
-								<div class="expanded-pair">
-									<img src={obs.leftImage.thumbnail} alt={obs.leftImage.filename} />
-									<img src={obs.rightImage.thumbnail} alt={obs.rightImage.filename} />
-								</div>
-								<p class="expanded-note">{obs.note}</p>
+							<div class="expanded-pair">
+								<img src={obs.leftImage.thumbnail} alt={obs.leftImage.filename} />
+								<img src={obs.rightImage.thumbnail} alt={obs.rightImage.filename} />
 							</div>
+							<p class="expanded-note">{obs.note}</p>
+						</div>
 						{/if}
 					{/each}
 				</div>
@@ -134,21 +123,18 @@
 
 	.image-pair {
 		display: flex;
-		width: fit-content;
+		width: 100%;
 		background: #f9f9f9;
 		gap: 0.5rem;
 		cursor: pointer;
 		transition: opacity 0.2s ease;
 		align-items: center;
 		justify-content: center;
+		box-sizing: border-box;
 	}
 
 	.image-pair:hover {
 		opacity: 0.8;
-	}
-
-	.observation-card:has(.delete-btn:hover) .image-pair {
-		filter: blur(4px);
 	}
 
 	.image-item {
@@ -156,7 +142,7 @@
 		align-items: center;
 		justify-content: center;
 		overflow: hidden;
-		width: 150px;
+		width: calc(50% - 0.25rem);
 		height: 200px;
 	}
 
@@ -191,32 +177,6 @@
 		font-size: 0.75rem;
 		color: #999;
 		font-style: italic;
-		margin-top: auto;
-	}
-
-	.timestamp-delete {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		gap: 1rem;
-	}
-
-	.delete-btn {
-		width: auto;
-		height: auto;
-		background: none;
-		border: none;
-		cursor: pointer;
-		font-size: 1rem;
-		color: #999;
-		transition: color 0.2s ease;
-		padding: 0;
-	}
-
-	.delete-btn:hover {
-		color: #333;
-		background: none;
-		border-color: transparent;
 	}
 
 	.modal-overlay {
@@ -225,7 +185,8 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background: rgba(0, 0, 0, 0.7);
+		background: rgba(0, 0, 0, 0.4);
+		backdrop-filter: blur(4px);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -247,11 +208,11 @@
 	.expanded-pair {
 		display: flex;
 		gap: 1.5rem;
-		max-width: 100%;
+		width: 100%;
 	}
 
 	.expanded-pair img {
-		max-width: 50%;
+		max-width: calc(50% - 0.75rem);
 		max-height: 70vh;
 		aspect-ratio: 3 / 4;
 		object-fit: cover;
@@ -261,13 +222,14 @@
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;
+		width: 100%;
 	}
 
 	.expanded-note {
 		margin: 0;
 		font-size: 0.95rem;
 		line-height: 1.5;
-		color: #999;
+		color: #333;
 		max-width: 100%;
 		font-style: italic;
 	}
