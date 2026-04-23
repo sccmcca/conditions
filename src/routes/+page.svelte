@@ -17,6 +17,7 @@
 	
 	let mapComponent: any;
 	let mapCollapsed = false;
+	let viewMode: 'grid' | 'list' = 'grid';
 
 	// Load metadata on mount
 	$: if (data?.images) {
@@ -103,7 +104,26 @@
 		</div>
 	</div>
 	
-			<div class="image-container">
+			<div class="view-toggle">
+			<button 
+				type="button"
+				class="toggle-btn"
+				class:active={viewMode === 'grid'}
+				on:click={() => viewMode = 'grid'}
+			>
+				grid
+			</button>
+			<button 
+				type="button"
+				class="toggle-btn"
+				class:active={viewMode === 'list'}
+				on:click={() => viewMode = 'list'}
+			>
+				list
+			</button>
+		</div>
+
+	<div class="image-container" class:list-view={viewMode === 'list'}>
 		{#each $filteredImages as image, index (image.filename)}
 			<div class="image-item-wrapper" id={image.filename}>
 				<div class="image-item-container">
@@ -150,6 +170,37 @@
 		margin-left: max(25vw, 320px);
 	}
 
+	.view-toggle {
+		position: fixed;
+		top: 4rem;
+		right: 1rem;
+		display: flex;
+		gap: 1rem;
+		z-index: 10;
+	}
+
+	.toggle-btn {
+		background: none;
+		border: none;
+		cursor: pointer;
+		color: #999;
+		font-size: 0.85rem;
+		font-family: inherit;
+		font-style: italic;
+		transition: color 0.2s ease;
+		padding: 0;
+		margin: 0;
+	}
+
+	.toggle-btn:hover {
+		color: #333;
+	}
+
+	.toggle-btn.active {
+		color: #333;
+		font-weight: 500;
+	}
+
 	.filters-panel {
 		position: fixed;
 		left: 0;
@@ -177,6 +228,7 @@
 		text-transform: lowercase;
 		color: #333;
 		border-bottom: 1px solid #f0f0f0;
+		text-align: left;
 	}
 
 	.filters-scroll {
@@ -330,6 +382,27 @@
 		justify-items: start;
 	}
 
+	.image-container.list-view {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+		align-items: center;
+		justify-content: flex-start;
+		height: calc(100vh - 4rem);
+		overflow-y: scroll;
+		overflow-x: hidden;
+		scrollbar-width: none;
+		margin: 0 auto;
+		width: 100%;
+		margin-left: 0;
+		margin-top: -3rem;
+		padding-top: 3rem;
+	}
+
+	.image-container.list-view::-webkit-scrollbar {
+		display: none;
+	}
+
 	.image-item-wrapper {
 		display: flex;
 		flex-direction: column;
@@ -337,7 +410,23 @@
 		width: 100%;
 	}
 
+	.image-container.list-view .image-item-wrapper {
+		width: 100%;
+		max-width: min(55vw, 55vh);
+		padding-top: 1.5rem;
+		padding-bottom: 1.5rem;
+	}
+
+
+
 	.image-item-container {
+		position: relative;
+		width: 100%;
+		padding-bottom: 133.33%;
+		overflow: hidden;
+	}
+
+	.image-container.list-view .image-item-container {
 		position: relative;
 		width: 100%;
 		padding-bottom: 133.33%;
@@ -432,6 +521,8 @@
 		font-style: italic;
 	}
 
+
+
 	.image-metadata p {
 		margin: 0;
 		padding: 0;
@@ -468,6 +559,8 @@
 	.image-item-container:hover img {
 		filter: blur(4px);
 	}
+
+
 	
 	.modal-overlay {
 		position: fixed;
