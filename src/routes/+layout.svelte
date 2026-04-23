@@ -23,8 +23,7 @@
 		<div class="header-links">
 			<a class="category-link" href={`${base}/network`}>network</a>
 			<a class="category-link" href={`${base}/network-2d`}>network 2d</a>
-			<a class="category-link" href={`${base}/diptych-random`}>diptych random</a>
-			<a class="category-link" href={`${base}/diptych-observations`}>diptych catalogue</a>
+			<a class="category-link" href={`${base}/diptychs`}>diptychs</a>
 			<a class="category-link" href={`${base}/info`}>info</a>
 		</div>
 		<!-- <p>photographic research method</p> -->
