@@ -95,14 +95,19 @@
 
 		<div class="sidebar-content">
 			{#if activeTab === 'see'}
-				<!-- See tab content empty, just scrolls main area -->
+				<div class="see-instructions">
+					<p>Diptychs reveal how juxtaposition creates meaning. By placing two images side by side, a third meaning emerges—one that neither image holds alone. This is the space between them.</p>
+				</div>
 			{:else}
 				<div class="make-controls">
+					<div class="make-instructions">
+						<p>Compare two images and save your observations</p>
+					</div>
 					<h2 class="sidebar-title">analysis</h2>
 					<div class="note-input-wrapper">
 						<textarea
 							id="note-input"
-							placeholder="add analysis..."
+							placeholder="add your analysis..."
 							bind:value={noteText}
 							class="note-input"
 						></textarea>
@@ -127,28 +132,26 @@
 		</div>
 	</div>
 
-	<div class="main-content">
-		{#if activeTab === 'see'}
-			{#if $observations.length === 0}
-				<div class="empty-pair-state">
-					<p>no observations yet</p>
-				</div>
-			{:else}
-				<div class="observations-scroll">
-					{#each $observations as obs (obs.id)}
-						<div class="observation-card">
-							<div class="pair-container">
-								<img src={obs.leftImage.thumbnail} alt={obs.leftImage.filename} />
-								<img src={obs.rightImage.thumbnail} alt={obs.rightImage.filename} />
-							</div>
-							<p class="card-note">{obs.note}</p>
-							<p class="card-date">{formatDate(obs.timestamp)}</p>
+	{#if activeTab === 'see'}
+		{#if $observations.length === 0}
+			<div class="observations-container empty">
+				<p>no observations yet</p>
+			</div>
+		{:else}
+			<div class="observations-container">
+				{#each $observations as obs (obs.id)}
+					<div class="observation-card">
+						<div class="pair-container">
+							<img src={obs.leftImage.thumbnail} alt={obs.leftImage.filename} />
+							<img src={obs.rightImage.thumbnail} alt={obs.rightImage.filename} />
 						</div>
-					{/each}
-				</div>
-			{/if}
+						<p class="card-note">{obs.note}</p>
+						<p class="card-date">{formatDate(obs.timestamp)}</p>
+					</div>
+				{/each}
+			</div>
 		{/if}
-	</div>
+	{/if}
 
 	{#if activeTab === 'make'}
 		<div class="image-pair-wrapper">
@@ -236,6 +239,7 @@
 		cursor: pointer;
 		font-size: 0.7rem;
 		font-style: italic;
+		font-family: Georgia, serif;
 		color: #999;
 		transition: all 0.2s ease;
 		padding: 0;
@@ -256,6 +260,7 @@
 		color: #999;
 		font-size: 0.7rem;
 		font-style: italic;
+		font-family: Georgia, serif;
 		margin: 0 0.3rem;
 	}
 
@@ -279,6 +284,32 @@
 		flex-direction: column;
 		gap: 1rem;
 		flex: 1;
+	}
+
+	.see-instructions {
+		padding: 0.5rem 0;
+		margin: 0;
+	}
+
+	.see-instructions p {
+		margin: 0;
+		font-size: 0.8rem;
+		font-style: italic;
+		color: #999;
+		line-height: 1.4;
+	}
+
+	.make-instructions {
+		padding: 0.5rem 0;
+		margin: 0;
+	}
+
+	.make-instructions p {
+		margin: 0;
+		font-size: 0.8rem;
+		font-style: italic;
+		color: #999;
+		line-height: 1.4;
 	}
 
 	.note-input-wrapper {
@@ -382,19 +413,37 @@
 	}
 
 	.main-content {
-		flex: 1;
-		height: 100%;
-		overflow: auto;
+		display: none;
+	}
+
+	.observations-container {
 		display: flex;
 		flex-direction: column;
+		gap: 1.5rem;
 		align-items: center;
 		justify-content: flex-start;
 		background: white;
+		width: calc(min(42.5vw, 42.5vh) * 2 + 1.5rem);
+		height: 100%;
+		overflow-y: auto;
+		overflow-x: hidden;
 		padding: 0;
+		padding-top: calc((100vh - 4rem - min(56.67vw, 56.67vh)) / 2);
+		box-sizing: border-box;
+		-ms-overflow-style: none;
+		scrollbar-width: none;
 	}
 
-	main:has(.image-pair-wrapper) .main-content {
+	.observations-container::-webkit-scrollbar {
 		display: none;
+	}
+
+	.observations-container.empty {
+		align-items: center;
+		justify-content: center;
+		color: #999;
+		font-size: 0.75rem;
+		font-style: italic;
 	}
 
 	.image-pair-wrapper {
@@ -429,97 +478,70 @@
 	.pair-container {
 		display: flex;
 		gap: 1.5rem;
-		width: 100%;
-		max-width: 1000px;
-		height: auto;
-		max-height: 80vh;
+		width: calc(min(42.5vw, 42.5vh) * 2 + 1.5rem);
+		height: calc(min(42.5vw, 42.5vh) * 4 / 3);
+		background: #f9f9f9;
+		align-items: center;
+		justify-content: center;
 	}
 
 	.pair-container img {
-		flex: 1;
-		max-width: 400px;
-		height: auto;
+		width: calc(min(42.5vw, 42.5vh) / 2);
+		height: calc(min(42.5vw, 42.5vh) * 4 / 3);
 		aspect-ratio: 3 / 4;
 		object-fit: cover;
-		border-radius: 4px;
-		background: #f5f5f5;
-	}
-
-	.observations-scroll {
-		width: 100%;
-		height: 100%;
-		overflow-y: auto;
-		display: flex;
-		flex-direction: column;
-		gap: 0;
-		align-items: center;
-		padding: 0;
+		background: white;
 	}
 
 	.observation-card {
 		width: 100%;
-		max-width: min(85vw, 85vh);
-		max-height: none;
 		display: flex;
 		flex-direction: column;
-		gap: 0;
+		gap: 0.75rem;
 		padding: 0;
-		background: white;
+		background: transparent;
 		border: none;
-		border-radius: 0;
-		transition: none;
+		align-items: center;
+		flex-shrink: 0;
 		box-sizing: border-box;
-	}
-
-	.observation-card:hover {
-		border-color: inherit;
-		box-shadow: inherit;
 	}
 
 	.observation-card .pair-container {
-		margin: 0;
-		max-width: 100%;
+		background: white;
 		width: 100%;
 		height: auto;
-		max-height: none;
-		gap: 0.5rem;
-		background: #f9f9f9;
-		padding: 0;
 		box-sizing: border-box;
 		display: flex;
+		gap: 1.5rem;
 		align-items: center;
 		justify-content: center;
 	}
 
 	.observation-card .pair-container img {
-		max-width: none;
-		height: auto;
-		width: calc(50% - 0.25rem);
+		flex: 1;
+		height: calc(min(42.5vw, 42.5vh) * 4 / 3);
 		aspect-ratio: 3 / 4;
 		object-fit: cover;
-		border-radius: 0;
 		background: white;
 	}
 
 	.card-note {
 		margin: 0;
-		padding: 1.25rem;
-		font-size: 0.85rem;
-		color: #999;
+		font-size: 0.75rem;
+		color: #666;
 		font-style: italic;
-		line-height: 1.5;
-		width: 100%;
-		box-sizing: border-box;
+		line-height: 1.4;
+		text-align: center;
+		max-width: calc(min(42.5vw, 42.5vh) * 2 + 1.5rem);
 	}
 
 	.card-date {
 		margin: 0;
-		padding: 0 1.25rem 1.25rem 1.25rem;
-		font-size: 0.75rem;
+		font-size: 0.65rem;
 		color: #999;
 		font-style: italic;
-		width: 100%;
-		box-sizing: border-box;
+		text-align: center;
+		max-width: calc(min(42.5vw, 42.5vh) * 2 + 1.5rem);
 	}
 
 	.image-wrapper {
@@ -537,20 +559,5 @@
 		aspect-ratio: 3 / 4;
 		border-radius: 4px;
 		background: #f5f5f5;
-	}
-
-	.empty-pair-state {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		height: 100%;
-		color: #999;
-		font-style: italic;
-		font-size: 0.9rem;
-	}
-
-	.empty-pair-state p {
-		margin: 0;
 	}
 </style>
