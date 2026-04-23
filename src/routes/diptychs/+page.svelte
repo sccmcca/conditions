@@ -12,10 +12,6 @@
 	let rightImage: any = null;
 	let noteText = '';
 
-	// See tab state
-	let expandedId: string | null = null;
-	let viewMode: 'grid' | 'list' = 'list';
-
 	function getRandomImage() {
 		return images[Math.floor(Math.random() * images.length)];
 	}
@@ -62,10 +58,6 @@
 		});
 	}
 
-	function toggleExpanded(id: string) {
-		expandedId = expandedId === id ? null : id;
-	}
-
 	onMount(() => {
 		observations.init();
 		refreshBoth();
@@ -77,118 +69,47 @@
 </svelte:head>
 
 <main>
-	<div class="tabs-header">
-		<button
-			class="tab-button"
-			class:active={activeTab === 'see'}
-			on:click={() => (activeTab = 'see')}
-		>
-			see
-		</button>
-		<button
-			class="tab-button"
-			class:active={activeTab === 'make'}
-			on:click={() => (activeTab = 'make')}
-		>
-			make
-		</button>
-	</div>
-
-	{#if activeTab === 'see'}
-		<div class="tab-content see-tab">
-			{#if $observations.length === 0}
-				<div class="empty-state">
-					<p>no observations yet</p>
-					<p>switch to <strong>make</strong> to make some</p>
-				</div>
-			{:else}
-				<div class="view-toggle">
-					<button
-						type="button"
-						class="toggle-btn"
-						class:active={viewMode === 'grid'}
-						on:click={() => (viewMode = 'grid')}
-					>
-						grid
-					</button>
-					<button
-						type="button"
-						class="toggle-btn"
-						class:active={viewMode === 'list'}
-						on:click={() => (viewMode = 'list')}
-					>
-						list
-					</button>
-				</div>
-
-				<div class="observations-grid" class:list-view={viewMode === 'list'}>
-					{#each $observations as obs (obs.id)}
-						<div class="observation-card">
-							<div
-								class="image-pair"
-								on:click={() => toggleExpanded(obs.id)}
-								role="button"
-								tabindex="0"
-							>
-								<div class="image-item">
-									<img src={obs.leftImage.thumbnail} alt={obs.leftImage.filename} />
-								</div>
-								<div class="image-item">
-									<img src={obs.rightImage.thumbnail} alt={obs.rightImage.filename} />
-								</div>
-							</div>
-							<div class="observation-content">
-								<p class="observation-note">{obs.note}</p>
-								<p class="observation-timestamp">{formatDate(obs.timestamp)}</p>
-							</div>
-						</div>
-					{/each}
-				</div>
-
-				{#if expandedId}
-					<div class="modal-overlay" on:click={() => (expandedId = null)} role="button" tabindex="0">
-						<div class="modal-content" on:click={(e) => e.stopPropagation()}>
-							{#each $observations as obs (obs.id)}
-								{#if obs.id === expandedId}
-									<div class="expanded-container">
-										<div class="expanded-pair">
-											<img src={obs.leftImage.thumbnail} alt={obs.leftImage.filename} />
-											<img src={obs.rightImage.thumbnail} alt={obs.rightImage.filename} />
-										</div>
-										<p class="expanded-note">{obs.note}</p>
-									</div>
-								{/if}
-							{/each}
-						</div>
-					</div>
-				{/if}
-			{/if}
+	<div class="sidebar">
+		<div class="tabs-header">
+			<button
+				class="tab-button"
+				class:active={activeTab === 'see'}
+				on:click={() => (activeTab = 'see')}
+			>
+				see
+			</button>
+			<button
+				class="tab-button"
+				class:active={activeTab === 'make'}
+				on:click={() => (activeTab = 'make')}
+			>
+				make
+			</button>
 		</div>
-	{:else}
-		<div class="tab-content make-tab">
-			<div class="sidebar">
-				<div class="sidebar-content">
-					<h1 class="sidebar-title">diptych random</h1>
-					<div class="note-section">
-						<label for="note-input" class="note-label">analysis</label>
-						<div class="note-input-wrapper">
-							<textarea
-								id="note-input"
-								placeholder="add analysis..."
-								bind:value={noteText}
-								class="note-input"
-							></textarea>
-						</div>
-						<button
-							on:click={saveObservation}
-							class="save-btn"
-							disabled={!leftImage || !rightImage || !noteText.trim()}
-						>
-							save
-						</button>
+
+		<div class="sidebar-content">
+			{#if activeTab === 'see'}
+				<p class="sidebar-title observations-title">observations</p>
+			{:else}
+				<div class="make-controls">
+					<h2 class="sidebar-title">analysis</h2>
+					<div class="note-input-wrapper">
+						<textarea
+							id="note-input"
+							placeholder="add analysis..."
+							bind:value={noteText}
+							class="note-input"
+						></textarea>
 					</div>
+					<button
+						on:click={saveObservation}
+						class="save-btn"
+						disabled={!leftImage || !rightImage || !noteText.trim()}
+					>
+						save
+					</button>
 					<div class="refresh-section">
-						<div class="note-label refresh-label">refresh</div>
+						<div class="refresh-label">refresh</div>
 						<div class="controls">
 							<button on:click={refreshLeft} class="refresh-side-btn">left</button>
 							<button on:click={refreshBoth} class="refresh-both-btn">both</button>
@@ -196,29 +117,47 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			{/if}
+		</div>
+	</div>
 
-			<div class="content">
-				<div class="split-container">
-					<div class="column">
-						<div class="image-wrapper">
-							{#if leftImage}
-								<img src={leftImage.thumbnail} alt={leftImage.filename} title={leftImage.filename} />
-							{/if}
+	<div class="main-content">
+		{#if activeTab === 'see'}
+			{#if $observations.length === 0}
+				<div class="empty-pair-state">
+					<p>no observations yet</p>
+				</div>
+			{:else}
+				<div class="observations-scroll">
+					{#each $observations as obs (obs.id)}
+						<div class="observation-card">
+							<div class="pair-container">
+								<img src={obs.leftImage.thumbnail} alt={obs.leftImage.filename} />
+								<img src={obs.rightImage.thumbnail} alt={obs.rightImage.filename} />
+							</div>
+							<p class="card-note">{obs.note}</p>
+							<p class="card-date">{formatDate(obs.timestamp)}</p>
 						</div>
+					{/each}
+				</div>
+			{/if}
+		{:else}
+			<div class="split-screen">
+				<div class="pair-container">
+					<div class="image-wrapper">
+						{#if leftImage}
+							<img src={leftImage.thumbnail} alt={leftImage.filename} title={leftImage.filename} />
+						{/if}
 					</div>
-
-					<div class="column">
-						<div class="image-wrapper">
-							{#if rightImage}
-								<img src={rightImage.thumbnail} alt={rightImage.filename} title={rightImage.filename} />
-							{/if}
-						</div>
+					<div class="image-wrapper">
+						{#if rightImage}
+							<img src={rightImage.thumbnail} alt={rightImage.filename} title={rightImage.filename} />
+						{/if}
 					</div>
 				</div>
 			</div>
-		</div>
-	{/if}
+		{/if}
+	</div>
 </main>
 
 <style>
@@ -226,167 +165,113 @@
 		width: 100%;
 		height: calc(100vh - 4rem);
 		display: flex;
-		flex-direction: column;
 		padding: 0;
 		margin: 0;
 		overflow: hidden;
 	}
 
+	.sidebar {
+		width: max(20vw, 250px);
+		height: 100%;
+		border-right: 1px solid #e5e5e5;
+		background: rgba(255, 255, 255, 0.98);
+		backdrop-filter: blur(4px);
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+		z-index: 5;
+	}
+
 	.tabs-header {
 		display: flex;
-		gap: 2rem;
-		padding: 1rem 1.5rem;
+		gap: 0;
+		padding: 0;
 		border-bottom: 1px solid #e5e5e5;
 		background: white;
-		z-index: 10;
 	}
 
 	.tab-button {
+		flex: 1;
 		background: none;
 		border: none;
 		cursor: pointer;
-		font-size: 0.9rem;
+		font-size: 0.75rem;
 		font-style: italic;
 		color: #999;
-		transition: color 0.2s ease;
-		padding: 0.25rem 0;
+		transition: all 0.2s ease;
+		padding: 0.5rem 0;
 		margin: 0;
+		border-right: 1px solid #e5e5e5;
 		position: relative;
+	}
+
+	.tab-button:last-child {
+		border-right: none;
 	}
 
 	.tab-button:hover {
 		color: #666;
+		background: #fafafa;
 	}
 
 	.tab-button.active {
 		color: #333;
 		font-weight: 500;
+		background: white;
 	}
 
-	.tab-button.active::after {
-		content: '';
-		position: absolute;
-		bottom: -1rem;
-		left: 0;
-		right: 0;
-		height: 1px;
-		background: #333;
-	}
-
-	.tab-content {
-		flex: 1;
-		overflow: hidden;
-		display: flex;
-	}
-
-	.make-tab {
-		display: flex;
-	}
-
-	.see-tab {
-		flex-direction: column;
-		height: 100%;
-		width: 100%;
-		padding: 2rem 0 2rem 1rem;
-		overflow-y: auto;
-	}
-
-	/* Make tab styles */
-
-	.note-label {
-		display: block;
-		font-size: 0.7rem;
-		font-style: italic;
-		color: #666;
-		margin-bottom: 0.3rem;
-	}
-
-	.refresh-label {
-		margin-bottom: 0.5rem;
-	}
-
-	.refresh-section {
-		display: flex;
-		flex-direction: column;
-		margin-top: auto;
-		gap: 0.5rem;
-	}
-
-	.note-section {
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-		padding: 0 0.5rem;
-	}
-
-	.content {
-		flex: 1;
-		height: 100%;
-		overflow: hidden;
-	}
-
-	.split-container {
-		display: flex;
-		width: 100%;
-		height: 100%;
-		gap: 0;
-	}
-
-	.column {
+	.sidebar-content {
 		flex: 1;
 		display: flex;
 		flex-direction: column;
-		align-items: center;
-		justify-content: center;
+		padding: 1rem;
 		gap: 1rem;
-		padding: 1.5rem;
-		background: white;
-		position: relative;
-		border-right: 0.5px solid #ccc;
-	}
-
-	.column:last-child {
-		border-right: none;
-	}
-
-	.image-wrapper {
-		width: 100%;
-		max-width: 400px;
-		aspect-ratio: 3 / 4;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		overflow: hidden;
-		background: white;
-	}
-
-	.image-wrapper img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-	}
-
-	.note-input {
-		width: 100%;
-		max-width: 400px;
-		min-height: 100px;
-		max-height: 180px;
-		padding: 1.75rem 0.5rem 0.5rem 0.5rem;
-		font-family: inherit;
-		font-size: 0.8rem;
-		font-style: italic;
-		border: 1px solid #dfdfdf;
-		background: white;
-		resize: vertical;
 		overflow-y: auto;
-		box-sizing: border-box;
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+
+	.sidebar-content::-webkit-scrollbar {
+		display: none;
+	}
+
+	.sidebar-title {
+		margin: 0;
+		padding: 0;
+		font-size: 0.7rem;
+		font-weight: 600;
+		font-style: italic;
+		text-transform: lowercase;
+		color: #333;
+	}
+
+	.make-controls {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		flex: 1;
 	}
 
 	.note-input-wrapper {
 		position: relative;
-		display: block;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		flex: 1;
+	}
+
+	.note-input {
 		width: 100%;
-		max-width: 400px;
+		flex: 1;
+		min-height: 80px;
+		padding: 0.5rem;
+		font-family: inherit;
+		font-size: 0.75rem;
+		font-style: italic;
+		border: 1px solid #e5e5e5;
+		background: white;
+		resize: none;
+		overflow-y: auto;
 		box-sizing: border-box;
 	}
 
@@ -396,10 +281,10 @@
 	}
 
 	.save-btn {
-		padding: 0.4rem 0.5rem;
-		font-size: 0.7rem;
+		padding: 0.35rem 0.5rem;
+		font-size: 0.65rem;
 		font-style: italic;
-		border: 1px solid #dfdfdf;
+		border: 1px solid #e5e5e5;
 		background: white;
 		cursor: pointer;
 		transition: all 0.2s ease;
@@ -416,18 +301,30 @@
 		cursor: not-allowed;
 	}
 
+	.refresh-label {
+		font-size: 0.65rem;
+		font-style: italic;
+		color: #666;
+	}
+
+	.refresh-section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		margin-top: auto;
+	}
+
 	.controls {
 		display: flex;
 		gap: 0.3rem;
-		margin-top: auto;
 	}
 
 	.refresh-side-btn {
 		flex: 1;
-		padding: 0.4rem 0.3rem;
-		font-size: 0.7rem;
+		padding: 0.35rem;
+		font-size: 0.65rem;
 		font-style: italic;
-		border: 1px solid #dfdfdf;
+		border: 1px solid #e5e5e5;
 		background: white;
 		cursor: pointer;
 		transition: all 0.2s ease;
@@ -440,8 +337,8 @@
 
 	.refresh-both-btn {
 		flex: 1;
-		padding: 0.4rem 0.3rem;
-		font-size: 0.7rem;
+		padding: 0.35rem;
+		font-size: 0.65rem;
 		font-style: italic;
 		font-weight: 500;
 		border: 1px solid #333;
@@ -455,206 +352,189 @@
 		color: white;
 	}
 
-	/* See tab styles */
-	.see-tab {
-		overflow: hidden;
-		flex-direction: column;
-		padding: 2rem 0 2rem 1rem;
-	}
-
-	.view-toggle {
-		display: flex;
-		gap: 1rem;
-		margin-bottom: 1.5rem;
-	}
-
-	.toggle-btn {
-		background: none;
-		border: none;
-		cursor: pointer;
-		color: #999;
-		font-size: 0.85rem;
-		font-family: inherit;
-		font-style: italic;
-		transition: color 0.2s ease;
-		padding: 0;
-		margin: 0;
-	}
-
-	.toggle-btn:hover {
-		color: #333;
-	}
-
-	.toggle-btn.active {
-		color: #333;
-		font-weight: 500;
-	}
-
-	.empty-state {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		min-height: 60vh;
-		text-align: center;
-		color: #666;
-	}
-
-	.empty-state p {
-		margin: 0.5rem 0;
-		font-style: italic;
-		font-size: 0.95rem;
-	}
-
-	.observations-grid {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 1rem;
-		align-content: flex-start;
+	.main-content {
 		flex: 1;
-		overflow-y: auto;
-	}
-
-	.observations-grid.list-view {
+		height: 100%;
+		overflow: hidden;
+		display: flex;
 		flex-direction: column;
-		flex-wrap: nowrap;
 		align-items: center;
 		justify-content: flex-start;
-	}
-
-	.observations-grid.list-view .observation-card {
-		width: min(85vw, 85vh);
-		max-height: 95vh;
-	}
-
-	.observation-card {
 		background: white;
-		display: flex;
-		flex-direction: column;
-		position: relative;
-		width: 300px;
+		padding: 0;
 	}
 
-	.image-pair {
-		display: flex;
-		width: 100%;
-		background: #f9f9f9;
-		gap: 0.5rem;
-		cursor: pointer;
-		transition: opacity 0.2s ease;
-		align-items: center;
+	.main-content:has(.split-screen) {
 		justify-content: center;
-		box-sizing: border-box;
 	}
 
-	.image-pair:hover {
-		opacity: 0.8;
-	}
-
-	.image-item {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		overflow: hidden;
-		width: calc(50% - 0.25rem);
-		height: 200px;
-		aspect-ratio: 3 / 4;
-	}
-
-	.observations-grid.list-view .image-pair {
-		gap: 1rem;
-	}
-
-	.observations-grid.list-view .image-item {
-		height: auto;
-		width: 50vw;
-	}
-
-	.image-item img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		background: white;
-	}
-
-	.observation-content {
-		padding: 1.25rem;
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		gap: 0.75rem;
-		min-height: auto;
-		width: 100%;
-		box-sizing: border-box;
-	}
-
-	.observation-note {
-		margin: 0;
-		font-size: 0.85rem;
-		line-height: 1.5;
-		color: #999;
-		font-style: italic;
-	}
-
-	.observation-timestamp {
-		margin: 0;
-		font-size: 0.75rem;
-		color: #999;
-		font-style: italic;
-	}
-
-	.modal-overlay {
-		position: fixed;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background: rgba(0, 0, 0, 0.4);
-		backdrop-filter: blur(4px);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		z-index: 100;
-		cursor: pointer;
-	}
-
-	.modal-content {
-		background: white;
-		padding: 2rem;
-		max-width: 90vw;
-		max-height: 90vh;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		cursor: default;
-	}
-
-	.expanded-pair {
+	.pair-container {
 		display: flex;
 		gap: 1.5rem;
 		width: 100%;
+		max-width: 1000px;
+		height: auto;
+		max-height: 80vh;
 	}
 
-	.expanded-pair img {
-		max-width: calc(50% - 0.75rem);
-		max-height: 70vh;
+	.pair-container img {
+		flex: 1;
+		max-width: 400px;
+		height: auto;
 		aspect-ratio: 3 / 4;
 		object-fit: cover;
+		border-radius: 4px;
+		background: #f5f5f5;
 	}
 
-	.expanded-container {
+	.observations-scroll {
+		width: 100%;
+		height: 100%;
+		overflow-y: auto;
 		display: flex;
 		flex-direction: column;
-		gap: 0.25rem;
-		width: 100%;
+		gap: 0;
+		align-items: center;
+		padding: 0;
 	}
 
-	.expanded-note {
+	.observation-card {
+		width: min(85vw, 85vh);
+		max-height: 95vh;
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+		padding: 0;
+		background: white;
+		border: none;
+		border-radius: 0;
+		transition: none;
+		box-sizing: border-box;
+	}
+
+	.observation-card:hover {
+		border-color: inherit;
+		box-shadow: inherit;
+	}
+
+	.observation-card .pair-container {
 		margin: 0;
-		font-size: 0.85rem;
-		line-height: 1.5;
-		color: #333;
 		max-width: 100%;
+		width: 100%;
+		height: auto;
+		max-height: none;
+		gap: 0.5rem;
+		background: #f9f9f9;
+		padding: 0;
+		box-sizing: border-box;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.observation-card .pair-container img {
+		max-width: none;
+		height: auto;
+		width: calc(50% - 0.25rem);
+		aspect-ratio: 3 / 4;
+		object-fit: cover;
+		border-radius: 0;
+		background: white;
+	}
+
+	.card-note {
+		margin: 0;
+		padding: 1.25rem;
+		font-size: 0.85rem;
+		color: #999;
 		font-style: italic;
+		line-height: 1.5;
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	.card-date {
+		margin: 0;
+		padding: 0 1.25rem 1.25rem 1.25rem;
+		font-size: 0.75rem;
+		color: #999;
+		font-style: italic;
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	.image-wrapper {
+		flex: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		max-width: 400px;
+	}
+
+	.image-wrapper img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		aspect-ratio: 3 / 4;
+		border-radius: 4px;
+		background: #f5f5f5;
+	}
+
+	.split-screen {
+		display: flex;
+		gap: 0.5rem;
+		width: 100%;
+		height: auto;
+		align-items: center;
+		justify-content: center;
+		background: #f9f9f9;
+		max-width: min(85vw, 85vh);
+	}
+
+	.split-screen .pair-container {
+		width: 100%;
+		height: auto;
+		gap: 0.5rem;
+		max-height: none;
+		margin: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0;
+		background: transparent;
+	}
+
+	.split-screen .image-wrapper {
+		width: calc(50% - 0.25rem);
+		height: auto;
+		max-width: none;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+	}
+
+	.split-screen .image-wrapper img {
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+		aspect-ratio: 3 / 4;
+		border-radius: 0;
+		background: white;
+	}
+
+	.empty-pair-state {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+		color: #999;
+		font-style: italic;
+		font-size: 0.9rem;
+	}
+
+	.empty-pair-state p {
+		margin: 0;
 	}
 </style>
