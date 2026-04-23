@@ -20,6 +20,8 @@
 	let mapCollapsed = false;
 	let viewMode: 'grid' | 'list' = 'grid';
 	let randomizedImages: any[] = [];
+	let isMobile = false;
+	let conditionsExpanded = true;
 
 	// Shuffle function
 	function shuffleArray<T>(array: T[]): T[] {
@@ -37,6 +39,18 @@
 	}
 
 	onMount(() => {
+		// Detect mobile
+		isMobile = window.innerWidth < 768;
+		
+		// Set defaults for mobile
+		if (isMobile) {
+			mapCollapsed = true;
+			viewMode = 'list';
+			conditionsExpanded = false;
+			// Collapse all filter categories on mobile
+			expandedCategories.collapseAll();
+		}
+		
 		// Subscribe to filtered images changes
 		const unsubscribe = filteredImages.subscribe((images) => {
 			randomizedImages = shuffleArray(images);
@@ -74,7 +88,15 @@
 
 <main>
 	<div class="filters-panel">
-		<h1 class="filters-title">conditions</h1>
+		<button 
+			type="button"
+			class="filters-title-button"
+			on:click={() => conditionsExpanded = !conditionsExpanded}
+		>
+			<h1 class="filters-title">conditions</h1>
+			<span class="conditions-chevron" class:expanded={conditionsExpanded}>›</span>
+		</button>
+		{#if conditionsExpanded}
 		<div class="filters-scroll">
 			{#each categories as category}
 				<section class="filter-group">
@@ -103,6 +125,7 @@
 				</section>
 			{/each}
 		</div>
+		{/if}
 
 		<div class="filter-summary">
 			<button 
@@ -239,16 +262,43 @@
 		overflow: hidden;
 	}
 
+	.filters-title-button {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.5rem;
+		background: none;
+		border: none;
+		border-bottom: 1px solid #f0f0f0;
+		cursor: pointer;
+		font-family: inherit;
+		font-size: 0.82rem;
+		font-style: italic;
+		font-weight: 500;
+		padding: 0.7rem 0.9rem;
+		margin: 0;
+		width: 100%;
+	}
+
 	.filters-title {
 		margin: 0;
-		padding: 1rem 0.9rem 0.5rem;
-		font-size: 0.9rem;
-		font-weight: 600;
+		padding: 0;
+		font-size: 0.82rem;
+		font-weight: 500;
 		font-style: italic;
 		text-transform: lowercase;
-		color: #333;
-		border-bottom: 1px solid #f0f0f0;
 		text-align: left;
+	}
+
+	.conditions-chevron {
+		display: inline-block;
+		font-size: 1.2rem;
+		transition: transform 0.2s ease;
+		color: #666;
+	}
+
+	.conditions-chevron.expanded {
+		transform: rotate(90deg);
 	}
 
 	.filters-scroll {
@@ -339,6 +389,7 @@
 		border-top: 1px solid #f0f0f0;
 		flex-shrink: 1;
 		min-height: 0;
+		margin-top: auto;
 	}
 
 	.map-toggle {
@@ -349,9 +400,9 @@
 		border: none;
 		cursor: pointer;
 		font-family: inherit;
-		font-size: 0.75rem;
+		font-size: 0.82rem;
 		font-style: italic;
-		color: #666;
+		font-weight: 500;
 		padding: 0.25rem 0;
 		margin: 0;
 	}
@@ -657,5 +708,155 @@
 	
 	.next-btn {
 		right: -60px;
+	}
+
+	@media (max-width: 767px) {
+		main {
+			padding: 1rem;
+			margin-left: 0;
+			margin-bottom: 50vh;
+		}
+
+		.view-toggle {
+			display: none;
+		}
+
+		.filters-title-button {
+			border-bottom: none;
+			padding: 0.7rem 0.9rem 0.7rem 0.5rem;
+			font-weight: 500;
+		}
+
+		.filters-panel {
+			position: fixed;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			top: auto;
+			z-index: 5;
+			width: 100%;
+			height: auto;
+			max-height: 50vh;
+			padding: 0;
+			border-right: none;
+			border-top: 1px solid #e5e5e5;
+			background: rgba(255, 255, 255, 0.98);
+			backdrop-filter: blur(4px);
+			display: flex;
+			flex-direction: column;
+			gap: 0;
+			overflow: hidden;
+		}
+
+		.filters-title {
+			margin: 0;
+			padding: 0 0 0 0.5rem;
+			font-size: 0.82rem;
+			font-weight: 500;
+			font-style: italic;
+			text-transform: lowercase;
+			text-align: left;
+		}
+
+		.filters-scroll {
+			flex: 1;
+			overflow-y: auto;
+			padding: 1rem 0.9rem;
+			display: flex;
+			flex-direction: column;
+			gap: 0.7rem;
+		}
+
+		.filter-summary {
+			display: flex;
+			flex-direction: column;
+			gap: 0.7rem;
+			font-size: 0.7rem;
+			font-style: italic;
+			color: #666;
+			padding: 0.7rem 0.9rem;
+			border-top: 1px solid #f0f0f0;
+			flex-shrink: 1;
+			min-height: 0;
+			margin-top: auto;
+		}
+
+		.filter-summary :global(.map-wrapper) {
+			min-height: 350px;
+			padding-bottom: 2rem;
+		}
+
+		.filter-tags {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 0.35rem;
+		}
+
+		.image-container {
+			display: flex;
+			flex-direction: column;
+			gap: 0.75rem;
+			align-items: center;
+			justify-content: flex-start;
+			overflow-y: auto;
+			overflow-x: hidden;
+			scrollbar-width: none;
+			-ms-overflow-style: none;
+			margin: 0 auto;
+			width: 100%;
+		}
+
+		.image-container::-webkit-scrollbar {
+			display: none;
+		}
+
+		.image-container.list-view {
+			display: flex;
+			flex-direction: column;
+			gap: 0.75rem;
+			align-items: center;
+			justify-content: flex-start;
+			overflow-y: auto;
+			overflow-x: hidden;
+			scrollbar-width: none;
+			-ms-overflow-style: none;
+			margin: 0 auto;
+			width: 100%;
+		}
+
+		.image-item-wrapper {
+			width: 100%;
+			max-width: 80vw;
+			padding-top: 1rem;
+			padding-bottom: 1rem;
+		}
+
+		.image-container.list-view .image-item-wrapper {
+			max-width: 80vw;
+		}
+
+		.modal-overlay {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: rgba(255, 255, 255, 0.6);
+			backdrop-filter: blur(4px);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			z-index: 1000;
+		}
+
+		.modal-content {
+			position: relative;
+			max-width: 90vw;
+			max-height: 80vh;
+			aspect-ratio: 3 / 4;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
 	}
 </style>

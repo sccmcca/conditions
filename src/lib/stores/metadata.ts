@@ -117,7 +117,8 @@ export const filteredImages = derived(
 function createExpandedCategoriesStore() {
 	const initial: Record<Category, boolean> = {
 		material: false,
-		tectonic: false,
+		form: false,
+		element: false,
 		interaction: false,
 		phenomena: false
 	};
@@ -131,6 +132,16 @@ function createExpandedCategoriesStore() {
 				...current,
 				[category]: !current[category]
 			}));
+		},
+		collapseAll: () => {
+			const collapsed: Record<Category, boolean> = {
+				material: false,
+				form: false,
+				element: false,
+				interaction: false,
+				phenomena: false
+			};
+			update(() => collapsed);
 		}
 	};
 }

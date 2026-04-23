@@ -214,7 +214,7 @@
 	}
 
 	function onWheel(e: WheelEvent) {
-		zoom = Math.max(620, Math.min(1200, zoom + e.deltaY * 0.45));
+		zoom = Math.max(620, Math.min(1600, zoom + e.deltaY * 0.45));
 		updateProjection();
 	}
 
@@ -238,7 +238,7 @@
 			const currentDistance = getTouchDistance(e.touches);
 			if (lastTouchDistance > 0) {
 				const delta = currentDistance - lastTouchDistance;
-				zoom = Math.max(620, Math.min(1200, zoom - delta * 0.5));
+				zoom = Math.max(620, Math.min(1600, zoom - delta * 0.5));
 				updateProjection();
 			}
 			lastTouchDistance = currentDistance;
@@ -379,6 +379,7 @@
 		touch-action: none;
 		user-select: none;
 		-webkit-user-select: none;
+		overflow: hidden;
 	}
 
 	svg:active {
