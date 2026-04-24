@@ -656,17 +656,19 @@
 	.observation-card .pair-container {
 		background: white;
 		width: 100%;
+		max-width: calc(min(42.5vw, 42.5vh) * 2 + 1.5rem);
 		height: auto;
 		box-sizing: border-box;
 		display: flex;
 		gap: 1.5rem;
 		align-items: center;
 		justify-content: center;
+		aspect-ratio: auto;
 	}
 
 	.observation-card .pair-container img {
 		flex: 1;
-		height: calc(min(42.5vw, 42.5vh) * 4 / 3);
+		width: 0;
 		aspect-ratio: 3 / 4;
 		object-fit: cover;
 		background: white;

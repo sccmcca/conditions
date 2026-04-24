@@ -6,22 +6,10 @@
         my iPhone between 2017 and 2025 as part of my ongoing practice of <span class="noticing">noticing</span>.
 
         <br /><br />
-        The thesis (forthcoming) explores the role of contemporary vernacular materials
-        and contingent urban conditions in shaping architectural culture. By studying
-        formal and material conditions, this thesis will engage directly with contingent
-        urban context through observation, documentation, and interpretive making
-        to examine how the overlooked artifacts of everyday life are the result of
-        informal participation in the production of space and contemporary design
-        culture.
+        This thesis explores the act of informal walking and photographic observation as a way to encourage a material sense of place in the urban environment. Through enacting a photographic framing of contingent material conditions throughout the city, this thesis encourages others to see the city and its mundane as if it was for the first time.
 
         <br /><br />
-        This thesis foregrounds adaptive reuse and economies of construction, treating
-        discarded, provisional, and improvised material conditions as resources for
-        contextual architectural invention. Drawing on discourses of semiology, contemporary
-        material culture, deconstructivism, and spatial production, the research
-        proposes techniques of observation and making that highlight chance encounters,
-        circumstantial geometries, and the aesthetics of contemporaneity as a productive
-        force in design.
+        This platform is open source, collaborative, and anti-technocratic. 
 
         <br /><br />
         Warmly, <br />
@@ -38,12 +26,16 @@
         align-items: center;
         min-height: 100%;
         padding: 6rem 2rem 0 2rem;
+        user-select: text;
+        -webkit-user-select: text;
     }
 
     p {
         max-width: 500px;
         text-align: justify;
         line-height: 1.6;
+        user-select: text;
+        -webkit-user-select: text;
     }
 
     blur {
@@ -51,6 +43,8 @@
         will-change: filter;
         -webkit-backface-visibility: hidden;
         -webkit-transform: translateZ(0);
+        user-select: text;
+        -webkit-user-select: text;
     }
 
     blur:hover {
@@ -64,6 +58,8 @@
         background-position: bottom;
         background-size: 4px 1px;
         background-repeat: repeat-x;
+        user-select: text;
+        -webkit-user-select: text;
     }
 
     a {
@@ -74,11 +70,18 @@
         will-change: filter;
         -webkit-backface-visibility: hidden;
         -webkit-transform: translateZ(0);
+        user-select: text;
+        -webkit-user-select: text;
     }
 
     a:hover {
         filter: blur(4px);
         -webkit-filter: blur(4px);
+    }
+
+    em, strong {
+        user-select: text;
+        -webkit-user-select: text;
     }
 
     @media (max-width: 499px) {

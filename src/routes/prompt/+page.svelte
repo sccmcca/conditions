@@ -55,7 +55,7 @@
 
 <div class="prompt-page">
 	<div class="prompt-header">
-		<p>Your prompt image for <span>{currentDate}</span></p>
+		<p>Your prompt for <span>{currentDate}</span></p>
 	</div>
 	{#if loading}
 		<div class="loading">loading...</div>
