@@ -116,11 +116,11 @@ export const filteredImages = derived(
 // Store for expanded categories
 function createExpandedCategoriesStore() {
 	const initial: Record<Category, boolean> = {
-		material: false,
-		form: false,
-		element: false,
-		interaction: false,
-		phenomena: false
+		material: true,
+		form: true,
+		element: true,
+		interaction: true,
+		phenomena: true
 	};
 
 	const { subscribe, update } = writable(initial);

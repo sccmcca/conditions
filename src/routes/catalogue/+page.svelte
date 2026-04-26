@@ -103,28 +103,19 @@
 		<div class="filters-scroll">
 			{#each categories as category}
 				<section class="filter-group">
-					<button 
-						type="button"
-						class="filter-group-header"
-						on:click={() => expandedCategories.toggle(category)}
-					>
-						<h2>{category}</h2>
-						<span class="chevron" class:expanded={$expandedCategories[category]}>›</span>
-					</button>
-					{#if $expandedCategories[category]}
-						<div class="filter-tags">
-							{#each data.filterOptions[category] as value}
-								<button
-									type="button"
-									class="filter-tag"
-									class:active={$selectedFiltersStore[category]?.includes(value) ?? false}
-									on:click={() => selectedFiltersStore.toggle(category, value)}
-								>
-									{value}
-								</button>
-							{/each}
-						</div>
-					{/if}
+					<h2 class="filter-group-header">{category}</h2>
+					<div class="filter-tags">
+						{#each data.filterOptions[category] as value}
+							<button
+								type="button"
+								class="filter-tag"
+								class:active={$selectedFiltersStore[category]?.includes(value) ?? false}
+								on:click={() => selectedFiltersStore.toggle(category, value)}
+							>
+								{value}
+							</button>
+						{/each}
+					</div>
 				</section>
 			{/each}
 		</div>
@@ -328,35 +319,12 @@
 	}
 
 	.filter-group-header {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 0.5rem;
-		background: none;
-		border: none;
-		padding: 0;
-		cursor: pointer;
-		font-family: inherit;
-	}
-
-	.filter-group-header h2 {
 		margin: 0;
 		font-size: 0.82rem;
 		font-style: italic;
 		font-weight: 500;
 		text-transform: lowercase;
 		text-align: left;
-	}
-
-	.chevron {
-		display: inline-block;
-		font-size: 1.2rem;
-		transition: transform 0.2s ease;
-		color: #666;
-	}
-
-	.chevron.expanded {
-		transform: rotate(90deg);
 	}
 
 	.filter-tags {
