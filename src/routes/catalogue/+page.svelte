@@ -17,7 +17,7 @@
 	const categories: Category[] = ['material', 'form', 'element', 'interaction', 'phenomena'];
 	
 	let mapComponent: any;
-	let mapCollapsed = false;
+	let mapCollapsed = true;
 	let viewMode: 'grid' | 'list' = 'grid';
 	let randomizedImages: any[] = [];
 	let isMobile = false;
@@ -91,14 +91,17 @@
 
 <main>
 	<div class="filters-panel">
-		<button 
-			type="button"
-			class="filters-title-button"
-			on:click={() => conditionsExpanded = !conditionsExpanded}
-		>
-			<h1 class="filters-title">conditions</h1>
-			<span class="conditions-chevron" class:expanded={conditionsExpanded}>›</span>
-		</button>
+		<div class="filters-title-container">
+			<button 
+				type="button"
+				class="filters-title-button"
+				on:click={() => conditionsExpanded = !conditionsExpanded}
+			>
+				<h1 class="filters-title">conditions</h1>
+				<span class="conditions-chevron" class:expanded={conditionsExpanded}>›</span>
+			</button>
+			<button type="button" class="reset-all" on:click={() => selectedFiltersStore.clear()} disabled={!$hasActiveFilters}>reset</button>
+		</div>
 		{#if conditionsExpanded}
 		<div class="filters-scroll">
 			{#each categories as category}
@@ -136,7 +139,6 @@
 			{/if}
 			<div class="summary-footer">
 				<p>{$filteredImages.length} / {data.images.length}</p>
-				<button type="button" class="reset-all" on:click={() => selectedFiltersStore.clear()} disabled={!$hasActiveFilters}>reset all</button>
 			</div>
 		</div>
 	</div>
@@ -257,6 +259,16 @@
 		overflow: hidden;
 	}
 
+	.filters-title-container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.5rem;
+		border-bottom: 1px solid #f0f0f0;
+		padding: 0;
+		position: relative;
+	}
+
 	.filters-title-button {
 		display: flex;
 		align-items: center;
@@ -264,7 +276,6 @@
 		gap: 0.5rem;
 		background: none;
 		border: none;
-		border-bottom: 1px solid #f0f0f0;
 		cursor: pointer;
 		font-family: inherit;
 		font-size: 0.82rem;
@@ -342,6 +353,28 @@
 		background: white;
 		padding: 0.2rem 0.45rem;
 		cursor: pointer;
+	}
+
+	.filters-title-container .reset-all {
+		padding: 0.2rem 0.4rem;
+		font-size: 0.7rem;
+		flex-shrink: 0;
+		border: none;
+		background: none;
+		color: #666;
+		position: absolute;
+		right: 3.5rem;
+	}
+
+	.filters-title-container .reset-all:not(:disabled) {
+		color: #333;
+		border: 1px solid #dfdfdf;
+		background: white;
+	}
+
+	.reset-all:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
 	}
 
 	.filter-tag.active {
